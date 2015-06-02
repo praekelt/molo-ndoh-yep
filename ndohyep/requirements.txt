@@ -1,1 +1,2 @@
 molo.core
+raven==5.0.0
