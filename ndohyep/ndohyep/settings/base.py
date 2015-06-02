@@ -151,7 +151,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
-WAGTAIL_SITE_NAME = "base"
+WAGTAIL_SITE_NAME = "NDOH Youth Platform"
 
 # Use Elasticsearch as the search backend for extra performance and better search results:
 # http://wagtail.readthedocs.org/en/latest/howto/performance.html#search
