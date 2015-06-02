@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
 
     'molo.core',
+    'raven.contrib.django.raven_compat',
 )
 
 MIDDLEWARE_CLASSES = (
