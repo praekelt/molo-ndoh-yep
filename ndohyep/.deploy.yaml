@@ -1,5 +1,5 @@
-buildscript: sideloader/build.sh
-postinstall: sideloader/postinstall.sh
+buildscript: ndohyep/sideloader/build.sh
+postinstall: ndohyep/sideloader/postinstall.sh
 pip:
  - gunicorn
 dependencies:
