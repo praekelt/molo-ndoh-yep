@@ -5,65 +5,67 @@
 @import "modules";
 @import "icons";
 
-$colorFirst: #32a6a6; // turquoise
-$colorSecond: #124f52; // dark turquoise
-$colorThird: #c4d131; // green
-$colorFourth: #333; // black
+$colorFirst: #e52d47; // red
+$colorSecond: #27262b; // dark grey
+$colorThird: #1473ad; // blue
+$colorFourth: #ebebeb; // light grey
+$anotherShadeOfGrey: #67666b;
 
-@include links($colorSecond);
+@include links($colorFirst);
 
-// dark turquoise on turquoise
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+body,
+input,
+textarea {
+  font-family: "Exo 2", sans-serif;
+  color: $anotherShadeOfGrey;
+}
+
+// dark grey
 .highlight-primary {
   color: $colorSecond;
-  .active {
-    color: lighten($colorSecond, 10%)
-  }
-}
-
-// black on green
-.highlight-secondary {
-  color: $colorThird;
-  a {
-    color: $colorThird;
-  }
-  .active {
-    color: lighten($colorThird, 30%)
-  }
-}
-
-$latest: #ff9933; // orange
-$articles: #ea178b; // pink
-
-.list-header {
-  border-bottom: solid 1px #ddd;
-}
-
-.more {
-  font-weight: bold;
-}
-
-// white on background colours
-
-.latest {
-  a {
-    color: $latest;
-  }
-}
-
-.articles {
-  a {
-    color: $articles;
-  }
-}
-
-.latest, .articles {
-  .list-header {
-    @include uc;
-  }
   p {
-    padding-top: 0;
+    color: $anotherShadeOfGrey;
   }
-  h3 {
-    font-weight: normal;
+}
+
+// dark grey
+.highlight-secondary {
+  color: $anotherShadeOfGrey;
+  li {
+    border: none;
   }
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// blue
+.highlight-tertiary {
+  color: $colorThird;
+}
+
+// light grey
+.highlight-quaternary {
+  color: $colorFourth;
+}
+
+
+
+// typography
+
+p {
+  margin: 0;
+  padding-bottom: 1em;
 }
