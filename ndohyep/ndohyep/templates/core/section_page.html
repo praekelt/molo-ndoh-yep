@@ -1,3 +1,22 @@
-
 {% extends "core/_section_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
+{% block content %}
+<div class="block yellow">
+    <h6>{{self.title}}</h6>
+
+    {% with page=self.articles|first %}
+    <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
+    <p>{{page.subtitle}}</p>
+    {% if page.image %}
+      <a href="{% pageurl page %}">{% image page.image width-240 %}</a>
+    {% endif %}
+    {% endwith %}
+
+    <div class="options">
+    {% for page in self.articles|slice:"1:" %}
+        <a href="{% pageurl page %}">{{page.title}} ></a>
+    {% endfor %}
+    </div><!-- /options -->
+</div>
+{% endblock %}
