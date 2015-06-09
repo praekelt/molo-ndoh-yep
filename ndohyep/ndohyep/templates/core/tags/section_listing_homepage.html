@@ -7,9 +7,11 @@
 <div class="block yellow">
     <h6><a href="{% pageurl section %}">{{section.title}}</a></h6>
 
-    {% with first_page=section.featured_articles|first %}
-    <h2><a href="{% pageurl first_page %}">{{first_page.title}}</a></h2>
-    <p>{{first_page.subtitle}}</p>
+    {% with page=section.featured_articles|first %}
+    {% if page %}
+    <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
+    <p>{{page.subtitle}}</p>
+    {% endif %}
     {% endwith %}
 
     <div class="options">
