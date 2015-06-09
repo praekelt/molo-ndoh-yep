@@ -6,14 +6,14 @@
 {% block main_css %}
 {% compress css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/ndohyep.css' %}">
-<link rel="stylesheet" type="text/x-scss" media="screen and (min-width: 20em)" href="{% static 'css/enhanced.scss' %}">
+<link rel="stylesheet" type="text/x-scss" media="screen and (min-width: 20em)" href="{% static 'css/ndohyep.enhanced.scss' %}">
 {% endcompress %}
 {% endblock %}
 
 {% block header %}
 <div class="header" id="top">
 
-    <img src="img/logo.png" alt="Logo" class="logo">
+    <a href="/"><img src="{% static 'img/logo.png' %}" alt="Home" class="logo"></a>
 
     <div id="menu">
         <ul id="nav">
