@@ -6,10 +6,12 @@
     <h6>{{self.title}}</h6>
 
     {% with page=self.articles|first %}
+    {% if page %}
     <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
     <p>{{page.subtitle}}</p>
     {% if page.image %}
       <a href="{% pageurl page %}">{% image page.image width-240 %}</a>
+    {% endif %}
     {% endif %}
     {% endwith %}
 
