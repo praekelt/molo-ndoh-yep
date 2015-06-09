@@ -1,24 +1,24 @@
-
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% if sections %}
 {% for section in sections %}
-<div class="articles nav">
-  <h2 class="list-header">
-    <a href="{% pageurl section %}">{{section.title}}</a>
-  </h2>
-  {% for page in section.featured_articles %}
-  <ul class="list-block">
-    <li>
-      {% if page.image %}
-      <a href="{% pageurl page %}">{% image page.image width-60 %}</a>
-      {% endif %}
-      <h3><a href="{% pageurl page %}">{{page.title}}</a></h3>
-      <p>{{page.subtitle}}</p>
-    </li>
-  </ul>
-  {% endfor %}
-</div>
+
+{# TODO: add category color #}
+<div class="block yellow">
+    <h6><a href="{% pageurl section %}">{{section.title}}</a></h6>
+
+    {% with first_page=section.featured_articles|first %}
+    <h2><a href="">{{first_page.title}}</a></h2>
+    <p>{{first_page.subtitle}}</p>
+    {% endwith %}
+
+    <div class="options">
+    {% for page in section.featured_articles|slice:"1:" %}
+        <a href="{% pageurl page %}">{{page.title}} ></a>
+    {% endfor %}
+    </div><!-- /options -->
+
+    <p><a href="{% pageurl section %}">+ VIEW MORE ARTICLES ABOUT {{section.title}}</a></p>
+</div><!-- /block -->
 {% endfor%}
 {% endif %}
-
