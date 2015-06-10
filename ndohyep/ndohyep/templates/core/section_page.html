@@ -1,24 +1,51 @@
 {% extends "core/_section_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block content %}
 <div class="block yellow">
+  {% if self.depth > 4 %}
+    <h6><a href="{% pageurl self.get_ancestors.last %}">{{self.get_ancestors.last.title}}</a></h6>
+    <h2>{{self.title}}</h2>
+    {% if self.description%}
+    <p>{{self.description}}</p>
+    {% endif %}
+  {% else %}
     <h6>{{self.title}}</h6>
+  {% endif %}
+ </div>
 
-    {% with page=self.articles|first %}
+{% for section in self.sections %}
+<div class="block {% cycle 'yellow' 'orange' 'darkblue' 'blue' %}">
+  <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
+  <p>{{section.description}}</p>
+
+  {% with page=section.featured_articles|first %}
     {% if page %}
     <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
     <p>{{page.subtitle}}</p>
-    {% if page.image %}
-      <a href="{% pageurl page %}">{% image page.image width-240 %}</a>
-    {% endif %}
     {% endif %}
     {% endwith %}
+  <div class="options">
+  {% for page in section.articles %}
+      <a href="{% pageurl page %}">{{page.title}} ></a>
+  {% endfor %}
+  </div><!-- /options -->
+  <p><a href="{% pageurl section %}">+ {% trans "View more articles about" %} {{section.title}}</a></p>
+</div>
+{% endfor %}
 
-    <div class="options">
-    {% for page in self.articles|slice:"1:" %}
-        <a href="{% pageurl page %}">{{page.title}} ></a>
-    {% endfor %}
-    </div><!-- /options -->
+<div class="block yellow">
+  {% with page=self.articles|first %}
+  {% if page %}
+  <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
+  <p>{{page.subtitle}}</p>
+  {% endif %}
+  {% endwith %}
+
+  <div class="options">
+  {% for page in self.articles|slice:"1:" %}
+      <a href="{% pageurl page %}">{{page.title}} ></a>
+  {% endfor %}
+  </div><!-- /options -->
 </div>
 {% endblock %}

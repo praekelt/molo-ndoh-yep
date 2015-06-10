@@ -19,8 +19,9 @@
         <a href="{% pageurl page %}">{{page.title}} ></a>
     {% endfor %}
     </div><!-- /options -->
-
+    {% if section.featured_articles %}
     <p><a href="{% pageurl section %}">+ VIEW MORE ARTICLES ABOUT {{section.title}}</a></p>
+    {% endif %}
 </div><!-- /block -->
 {% endfor%}
 {% endif %}
