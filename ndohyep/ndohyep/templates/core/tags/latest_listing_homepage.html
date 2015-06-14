@@ -1,0 +1,14 @@
+{% load wagtailcore_tags wagtailimages_tags i18n %}
+
+{% if articles %}
+{# TODO: add category color #}
+<div class="block yellow">
+    <h6>{% trans "Latest" %}</h6>
+
+    <div class="options">
+    {% for page in articles %}
+        <a href="{% pageurl page %}">{{page.title}} ></a>
+    {% endfor %}
+    </div><!-- /options -->
+</div><!-- /block -->
+{% endif %}
