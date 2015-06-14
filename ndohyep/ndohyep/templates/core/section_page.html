@@ -26,7 +26,7 @@
     {% endif %}
     {% endwith %}
   <div class="options">
-  {% for page in section.featured_articles|slice:"1:" %}
+  {% for page in section.featured_articles|slice:"1:3" %}
       <a href="{% pageurl page %}">{{page.title}} ></a>
   {% endfor %}
   </div><!-- /options -->
