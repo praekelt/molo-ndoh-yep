@@ -49,6 +49,8 @@ INSTALLED_APPS = (
     'taggit',
     'modelcluster',
 
+    'ndohyep',
+
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
     'wagtail.wagtaildocs',
@@ -61,7 +63,6 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
 
-    'ndohyep',
     'molo.core',
     'raven.contrib.django.raven_compat',
 )
