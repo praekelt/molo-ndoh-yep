@@ -22,6 +22,20 @@
         width: 100%;
         height: auto;
     }
+    strong{
+        font-weight: bold;
+    }
+    em{
+        font-style: italic;
+    }
+    ul{
+        list-style: initial;
+        margin-left: 15px;
+    }
+    ol{
+        list-style: decimal;
+        margin-left: 15px;
+    }
 }
 
 .footer {
