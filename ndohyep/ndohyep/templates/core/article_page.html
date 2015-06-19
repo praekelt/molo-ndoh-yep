@@ -14,8 +14,7 @@
 
 <div class="block white">
 
-    <div class="author-date">{{self.owner.first_name}}<br>
-        {{self.first_published_at|date:"j F Y"}}</div>
+    <div class="author-date">{{self.first_published_at|date:"j F Y"}}</div>
 
     {% for block in self.body %}
       {% if block.block_type == 'heading' %}

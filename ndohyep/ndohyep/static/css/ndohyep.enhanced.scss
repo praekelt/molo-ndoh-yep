@@ -28,6 +28,14 @@
     em{
         font-style: italic;
     }
+    ul{
+        list-style: initial;
+        margin-left: 15px;
+    }
+    ol{
+        list-style: decimal;
+        margin-left: 15px;
+    }
 }
 
 .header {
