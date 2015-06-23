@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 15:41+0000\n"
+"POT-Creation-Date: 2015-06-23 13:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,54 +17,120 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ndohyep/settings/base.py:124
+#: ndohyep/settings/base.py:125
 msgid "Zulu"
 msgstr ""
 
-#: ndohyep/settings/base.py:125
+#: ndohyep/settings/base.py:126
 msgid "Xhosa"
 msgstr ""
 
-#: ndohyep/settings/base.py:126
+#: ndohyep/settings/base.py:127
 msgid "Sotho"
 msgstr ""
 
-#: ndohyep/settings/base.py:127
+#: ndohyep/settings/base.py:128
 msgid "Venda"
 msgstr ""
 
-#: ndohyep/settings/base.py:128
+#: ndohyep/settings/base.py:129
 msgid "Tswana"
 msgstr ""
 
-#: ndohyep/settings/base.py:129
+#: ndohyep/settings/base.py:130
 msgid "Tsonga"
 msgstr ""
 
-#: ndohyep/settings/base.py:130
+#: ndohyep/settings/base.py:131
 msgid "Swati"
 msgstr ""
 
-#: ndohyep/settings/base.py:131
+#: ndohyep/settings/base.py:132
 msgid "Ndebele"
 msgstr ""
 
-#: ndohyep/templates/404.html:8
+#: ndohyep/templates/_404.html:8
 msgid "Page not found"
 msgstr ""
 
-#: ndohyep/templates/404.html:10
+#: ndohyep/templates/_404.html:10
 msgid "Sorry, this page could not be found."
 msgstr ""
 
-#: ndohyep/templates/500.html:11 ndohyep/templates/500.html.py:15
+#: ndohyep/templates/_500.html:12 ndohyep/templates/_500.html.py:16
 msgid "Internal server error"
 msgstr ""
 
-#: ndohyep/templates/500.html:17
+#: ndohyep/templates/_500.html:18
 msgid "Sorry, there seems to be an error. Please try again soon."
 msgstr ""
 
-#: ndohyep/templates/core/tags/breadcrumbs.html:6
+#: ndohyep/templates/base.html:19 ndohyep/templates/base.html.py:50
+#: ndohyep/templates/core/tags/_breadcrumbs.html:6
 msgid "Home"
+msgstr ""
+
+#: ndohyep/templates/base.html:23
+msgid "Menu"
+msgstr ""
+
+#: ndohyep/templates/base.html:40
+msgid "Back to top"
+msgstr ""
+
+#: ndohyep/templates/base.html:61 ndohyep/templates/base.html.py:68
+msgid "Department of Health, Republic of South Africa"
+msgstr ""
+
+#: ndohyep/templates/core/section_page.html:30
+msgid "View more articles about"
+msgstr ""
+
+#: ndohyep/templates/core/tags/latest_listing_homepage.html:6
+msgid "Latest"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:39
+msgid "Parent"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:41
+msgid "Updated"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:42
+msgid "Type"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:43
+msgid "Status"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:82
+msgid "Drag"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:131
+msgid "No pages have been created."
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:131
+#, python-format
+msgid "Why not <a href=\"%(add_page_url)s\">add one</a>?"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:138
+#, python-format
+msgid ""
+"\n"
+"            Page %(page_number)s of %(num_pages)s.\n"
+"        "
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:144
+msgid "Previous"
+msgstr ""
+
+#: ndohyep/templates/wagtailadmin/pages/list.html:149
+msgid "Next"
 msgstr ""
