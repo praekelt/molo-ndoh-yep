@@ -10,6 +10,10 @@
     background: #43B1B0;
     color: #fff;
 }
+.status-tag.homepage{
+    background: #F37E77;
+    color: #fff;
+}
 </style>
 {% endblock %}
 <table class="listing{% if full_width %} full-width{% endif %}{% if moving or choosing %} chooser{% endif %}">
@@ -108,6 +112,9 @@
                         {% endif %}
                         {% if page.articlepage.featured_in_section %}
                         <span class="status-tag primary section">Section</span>
+                        {% endif %}
+                        {% if page.articlepage.featured_in_homepage %}
+                        <span class="status-tag primary homepage">Homepage</span>
                         {% endif %}
                     </td>
                     {% if moving %}
