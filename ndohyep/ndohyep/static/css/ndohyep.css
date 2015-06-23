@@ -19,6 +19,7 @@ body {
 }
 h2 {
     font-size:250%;
+    font-size:300%;
     line-height:100%;
     font-weight:bold;
     color:white;
@@ -37,7 +38,8 @@ h6 {
 p {
     padding:10px 0;
 }
-
+strong{font-weight:bold;}
+hr {border:0; clear:both; display:block; height:0px; font-size:0px; margin:10px 0; border-top:1px solid rgba(255,255,255,0.4); border-bottom:1px solid rgba(0,0,0,0.2);}
 
 
 
@@ -142,6 +144,7 @@ a:hover, a:active {text-decoration:underline;}
             .block.comments .details textarea { display:block; clear:both; width:98%; min-height:100px; margin:5px 0;}
             .block.comments .details span.comments-count {font-weight:bold; text-transform:uppercase;}
             .block.comments p {padding:10px 20px;}
+            .block.comments .details p {padding:10px 0px;}
             .other-comments .comment { background:rgba(255,255,255,0.4); margin:3px 0; padding:15px 20px 5px;}
                 .other-comments img {display:inline-block; width:15%; text-align:right; vertical-align:middle;}
                 .other-comments .copy {display:inline-block; width:78%; max-width:78%; padding-right:5%; float:none; vertical-align:middle;}
@@ -234,11 +237,17 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
         display:block;
         clear:both;
     }
-    .search-form input[type='search'] {
+    input[type='search'] {
         width:auto;
         padding:8px;
         min-width:50%;
         margin:0 0 10px;
+        display:inline-block;
+        font-size:100%;
+    }
+    input[type='submit'] {
+        width:auto;
+        padding:8px;
         display:inline-block;
         font-size:100%;
     }
@@ -300,16 +309,6 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
         padding:15px 20px;
     }
 
-
-
-
-
-
-
-
-
-
-
 /* Footer */
 .footer {padding:20px 0 0; font-size:75%; font-weight:normal;}
     .footer p {padding:0 20px 20px;}
@@ -323,5 +322,5 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
 @media only screen and (max-width:480px) {
     .block .options img {display:inline-block; width:25%; text-align:right; vertical-align:middle;}
     .block .options .copy {display:inline-block; width:67%; max-width:67%; padding-right:5%; float:none; vertical-align:middle;}
-    h2 {font-size:9vw;}
+    h2 {font-size:250%;}
 }
