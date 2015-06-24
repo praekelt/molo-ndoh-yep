@@ -2,7 +2,7 @@
 {% load wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block content %}
-<div class="block yellow">
+<div class="block {{self.get_effective_extra_css}}">
   {% if self.depth > 4 %}
     <h6><a href="{% pageurl self.get_ancestors.last %}">{{self.get_ancestors.last.title}}</a></h6>
   {% endif %}

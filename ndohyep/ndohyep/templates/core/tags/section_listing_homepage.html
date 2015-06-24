@@ -3,8 +3,7 @@
 {% if sections %}
 {% for section in sections %}
 
-{# TODO: add category color #}
-<div class="block {% cycle 'yellow' 'orange' 'darkblue' 'blue' %}">
+<div class="block {{section.get_effective_extra_css}}">
     <h6><a href="{% pageurl section %}">{{section.title}}</a></h6>
 
     {% with page=section.featured_articles_in_homepage|first %}
