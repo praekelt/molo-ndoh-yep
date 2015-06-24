@@ -15,13 +15,16 @@
 
 
 /* ----------- Custom CSS ---------- */
-.block {
-    img{
+.white {
+    img {
         max-width: 100%;
         max-height: auto;
         width: 100%;
         height: auto;
     }
+}
+
+.block {
     strong{
         font-weight: bold;
     }

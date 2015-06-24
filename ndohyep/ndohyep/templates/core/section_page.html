@@ -20,6 +20,7 @@
     {% if page %}
     <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
     <p>{{page.subtitle}}</p>
+    {% if page.image %}{% image page.image width-240 %}{% endif %}
     {% endif %}
     {% endwith %}
   {% for page in section.featured_articles|slice:"1:3" %}
@@ -34,6 +35,7 @@
   {% if page %}
   <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
   <p>{{page.subtitle}}</p>
+  {% if page.image %}{% image page.image width-240 %}{% endif %}
   {% endif %}
   {% endwith %}
 
