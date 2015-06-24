@@ -2,7 +2,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-<div class="block {{self.get_parent_section.get_effective_extra_css}}">
+<div class="block {{self.get_parent_section.get_effective_extra_style_hints}}">
 {%  with parent=self.get_ancestors.last %}
     <h6><a href="{% pageurl parent %}">{{parent.title}}</a></h6>
 {% endwith %}
