@@ -1,5 +1,10 @@
-{% extends "core/_section_page.html" %}
+
+{% extends "base.html" %}
+
+{% load static core_tags %}
 {% load wagtailcore_tags wagtailimages_tags i18n %}
+
+{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
 
 {% block content %}
 <div class="block {{self.get_effective_extra_style_hints}}">
