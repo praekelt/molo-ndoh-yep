@@ -65,6 +65,7 @@ INSTALLED_APPS = (
 
     'molo.core',
     'raven.contrib.django.raven_compat',
+    'app',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -189,3 +190,6 @@ WAGTAIL_SITE_NAME = "NDOH Youth Platform"
 
 # Whether to use face/feature detection to improve image cropping - requires OpenCV
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'ndohyep'),
+)

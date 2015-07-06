@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h4>{{ username }}</h4>
+  <label class="label-wide">{% trans "Display Name:" %}
+    {{ alias }}
+  </label>
+  <label class="label-wide">{% trans "Date of Birth:" %}
+    {{ date_of_birth }}
+  </label>
+  {% if avatar %}
+    <img src="{{ avatar }}" width="44" height="44" />
+  {% else %}
+    <img src="{{ STATIC_URL }}img/user.jpg" width="44" height="44" />
+  {% endif %}
+  <a href="{% url 'edit_my_profile' %}" class="btn btn-wide"><input type="button" value='{% trans "Edit My Profile" %}' class="btn btn-wide" /></a>
+  <br/>
+
+{% endblock %}

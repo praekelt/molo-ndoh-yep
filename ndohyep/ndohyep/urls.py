@@ -9,7 +9,8 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailsearch import urls as wagtailsearch_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
-
+from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     url(r'^django-admin/', include(admin.site.urls)),
@@ -17,7 +18,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^search/', include(wagtailsearch_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
-
+    url(r'^accounts/', include('app.urls')),
+    url(r'^home/','app.views.home', name='home_page'),
     url(r'', include('molo.core.urls')),
     url(r'', include(wagtail_urls)),
 )

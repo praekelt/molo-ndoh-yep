@@ -47,6 +47,13 @@
 {% endcomment%}
 
     <ul class="nav">
+        {% if user.is_authenticated %}
+            {% trans "Logged in" %}: <a href="{% url 'view_my_profile' %}">{{ user.username }}</a>
+            <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+        {% else %}
+            <li><a href="{% url 'auth_login' %}">{% trans "Log In" %}</a></li>
+            <li><a href="{% url 'user_register' %}">{% trans "Register" %}</a></li>
+        {% endif %}
         <li><a href="/">{% trans "Home"|upper %}</a></li>
         {% for section in language_page.sections %}
         <li><a href="{% pageurl section %}">{{section.title|upper}}</a></li>
