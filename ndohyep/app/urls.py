@@ -17,4 +17,9 @@ urlpatterns = patterns('',
         login_required(MyProfileEdit.as_view()),
         name='edit_my_profile'
     ),
+    url(
+        r'^password-reset/$', 
+        login_required(ProfilePasswordChangeView.as_view()),
+        name="profile_password_change"
+    ),
 	)

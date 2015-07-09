@@ -97,3 +97,14 @@ class EditProfileForm(RegistrationForm):
         """
         cleaned_data = super(EditProfileForm, self).clean()
         return cleaned_data
+
+class ProfilePasswordChangeForm(forms.Form):
+    old_password = forms.CharField(widget=forms.PasswordInput())
+    new_password = forms.CharField(widget=forms.PasswordInput())
+    confirm_password = forms.CharField(widget=forms.PasswordInput())
+
+    def clean(self):
+        if self.cleaned_data['new_password'] != self.cleaned_data['confirm_password']:
+            raise forms.ValidationError(_('The new passwords must be same'))
+        else:
+            return self.cleaned_data
