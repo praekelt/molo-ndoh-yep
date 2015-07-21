@@ -9,7 +9,7 @@ import time
 class RegistrationForm(forms.Form):
  
     username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Username"), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=4, render_value=False, type='number')), label=_("PIN"))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=4, render_value=False, type='password')), label=_("PIN"))
     year = forms.IntegerField(widget=forms.TextInput(attrs={'type':'number'}), label=_("Year"))
     month = forms.IntegerField(widget=forms.TextInput(attrs={'type':'number'}), label=_("Month"))
     day = forms.IntegerField(widget=forms.TextInput(attrs={'type':'number'}), label=_("Day"))
@@ -19,7 +19,7 @@ class RegistrationForm(forms.Form):
             user = User.objects.get(username__iexact=self.cleaned_data['username'])
         except User.DoesNotExist:
             return self.cleaned_data['username']
-        raise forms.ValidationError(_("The username already exists. Please try another one."))
+        raise forms.ValidationError(_("Username is already exists!"))
     def clean_password1(self):
         pin = self.cleaned_data['password1']
         length_of_pin = len(str(pin))
@@ -36,13 +36,13 @@ class RegistrationForm(forms.Form):
     def clean_month(self):
         month = self.cleaned_data['month']
         length_of_month = len(str(month))
-        if length_of_month > 2:
+        if length_of_month > 2 or month==0:
             raise forms.ValidationError(u'Please enter a valid month')
         return month
     def clean_day(self):
         day = self.cleaned_data['day']
         length_of_day = len(str(day))
-        if length_of_day > 2:
+        if length_of_day > 2 or day==0:
             raise forms.ValidationError(u'Please enter a valid day')
         return day
  
@@ -54,10 +54,6 @@ class EditProfileForm(RegistrationForm):
        label=_("Display Name"),
        required=False
     )
-    avatar = forms.ImageField(
-        label=_("Upload Picture"),
-        required=False
-    )
     def __init__(self, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
         del self.fields['password1']
@@ -67,30 +63,8 @@ class EditProfileForm(RegistrationForm):
         del self.fields['username']
         self.fields.keyOrder = [
             'alias',
-            'avatar',
         ]
 
-    def clean_avatar(self):
-        image = self.cleaned_data.get('avatar')
-        if not image:
-            image = None
-
-        try:
-            img = Image.open(image)
-            w, h = img.size
-            max_width = max_height = 500
-            if w > max_width or h > max_height:
-                raise forms.ValidationError(
-                    _('Please use an image that is smaller or equal to '
-                      '500 x 500 pixels.'))
-            main, sub = image.content_type.split('/')
-            if not (main == 'image' and sub.lower() in ['jpeg', 'pjpeg', 'png', 'jpg']):
-                raise forms.ValidationError(_('Please use a JPEG or PNG image.'))
-            if len(image) > (500 * 1024):
-                raise forms.ValidationError(_('Image file too large ( maximum 500KB )'))
-        except AttributeError:
-            pass
-        return image
     def clean(self):
         """
         Check whether the user has edited the email field or not. If user edit the email field, we should check the email is present already or not. Otherwise we can allow the data to update.
@@ -103,8 +77,32 @@ class ProfilePasswordChangeForm(forms.Form):
     new_password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput())
 
+    def clean_old_password(self):
+        old_password = self.cleaned_data['old_password']
+        length_of_old_password = len(str(old_password))
+        if length_of_old_password > 4:
+            raise forms.ValidationError(u'Please enter a valid old password')
+        return old_password
+
+    def clean_new_password(self):
+        new_password = self.cleaned_data['new_password']
+        length_of_new_password = len(str(new_password))
+        if length_of_new_password > 4:
+            raise forms.ValidationError(u'New password should be maximum of 4 characters')
+        return new_password
+
+    def clean_confirm_password(self):
+        confirm_password = self.cleaned_data['confirm_password']
+        length_of_confirm_password = len(str(confirm_password))
+        if length_of_confirm_password > 4:
+            raise forms.ValidationError(u'Confirm new password should be maximum of 4 characters')
+        return confirm_password
+
     def clean(self):
-        if self.cleaned_data['new_password'] != self.cleaned_data['confirm_password']:
-            raise forms.ValidationError(_('The new passwords must be same'))
-        else:
-            return self.cleaned_data
+        try:
+            if self.cleaned_data['new_password'] != self.cleaned_data['confirm_password']:
+                raise forms.ValidationError(_('New passwords does not match'))
+            else:
+                return self.cleaned_data
+        except KeyError:
+            raise forms.ValidationError(_('Plase enter passwords in a valid format'))

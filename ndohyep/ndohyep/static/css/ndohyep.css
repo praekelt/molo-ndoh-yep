@@ -6,7 +6,16 @@ ol,ul{list-style:none}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:none}
 table{border-collapse:collapse;border-spacing:0}
-
+table tr td
+{
+    padding-bottom: 1em;
+}
+/*tr > td > ul.errorlist{
+    padding-bottom: 2em;
+}*/
+.registerSubmit{
+    margin: 0 0 5% 25%;
+}
 
 
 
@@ -324,3 +333,62 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
     .block .options .copy {display:inline-block; width:67%; max-width:67%; padding-right:5%; float:none; vertical-align:middle;}
     h2 {font-size:250%;}
 }
+
+
+/* Form Wrap Styles */
+.form-wrap {
+    display: block; 
+    clear: both; }
+    .form-wrap.change-password p {
+        display: inline-block; }
+        .form-wrap.change-password label {
+            font-size: 15px;
+            width: 100px;
+            display: inline-block; }
+            .form-wrap.change-password form input[type='submit'] {
+                margin-right: 15px; }
+    form { 
+        padding-top: 15px}
+        form label {
+            padding: 0 10px; }
+            form table tr td {
+                padding: 5px 0; }
+                form input {
+                    padding: 1px; }
+                form input[type='submit'] {
+                    float: right;
+                    margin: 10px 40px 15px 0; 
+                    padding: 5px 20px; }
+                    .errorlist {
+                        font-size: 13px; 
+                        line-height: normal;
+                        color: red; }
+                        p.errorlist {
+                            padding: 0 10px }
+                            .errorlist li {
+                                padding: 0 10px }
+
+.profile-style {
+    padding: 15px 10px; }
+    .profile-style h4 {
+        font-size: 20px; 
+        text-align: right; }
+        .profile-style label {
+            display: block; 
+            font-size: 16px;
+            text-align: right; }
+            .profile-style p { 
+                padding: 5px 0;
+                text-align: right; }
+                .profile-style input[type="button"] {
+                    padding: 5px 20px }
+                    .profile-style form input[type='submit'] {
+                        margin-right: 0; }
+                        
+.profileHolder {
+    padding: 0 20px; }
+    .profileHolder a {
+    color: #20364d; 
+    text-decoration: none; }
+
+                    

@@ -73,9 +73,12 @@ class MyProfileView(TemplateView):
         user = self.request.user
         profile = user.profile
         context['username'] = user.username
-        context['alias'] = profile.alias
-        if profile.avatar:
-            context['avatar'] = profile.avatar.url
+
+        if profile.alias:
+            context['alias'] = profile.alias
+        else:
+            context['alias'] = 'Anonymous'
+
         context['date_of_birth'] = profile.date_of_birth
         return context
 
@@ -91,8 +94,12 @@ class MyProfileEdit(FormView):
         user = self.request.user
         profile = user.profile
         initial['username'] = user.username
-        initial['alias'] = profile.alias
-        initial['avatar'] = profile.avatar.url
+
+        if profile.alias:
+            initial['alias'] = profile.alias
+        else:
+            initial['alias'] = 'Anonymous'
+
         initial['date_of_birth'] = profile.date_of_birth
         return initial
 
@@ -104,7 +111,6 @@ class MyProfileEdit(FormView):
         user = self.request.user
         profile = user.profile
         profile.alias = form.cleaned_data['alias']
-        profile.avatar = form.cleaned_data['avatar']
         profile.save()
         return HttpResponseRedirect(reverse('view_my_profile'))
 

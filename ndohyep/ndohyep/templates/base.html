@@ -48,7 +48,14 @@
 
     <ul class="nav">
         {% if user.is_authenticated %}
-            {% trans "Logged in" %}: <a href="{% url 'view_my_profile' %}">{{ user.username }}</a>
+            <div class="profileHolder"> {% trans "Logged in" %}: 
+                {% if user.profile.alias != '' %}
+                    <strong>{{ user.profile.alias }}</strong> 
+                {% else %}
+                    <strong>Anonymous</strong> 
+                {% endif %}
+            </div>
+            <li><a href="{% url 'view_my_profile' %}">My profile</a></li>
             <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
         {% else %}
             <li><a href="{% url 'auth_login' %}">{% trans "Log In" %}</a></li>
