@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'molo.core',
     'raven.contrib.django.raven_compat',
     'app',
+    'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -194,3 +195,5 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'ndohyep'),
 )
+
+AUTH_USER_MODEL = 'auth.User'
