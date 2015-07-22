@@ -17,7 +17,9 @@ table tr td
     margin: 0 0 5% 25%;
 }
 
-
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    word-wrap: break-word;
+}
 
 /* Fonts */
 body {
@@ -235,9 +237,11 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
         height:auto;
         padding:8px 20px;
         text-align:left;
-        white-space:nowrap;
+        /*white-space:nowrap;*/
         color:white;
         font-size:125%;
+        word-wrap: break-word;
+        line-height: 22px;
     }
 
     /* Search Drop-Down */
