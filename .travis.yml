@@ -9,6 +9,6 @@ install:
   - pip install -e ndohyep
 script:
   - flake8 ndohyep
-  - python ndohyep/manage.py test
+  - python ndohyep/manage.py test -v1
 after_success:
   - coveralls
