@@ -31,8 +31,11 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-# Base URL to use when referring to full URLs within the Wagtail admin backend -
-# e.g. in notification emails. Don't include '/admin' or a trailing slash
+# Base URL to use when referring to full URLs
+# within the Wagtail admin backend -
+# e.g. in notification emails.
+# Don't include '/admin' or a trailing slash
+
 BASE_URL = 'http://example.com'
 
 
@@ -97,7 +100,8 @@ DATABASES = {
     }
 }
 
-# PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
+# PostgreSQL (Recommended, but requires the psycopg2 library
+# and Postgresql development headers)
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -106,7 +110,8 @@ DATABASES = {
 #         'PASSWORD': '',
 #         'HOST': '',  # Set to empty string for localhost.
 #         'PORT': '',  # Set to empty string for default.
-#         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
+#         'CONN_MAX_AGE': 600,
+# number of seconds database connections should persist for
 #     }
 # }
 
@@ -177,19 +182,24 @@ LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
 WAGTAIL_SITE_NAME = "NDOH Youth Platform"
 
-# Use Elasticsearch as the search backend for extra performance and better search results:
+# Use Elasticsearch as the search backend for extra performance
+# and better search results:
 # http://wagtail.readthedocs.org/en/latest/howto/performance.html#search
-# http://wagtail.readthedocs.org/en/latest/core_components/search/backends.html#elasticsearch-backend
+# http://wagtail.readthedocs.org/en/latest \
+#   /core_components/search/backends.html#elasticsearch-backend
 #
 # WAGTAILSEARCH_BACKENDS = {
 #     'default': {
-#         'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch.ElasticSearch',
+#         'BACKEND': 'wagtail.wagtailsearch \
+#            .backends.elasticsearch.ElasticSearch',
 #         'INDEX': 'base',
 #     },
 # }
 
 
-# Whether to use face/feature detection to improve image cropping - requires OpenCV
+# Whether to use face/feature detection to improve
+# image cropping - requires OpenCV
+
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'ndohyep'),

@@ -1,4 +1,5 @@
-from app.forms import *
+from app.forms import RegistrationForm
+from app.forms import EditProfileForm, ProfilePasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
@@ -7,12 +8,14 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from app.models import UserProfile
 import datetime
-from django import forms
+# from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.contrib import messages
+from django.contrib.auth.models import User
+
 
 @csrf_protect
 def register(request):
@@ -20,44 +23,51 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             try:
-                date = datetime.datetime(year = int(form.cleaned_data['year']), month=int(form.cleaned_data['month']), day=int(form.cleaned_data['day']))
+                date = datetime.datetime(
+                    year=int(form.cleaned_data['year']),
+                    month=int(form.cleaned_data['month']),
+                    day=int(form.cleaned_data['day'])
+                    )
                 dob = date.strftime('%Y-%m-%d')
                 user = User.objects.create_user(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password1'],
-                )
+                    username=form.cleaned_data['username'],
+                    password=form.cleaned_data['password1'],
+                    )
                 profile = UserProfile(user=user, date_of_birth=dob)
                 profile.save()
                 return HttpResponseRedirect('/')
             except ValueError:
                 messages.error(request, 'The day is out of range for month.')
         variables = RequestContext(request, {
-        'form': form
+            'form': form
         })
         return render_to_response(
+            'registration/register.html',
+            variables,
+            )
+    form = RegistrationForm()
+    variables = RequestContext(request, {
+        'form': form
+    })
+    return render_to_response(
         'registration/register.html',
         variables,
         )
-    form = RegistrationForm()
-    variables = RequestContext(request, {
-    'form': form
-    })
-    return render_to_response(
-    'registration/register.html',
-    variables,
-    )
- 
+
+
 def register_success(request):
     return HttpResponseRedirect('/')
 
- 
+
 def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
- 
+
+
 @login_required
 def home(request):
     return HttpResponseRedirect('/')
+
 
 class MyProfileView(TemplateView):
     """
@@ -81,6 +91,7 @@ class MyProfileView(TemplateView):
 
         context['date_of_birth'] = profile.date_of_birth
         return context
+
 
 class MyProfileEdit(FormView):
     """
@@ -114,6 +125,7 @@ class MyProfileEdit(FormView):
         profile.save()
         return HttpResponseRedirect(reverse('view_my_profile'))
 
+
 class ProfilePasswordChangeView(FormView):
     form_class = ProfilePasswordChangeForm
     template_name = 'app/change_password.html'
@@ -129,18 +141,20 @@ class ProfilePasswordChangeView(FormView):
             user.save()
             return HttpResponseRedirect(reverse('view_my_profile'))
         else:
-            messages.error(self.request, 'The Old password is incorrect.')
-            variables = RequestContext(self.request, {
-            'form': form
-            })
+            messages.error(
+                self.request,
+                'The Old password is incorrect.'
+                )
+            variables = RequestContext(
+                self.request,
+                {'form': form}
+                )
             return render_to_response(
+                'app/change_password.html',
+                variables,
+                )
+        variables = RequestContext(self.request, {'form': form})
+        return render_to_response(
             'app/change_password.html',
             variables,
             )
-        variables = RequestContext(self.request, {
-        'form': form
-        })
-        return render_to_response(
-        'app/change_password.html',
-        variables,
-        )
