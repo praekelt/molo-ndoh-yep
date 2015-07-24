@@ -27,12 +27,12 @@ def register(request):
                     year=int(form.cleaned_data['year']),
                     month=int(form.cleaned_data['month']),
                     day=int(form.cleaned_data['day'])
-                    )
+                )
                 dob = date.strftime('%Y-%m-%d')
                 user = User.objects.create_user(
                     username=form.cleaned_data['username'],
                     password=form.cleaned_data['password1'],
-                    )
+                )
                 profile = UserProfile(user=user, date_of_birth=dob)
                 profile.save()
                 return HttpResponseRedirect('/')
@@ -44,7 +44,7 @@ def register(request):
         return render_to_response(
             'registration/register.html',
             variables,
-            )
+        )
     form = RegistrationForm()
     variables = RequestContext(request, {
         'form': form
@@ -52,7 +52,7 @@ def register(request):
     return render_to_response(
         'registration/register.html',
         variables,
-        )
+    )
 
 
 def register_success(request):
@@ -144,17 +144,17 @@ class ProfilePasswordChangeView(FormView):
             messages.error(
                 self.request,
                 'The Old password is incorrect.'
-                )
+            )
             variables = RequestContext(
                 self.request,
                 {'form': form}
-                )
+            )
             return render_to_response(
                 'app/change_password.html',
                 variables,
-                )
+            )
         variables = RequestContext(self.request, {'form': form})
         return render_to_response(
             'app/change_password.html',
             variables,
-            )
+        )

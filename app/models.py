@@ -8,12 +8,10 @@ class UserProfile(models.Model):
     alias = models.CharField(
         max_length=128,
         blank=True,
-        null=True,
-        )
+        null=True)
     avatar = models.ImageField(
         'avatar',
         max_length=100,
         upload_to='users/profile',
         blank=True,
-        null=True,
-        )
+        null=True)

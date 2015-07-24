@@ -137,7 +137,7 @@ LANGUAGES = global_settings.LANGUAGES + (
     ('ts', _('Tsonga')),
     ('ss', _('Swati')),
     ('nr', _('Ndebele')),
-    )
+)
 
 LOCALE_PATHS = (
     join(PROJECT_ROOT, "locale"),
