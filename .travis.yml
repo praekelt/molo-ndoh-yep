@@ -6,9 +6,9 @@ services:
 install:
   - pip install --upgrade pip
   - pip install flake8
-  - pip install -e ndohyep
+  - pip install -e .
 script:
-  - flake8 ndohyep
-  - python ndohyep/manage.py test -v1
+  - flake8
+  - python manage.py test -v1
 after_success:
   - coveralls
