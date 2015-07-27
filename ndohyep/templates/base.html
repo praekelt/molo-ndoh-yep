@@ -52,10 +52,10 @@
                 {% if user.profile.alias %}
                     <strong>{{ user.profile.alias }}</strong> 
                 {% else %}
-                    <strong>Anonymous</strong> 
+                    <strong>{% trans "Anonymous" %}</strong> 
                 {% endif %}
             </div>
-            <li><a href="{% url 'view_my_profile' %}">My profile</a></li>
+            <li><a href="{% url 'view_my_profile' %}">{% trans "My profile" %}</a></li>
             <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
         {% else %}
             <li><a href="{% url 'auth_login' %}">{% trans "Log In" %}</a></li>

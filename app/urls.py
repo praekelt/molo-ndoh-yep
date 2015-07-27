@@ -3,7 +3,6 @@ from app.views import MyProfileView, MyProfileEdit
 from app.views import ProfilePasswordChangeView
 from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
-# from django.conf import settings
 
 urlpatterns = patterns(
     '',

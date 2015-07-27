@@ -1,8 +1,6 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static core_tags %}
-{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
-{% block title %}User Registration{% endblock %}
-{% block head %}User Registration{% endblock %}
 {% block content %}
 
 {% if messages %}
@@ -14,11 +12,11 @@
 {% endif %}
 
 <div class="form-wrap">
-    <form method="post" action=".">{% csrf_token %}
+    <form method="post" action="{% url 'user_register' %}">{% csrf_token %}
         <table border="0">
             {{ form.as_table }}
         </table>
-        <input type="submit" class="registerSubmit" value="Register" />
+        <input type="submit" class="registerSubmit" value='{% trans "Register" %}' />
     </form>
 </div>
 {% endblock %}
