@@ -1,6 +1,5 @@
 from app.forms import RegistrationForm
 from app.forms import EditProfileForm, ProfilePasswordChangeForm
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
@@ -42,9 +41,8 @@ def logout_page(request):
     return HttpResponseRedirect(reverse('home_page'))
 
 
-@login_required
 def home(request):
-    return HttpResponseRedirect('/')
+    return render(request, 'core/main.html')
 
 
 class MyProfileView(TemplateView):
