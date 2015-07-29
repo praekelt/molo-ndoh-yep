@@ -20,11 +20,14 @@ class RegistrationForm(forms.Form):
         widget=forms.PasswordInput(
             attrs=dict(
                 required=True,
-                max_length=4,
                 render_value=False,
                 type='password'
             )
         ),
+        max_length=4,
+        min_length=4,
+        error_messages={'invalid': _("This value must contain only  \
+         numbers.")},
         label=_("PIN")
     )
 
@@ -40,7 +43,6 @@ class RegistrationForm(forms.Form):
         ).exists():
             raise forms.ValidationError(_("Username is already exists."))
         return self.cleaned_data['username']
-
 
 
 class EditProfileForm(RegistrationForm):
@@ -60,29 +62,57 @@ class EditProfileForm(RegistrationForm):
 
 
 class ProfilePasswordChangeForm(forms.Form):
-    old_password = forms.CharField(
-        widget=forms.PasswordInput(),
-        max_length=4,
-        min_length=4
+    old_password = forms.RegexField(
+        regex=r'^\d{4}$',
+        widget=forms.PasswordInput(
+            attrs=dict(
+                required=True,
+                render_value=False,
+                type='password'
+            )
+        ),
+        max_length=4, min_length=4,
+        error_messages={'invalid': _("This value must contain only  \
+         numbers.")},
+        label=_("Old Password")
     )
-    new_password = forms.CharField(
-        widget=forms.PasswordInput(),
+    new_password = forms.RegexField(
+        regex=r'^\d{4}$',
+        widget=forms.PasswordInput(
+            attrs=dict(
+                required=True,
+                render_value=False,
+                type='password'
+            )
+        ),
         max_length=4,
-        min_length=4
+        min_length=4,
+        error_messages={'invalid': _("This value must contain only  \
+         numbers.")},
+        label=_("New Password")
     )
-    confirm_password = forms.CharField(
-        widget=forms.PasswordInput(),
+    confirm_password = forms.RegexField(
+        regex=r'^\d{4}$',
+        widget=forms.PasswordInput(
+            attrs=dict(
+                required=True,
+                render_value=False,
+                type='password'
+            )
+        ),
         max_length=4,
-        min_length=4
+        min_length=4,
+        error_messages={'invalid': _("This value must contain only  \
+         numbers.")},
+        label=_("Confirm Password")
     )
 
     def clean(self):
-        try:
-            if self.cleaned_data['new_password'] != \
-                    self.cleaned_data['confirm_password']:
-                raise forms.ValidationError(_('New passwords does not match'))
-            else:
-                return self.cleaned_data
-        except KeyError:
-            raise forms.ValidationError(_('Plase enter passwords \
-             in a valid format'))
+        new_password = self.cleaned_data.get('new_password', None)
+        confirm_password = self.cleaned_data.get('confirm_password', None)
+        if (new_password and confirm_password and
+                (new_password == confirm_password)):
+            return self.cleaned_data
+        else:
+            raise forms.ValidationError(_('New passwords \
+                does not match'))

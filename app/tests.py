@@ -43,8 +43,8 @@ class RegisterTestCase(TestCase):
     def test_password_change_correct(self):
         form_data = {
             'old_password': '1234',
-            'new_password': 'jey3',
-            'confirm_password': 'jey3',
+            'new_password': '3456',
+            'confirm_password': '3456',
         }
         form = ProfilePasswordChangeForm(data=form_data)
         self.assertEqual(form.is_valid(), True)
