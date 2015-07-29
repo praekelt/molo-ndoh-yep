@@ -41,11 +41,6 @@ class RegistrationForm(forms.Form):
             raise forms.ValidationError(_("Username is already exists."))
         return self.cleaned_data['username']
 
-    def clean_date_of_birth(self):
-        return self.cleaned_data['date_of_birth']
-
-    def clean(self):
-        return self.cleaned_data
 
 
 class EditProfileForm(RegistrationForm):
