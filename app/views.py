@@ -51,22 +51,6 @@ class MyProfileView(TemplateView):
     """
     template_name = 'app/viewprofile.html'
 
-    def get_context_data(self, **kwargs):
-        """ Retrieve the user profile
-        """
-        context = super(MyProfileView, self).get_context_data(**kwargs)
-        user = self.request.user
-        profile = user.profile
-        context['username'] = user.username
-
-        if profile.alias:
-            context['alias'] = profile.alias
-        else:
-            context['alias'] = 'Anonymous'
-
-        context['date_of_birth'] = profile.date_of_birth
-        return context
-
 
 class MyProfileEdit(FormView):
     """
@@ -74,20 +58,6 @@ class MyProfileEdit(FormView):
     """
     form_class = EditProfileForm
     template_name = 'app/editprofile.html'
-
-    def get_initial(self):
-        initial = self.initial.copy()
-        user = self.request.user
-        profile = user.profile
-        initial['username'] = user.username
-
-        if profile.alias:
-            initial['alias'] = profile.alias
-        else:
-            initial['alias'] = 'Anonymous'
-
-        initial['date_of_birth'] = profile.date_of_birth
-        return initial
 
     def form_valid(self, form):
         user = self.request.user

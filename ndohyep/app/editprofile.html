@@ -7,7 +7,7 @@
 	{% csrf_token %}
 	  {% trans "Edit your Profile" %}
 	  <table border="0">
-	            {{ form.as_table }}
+	            {{ edit_profile_form.as_table }}
 	  </table>
 	  <input type="submit" value='{% trans "Update profile" %}' class="btn btn-wide">
 	</form>
