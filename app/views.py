@@ -4,7 +4,6 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
 from app.models import UserProfile
-# from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse
@@ -26,7 +25,7 @@ def register(request):
             )
             profile = UserProfile(user=user, date_of_birth=dob)
             profile.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('home_page'))
         return render(request, 'registration/register.html', {'form': form})
     form = RegistrationForm()
     return render(request, 'registration/register.html', {'form': form})

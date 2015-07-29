@@ -45,20 +45,11 @@ class RegistrationForm(forms.Form):
         return self.cleaned_data['username']
 
 
-class EditProfileForm(RegistrationForm):
+class EditProfileForm(forms.Form):
     alias = forms.CharField(
         label=_("Display Name"),
         required=False
     )
-
-    def __init__(self, *args, **kwargs):
-        super(EditProfileForm, self).__init__(*args, **kwargs)
-        del self.fields['password']
-        del self.fields['username']
-        del self.fields['date_of_birth']
-        self.fields.keyOrder = [
-            'alias',
-        ]
 
 
 class ProfilePasswordChangeForm(forms.Form):
