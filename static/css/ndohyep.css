@@ -1,0 +1,410 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+table{border-collapse:collapse;border-spacing:0}
+table tr td
+{
+    padding-bottom: 1em;
+}
+/*tr > td > ul.errorlist{
+    padding-bottom: 2em;
+}*/
+.registerSubmit{
+    margin: 0 0 5% 25%;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    word-wrap: break-word;
+}
+
+/* Fonts */
+body {
+    font:16px/125% Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    background:white;
+    color:#20364d;
+}
+h2 {
+    font-size:250%;
+    font-size:300%;
+    line-height:100%;
+    font-weight:bold;
+    color:white;
+    text-transform:uppercase;
+    max-width:75%;
+    padding:15px 0;
+}
+h6 {
+    display:block;
+    vertical-align:middle;
+    padding:10px 0;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:90%;
+}
+p {
+    padding:10px 0;
+}
+strong{font-weight:bold;}
+hr {border:0; clear:both; display:block; height:0px; font-size:0px; margin:10px 0; border-top:1px solid rgba(255,255,255,0.4); border-bottom:1px solid rgba(0,0,0,0.2);}
+
+
+
+
+/* Images */
+img {max-width:100%;}
+
+
+
+
+
+
+/* details */
+a {
+    text-decoration:underline;
+    color:white;
+    outline:none;
+    font-weight:bold;
+}
+h2 a {text-decoration:none; color:white;}
+.lightblue h2, .lightblue h2 a, .lightblue a {color:#20364d;}
+h6 a, .lightblue h6 a {color:#20364d; font-weight:normal; text-decoration:underline;}
+.darkblue h6 a {color:white;}
+p a {text-decoration:underline; text-transform:uppercase; font-size:90%;}
+a:hover, a:active {text-decoration:underline;}
+
+
+
+
+/* Common Colours */
+.yellow {background-color:#fcd26d;}
+.darkyellow {background-color:#e6bf64;}
+.orange {background-color:#f36d41;}
+.lightblue {background-color:#e2f0fb;}
+.blue {background-color:#2fbfc7;}
+.darkblue {background-color:#3a5571; color:white;}
+
+
+
+
+
+
+/* Header */
+.header {position:relative;}
+    .header .logo {float:left; width:120px; margin:13px 20px 0;}
+
+    /* Coloured Lines */
+    .colorLines {display:block; width:100%; height:5px; z-index:1;}
+    .header .colorLines {position:absolute; top:60px; left:0px;}
+        .colorLines div {width:20%; display:block; float:left; height:5px; z-index:1;}
+
+    /* Top Level Menu */
+    #menu ul#nav {
+        float:right;
+        height:65px;
+        padding:0 10px;
+    }
+    #menu ul#nav li {
+        list-style:none;
+        display:inline-block;
+        height:65px;
+        line-height:60px;
+        text-transform:uppercase;
+        font-weight:normal;
+    }
+    #menu ul#nav li a {
+        color:#20364d;
+        padding:0 8px;
+        font-weight:normal;
+        text-decoration:underline;
+    }
+
+
+
+
+/* Content Blocks */
+.block {
+    display:block;
+    clear:both;
+    padding:20px 20px 10px 20px;
+}
+
+.block.white {font-weight:normal; padding:20px 20px 10px;}
+.clearfix {clear:both;}
+    .block img{
+        max-width:50%;
+        max-height:200px;
+        margin:10px 0;
+    }
+    .block .copy {
+        float:left;
+        max-width:64%;
+    }
+    .block .copy h2 {max-width:100%}
+    .pagination {line-height:150%;}
+
+
+
+        /* Comments */
+        .block.comments {padding:0;}
+            .block.comments .details {text-align:left; padding:20px 20px 0;}
+            .block.comments .details textarea { display:block; clear:both; width:98%; min-height:100px; margin:5px 0;}
+            .block.comments .details span.comments-count {font-weight:bold; text-transform:uppercase;}
+            .block.comments p {padding:10px 20px;}
+            .block.comments .details p {padding:10px 0px;}
+            .other-comments .comment { background:rgba(255,255,255,0.4); margin:3px 0; padding:15px 20px 5px;}
+                .other-comments img {display:inline-block; width:15%; text-align:right; vertical-align:middle;}
+                .other-comments .copy {display:inline-block; width:78%; max-width:78%; padding-right:5%; float:none; vertical-align:middle;}
+                .other-comments .author, .other-comments .date {display:inline-block;}
+                .other-comments .date {font-weight:normal; padding:0 10px;}
+                .other-comments .comment p {padding:5px 0; font-weight:normal; font-size:90%;}
+                .other-comments .comment p a.plus {font-weight:bold;}
+                .other-comments .author {color:#f36d41;}
+
+
+
+        /* Options */
+        .block .options {padding-top:10px; display:block; clear:both;}
+        .block .options a {
+            clear:both;
+            text-transform:uppercase;
+            display:block;
+            font-weight:bold;
+            font-size:150%;
+            margin:0;
+            line-height:100%;
+            margin:5px -20px 5px -20px;
+            padding:20px;
+        }
+        .block.yellow .options a {background:#e6bf64; color:white;}
+        .block.orange .options a {background:#c85a36; color:white;}
+        .block.darkblue .options a {background:#2a455f; color:white;}
+        .block.blue .options a {background:#29b0b6; color:white;}
+        .block.lightblue .options a {background:#cbdce8; color:#20364d;}
+        .block .options img {display:inline-block; width:15%; text-align:right; vertical-align:middle;}
+        .block .options .copy {display:inline-block; width:78%; max-width:78%; padding-right:5%; float:none; vertical-align:middle;}
+
+        .author-date {clear:both; font-weight:bold; padding:20px 0; text-transform:uppercase;}
+
+
+
+/* Poll Results */
+.poll-result {width:80%; position:relative; padding:0 0 20px}
+    .poll-result .bar {display:inline-block; vertical-align:middle; height:50px; background:#f05627;}
+    .poll-result .figure {position:absolute; display:inline-block; top:-5px; vertical-align:middle; text-align:center; border:5px solid #e2f0fb; height:50px; line-height:50px; width:50px; background:white; -webkit-border-radius:40px; border-radius:40px;}
+
+
+
+
+/* Radios */
+.radios {padding:20px 0;}
+.radios div {display:block; padding:5px 0;}
+
+
+
+
+
+
+
+/* Navigation & Search */
+#nav-area {
+    display:block;
+    clear:both;
+    background:#2fbfc7
+}
+
+/* Common Colours */
+#nav-area.yellow {background-color:#e6bf64;}
+#nav-area.orange {background-color:#c85a36;}
+#nav-area.lightblue {background:#cbdce8; }
+    #nav-area.lightblue a {color:#20364d;}
+#nav-area.blue {background-color:#29b0b6;}
+#nav-area.darkblue {background-color:#2a455f; color:white;}
+
+a.backtotop {padding:20px; display:block; clear:both; color:white; text-transform:uppercase; font-weight:normal;}
+
+    /* Menu */
+    ul.nav {
+        width:100%;
+        padding:10px 0;
+    }
+    ul.nav li a {
+        display:block;
+        height:auto;
+        padding:8px 20px;
+        text-align:left;
+        /*white-space:nowrap;*/
+        color:white;
+        font-size:125%;
+        word-wrap: break-word;
+        line-height: 22px;
+    }
+
+    /* Search Drop-Down */
+    .search-form {
+        padding:0 20px;
+        display:block;
+        clear:both;
+    }
+    input[type='search'] {
+        width:auto;
+        padding:8px;
+        min-width:50%;
+        margin:0 0 10px;
+        display:inline-block;
+        font-size:100%;
+    }
+    input[type='submit'] {
+        width:auto;
+        padding:8px;
+        display:inline-block;
+        font-size:100%;
+    }
+    .search-form a.plus {
+        display:inline-block;
+        color:white;
+        padding-left:10px;
+    }
+
+    /* Search Results */
+    .search-results {
+        display:block;
+        background-color:#2fbfc7;
+        padding:20px 0 5px;
+    }
+    .search-results a {color:white;}
+    .search-results a.plus {padding:10px 20px 0;}
+    .search-results h2,
+    .search-results p {padding:10px 20px;}
+    .search-results a.result {
+        padding:15px 20px;
+        display:block;
+        background:#2bafb7;
+        margin:3px 0;
+        height:auto;
+        text-transform:uppercase;
+    }
+
+    /* Profile */
+    .block.profile {
+        display:block;
+        background-color:#2fbfc7;
+        padding:20px;
+    }
+    .block.profile a {color:white;}
+    .block.profile .signin-form {
+        padding:10px 0 40px;
+        display:block;
+    }
+    .block.profile .signin-form input {
+        width:auto;
+        padding:8px;
+        min-width:50%;
+        margin:0 0 10px;
+        display:inline-block;
+        font-size:100%;
+    }
+    .block.profile a.plus {
+        display:block;
+        padding:10px 0;
+    }
+    .block.profile span.checkbox {font-weight:bold;}
+    .error {
+        display:block;
+        clear:both;
+        background-color:#f36d41;
+        color:white;
+        text-transform:uppercase;
+        padding:15px 20px;
+    }
+
+/* Footer */
+.footer {padding:20px 0 0; font-size:75%; font-weight:normal;}
+    .footer p {padding:0 20px 20px;}
+    .footer img {max-width:50%;}
+    .footer a {color:#20364d; text-decoration:underline; padding:0 8px 0 2px;}
+    .footer a:hover, .footer a:active {color:#f05627;}
+
+
+
+
+@media only screen and (max-width:480px) {
+    .block .options img {display:inline-block; width:25%; text-align:right; vertical-align:middle;}
+    .block .options .copy {display:inline-block; width:67%; max-width:67%; padding-right:5%; float:none; vertical-align:middle;}
+    h2 {font-size:250%;}
+}
+
+
+/* Form Wrap Styles */
+.form-wrap {
+    display: block; 
+    clear: both; }
+    .form-wrap.change-password p {
+        display: inline-block; }
+        .form-wrap.change-password label {
+            font-size: 15px;
+            width: 100px;
+            display: inline-block; }
+            .form-wrap.change-password form input[type='submit'] {
+                margin-right: 15px; }
+
+    .clear-block {
+        display: block; 
+        clear: both; 
+        padding: 20px 10px; }
+
+    form { 
+        padding-top: 15px}
+        form label {
+            padding: 0 10px; }
+            form table tr td {
+                padding: 5px 0; }
+                form input {
+                    padding: 1px; }
+                form input[type='submit'] {
+                    float: right;
+                    margin: 10px 40px 15px 0; 
+                    padding: 5px 20px; }
+                    .errorlist {
+                        font-size: 13px; 
+                        line-height: normal;
+                        color: red; }
+                        p.errorlist {
+                            padding: 0 10px }
+                            .errorlist li {
+                                padding: 0 10px }
+
+.profile-style {
+    padding: 15px 10px; }
+    .profile-style h4 {
+        font-size: 20px; 
+        text-align: right; }
+        .profile-style label {
+            display: block; 
+            font-size: 16px;
+            text-align: right; }
+            .profile-style p { 
+                padding: 5px 0;
+                text-align: right; }
+                .profile-style input[type="button"] {
+                    padding: 5px 20px }
+                    .profile-style form input[type='submit'] {
+                        margin-right: 0; }
+                        
+.profileHolder {
+    padding: 0 20px; }
+    .profileHolder a {
+    color: #20364d; 
+    text-decoration: none; }
+
+.m0 {
+    margin-right: 0 !important; }
+
+a.link {
+    color: #000;
+    font-size: 14px;
+}

@@ -1,0 +1,55 @@
+@media screen {
+  /* line 2, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+  html {
+    background-color: #333;
+    max-width: 35em;
+    margin: 0 auto; } }
+  @media screen and (min-device-width: 50em) {
+    /* line 2, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+    html {
+      max-width: 20em; } }
+
+@media screen {
+  /* line 11, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+  body {
+    background-color: #fff; } }
+
+/* ----------- Custom CSS ---------- */
+/* line 19, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.white img {
+  max-width: 100%;
+  max-height: auto;
+  width: 100%;
+  height: auto; }
+
+/* line 28, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.block strong {
+  font-weight: bold; }
+
+/* line 31, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.block em {
+  font-style: italic; }
+
+/* line 34, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.block ul {
+  list-style: initial;
+  margin-left: 15px; }
+
+/* line 38, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.block ol {
+  list-style: decimal;
+  margin-left: 15px; }
+
+/* line 45, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.header img {
+  max-width: 100%;
+  max-height: auto;
+  width: 100%;
+  height: auto; }
+
+/* line 54, /home/vikram/projects/praekelt/molo-ndoh-yep/static/css/ndohyep.enhanced.scss */
+.footer img {
+  max-width: 100%;
+  max-height: auto;
+  width: 100%;
+  height: auto; }
