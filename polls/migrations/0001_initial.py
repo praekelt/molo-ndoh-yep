@@ -8,7 +8,6 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailcore', '0016_auto_20150728_1408'),
         ('core', '0014_sectionpage_extra_style_hints'),
     ]
 
