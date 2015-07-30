@@ -1,6 +1,5 @@
-cd "${INSTALLDIR}/${NAME}/ndohyep/"
-manage="${VENV}/bin/python ${INSTALLDIR}/${NAME}/manage.py"
-
+manage="${VENV}/bin/python ${INSTALLDIR}/${REPO}/manage.py"
+cd "${INSTALLDIR}/${REPO}/"
 $manage migrate --settings=ndohyep.settings.production
 
 # process static files

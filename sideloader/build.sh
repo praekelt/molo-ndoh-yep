@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp -a $REPO ./build/$NAME
+cp -a $REPO ./build/
 
-${PIP} install -r $REPO/requirements.txt
+${PIP} install -r $REPO/
