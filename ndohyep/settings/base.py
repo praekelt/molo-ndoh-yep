@@ -206,4 +206,3 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'ndohyep'),
 )
-
