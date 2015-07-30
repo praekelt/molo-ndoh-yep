@@ -1,3 +1,4 @@
+name: molo-ndoh-yep
 buildscript: sideloader/build.sh
 postinstall: sideloader/postinstall.sh
 pip:
