@@ -42,7 +42,7 @@ COMPRESS_OFFLINE = True
 # }
 
 
-# try:
-#     from .local import *
-# except ImportError:
-#     pass
+try:
+    from .local import *
+except ImportError:
+    pass
