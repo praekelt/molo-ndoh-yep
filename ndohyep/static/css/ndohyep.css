@@ -102,6 +102,12 @@ a:hover, a:active {text-decoration:underline;}
     .header .colorLines {position:absolute; top:60px; left:0px;}
         .colorLines div {width:20%; display:block; float:left; height:5px; z-index:1;}
 
+    #lang li {
+        display: inline;
+    }
+    #lang li a {
+        color: #000;
+    }
     /* Top Level Menu */
     #menu ul#nav {
         float:right;
