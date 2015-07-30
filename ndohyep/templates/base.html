@@ -16,7 +16,7 @@
 {% block header %}
 <div class="header" id="top">
 
-    <a href="/"><img src="{% static 'img/b-wise.png' %}" alt="{% trans "Home" %}" class="logo"></a>
+    <a href="/"><img src="{% static 'img/logo.png' %}" alt="{% trans "Home" %}" class="logo"></a>
 
     <div id="menu">
         <ul id="nav">
@@ -48,11 +48,11 @@
 
     <ul class="nav">
         {% if user.is_authenticated %}
-            <div class="profileHolder"> {% trans "Logged in" %}: 
+            <div class="profileHolder"> {% trans "Logged in" %}:
                 {% if user.profile.alias %}
-                    <strong>{{ user.profile.alias }}</strong> 
+                    <strong>{{ user.profile.alias }}</strong>
                 {% else %}
-                    <strong>{% trans "Anonymous" %}</strong> 
+                    <strong>{% trans "Anonymous" %}</strong>
                 {% endif %}
             </div>
             <li><a href="{% url 'view_my_profile' %}">{% trans "My profile" %}</a></li>
