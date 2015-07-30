@@ -6,7 +6,6 @@ $manage migrate
 # process static files
 $manage compress
 $manage collectstatic --noinput
-$manage compress
 
 # compile i18n strings
 $manage compilemessages
