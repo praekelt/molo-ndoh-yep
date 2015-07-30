@@ -3,7 +3,6 @@ from app.forms import EditProfileForm, ProfilePasswordChangeForm
 from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
-from app.models import UserProfile
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse
@@ -18,13 +17,12 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            dob = form.cleaned_data['date_of_birth']
             user = User.objects.create_user(
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['password'],
             )
-            profile = UserProfile(user=user, date_of_birth=dob)
-            profile.save()
+            user.profile.dob = form.cleaned_data['date_of_birth']
+            user.profile.save()
             return HttpResponseRedirect(reverse('home_page'))
         return render(request, 'registration/register.html', {'form': form})
     form = RegistrationForm()
