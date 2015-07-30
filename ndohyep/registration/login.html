@@ -12,7 +12,7 @@
                 <tr><th><label for="id_password">{% trans "Password:" %}</label></th><td>{{ form.password }}</td></tr>
             </table>
             <input type="submit" value='{% trans "Login" %}' />
-            <input type="hidden" name="next" value="{% url 'home_page' %}" />
+            <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
         </form>
     </div><!-- /form-wrap -->
     {% endblock %}
