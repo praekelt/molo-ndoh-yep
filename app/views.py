@@ -21,7 +21,7 @@ def register(request):
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['password'],
             )
-            user.profile.dob = form.cleaned_data['date_of_birth']
+            user.profile.date_of_birth = form.cleaned_data['date_of_birth']
             user.profile.save()
             return HttpResponseRedirect(reverse('home_page'))
         return render(request, 'registration/register.html', {'form': form})

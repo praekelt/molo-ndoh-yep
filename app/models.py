@@ -19,7 +19,8 @@ class UserProfile(models.Model):
         null=True)
 
 
-@receiver(post_save, sender=UserProfile)
-def user_profile_handler(sender, **kwargs):
-    profile = UserProfile(user=sender)
-    profile.save()
+@receiver(post_save, sender=User)
+def user_profile_handler(sender, instance, created, **kwargs):
+    if created:
+        profile = UserProfile(user=instance)
+        profile.save()
