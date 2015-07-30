@@ -23,19 +23,19 @@ def register(request):
             )
             user.profile.date_of_birth = form.cleaned_data['date_of_birth']
             user.profile.save()
-            return HttpResponseRedirect(request['site'].root_page.url())
+            return HttpResponseRedirect(request.site.root_page.url)
         return render(request, 'registration/register.html', {'form': form})
     form = RegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
 
 
 def register_success(request):
-    return HttpResponseRedirect(request['site'].root_page.url())
+    return HttpResponseRedirect(request.site.root_page.url)
 
 
 def logout_page(request):
     logout(request)
-    return HttpResponseRedirect(request['site'].root_page.url())
+    return HttpResponseRedirect(request.site.root_page.url)
 
 
 class MyProfileView(TemplateView):
