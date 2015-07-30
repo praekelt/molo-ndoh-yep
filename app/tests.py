@@ -62,6 +62,6 @@ class RegisterTestCase(TestCase):
             'password': '1234',
             'date_of_birth': '1980-01-01',
         })
-        self.assertRedirects(response, reverse('home_page'))
+        self.assertRedirects(response, '/')
         user = User.objects.get(username='testing')
         self.assertEqual(user.profile.date_of_birth, date(1980, 1, 1))
