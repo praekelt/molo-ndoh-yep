@@ -1,4 +1,10 @@
+from datetime import date
+
+from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.test.client import Client
+
 from app.forms import RegistrationForm, ProfilePasswordChangeForm
 
 
@@ -48,3 +54,14 @@ class RegisterTestCase(TestCase):
         }
         form = ProfilePasswordChangeForm(data=form_data)
         self.assertEqual(form.is_valid(), True)
+
+    def test_register_sets_dob(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+        self.assertRedirects(response, reverse('home_page'))
+        user = User.objects.get(username='testing')
+        self.assertEqual(user.profile.date_of_birth, date(1980, 1, 1))

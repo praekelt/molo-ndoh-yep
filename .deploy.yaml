@@ -1,5 +1,6 @@
-buildscript: ndohyep/sideloader/build.sh
-postinstall: ndohyep/sideloader/postinstall.sh
+name: molo-ndoh-yep
+buildscript: sideloader/build.sh
+postinstall: sideloader/postinstall.sh
 pip:
  - gunicorn
 dependencies:

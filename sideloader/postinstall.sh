@@ -1,11 +1,11 @@
-cd "${INSTALLDIR}/${NAME}/ndohyep/"
-manage="${VENV}/bin/python ${INSTALLDIR}/${NAME}/ndohyep/manage.py"
-
-$manage migrate --settings=ndohyep.settings.production
+manage="${VENV}/bin/python ${INSTALLDIR}/${NAME}/manage.py"
+cd "${INSTALLDIR}/${NAME}/"
+export DJANGO_SETTINGS_MODULE=ndohyep.settings.production
+$manage migrate
 
 # process static files
-$manage compress --settings=ndohyep.settings.production
-$manage collectstatic --noinput --settings=ndohyep.settings.production
+$manage collectstatic --noinput
+$manage compress
 
 # compile i18n strings
-$manage compilemessages --settings=ndohyep.settings.production
+$manage compilemessages
