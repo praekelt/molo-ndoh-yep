@@ -69,11 +69,6 @@
 
 
 
-
-
-
-
-
 /* Background Colours */
 .grey {background-color:#dedede;}
 .blue {background-color:#69a7ee; color:white;}
@@ -88,12 +83,15 @@
 .title {display:block; clear:both; padding:20px; overflow:hidden;}
 	.title.yellow {background-color:#fec642;}
 	.title.grey {background-color:#cbcbcb;}
+		.title.grey h1 {display:block; width:auto;}
 	.title .image {display:inline-block; vertical-align:middle; width:15%;}
 		.title .image img {max-width:75%}
 	.title h1 {display:inline-block; vertical-align:middle; width:75%; color:white }
 		.title h1 a {color:white }
 		.title h1 span, .title h1 span a {display:block; color:#20364d;}
 
+	
+		
 	
 	
 /* Content Blocks */
@@ -102,7 +100,7 @@
 	img.right {float:right; margin:0 0 10px 10px; max-width:25%;}
 	img.hide {margin:0 -30px 10px 15px; max-width:40%;}
 	@media only screen and (max-width:480px) {	
-		img.hide {margin:0 -30px 10px 15px; max-width:40%;}
+		img.hide {margin:0 -30px 10px 10px; max-width:30%;}
 	}
 
 
@@ -127,7 +125,7 @@ p {padding:0 0 20px;}
 .author {color:white; font-style:italic; padding:0 0 20px;}
 
 	@media only screen and (max-width:480px) {	
-		h2 {font-size:200%; line-height:100%; } 
+		h2 {font-size:175%; line-height:100%; } 
 		
 	}
 
@@ -143,7 +141,7 @@ blockquote.yellow {color:#fec642; background:white; }
 input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:white;}	
 input[type='radio'] {width:auto; padding:0px; margin:0 5px 0 0;}	
 input:focus {background:#eee; color:white; }
-input[type='submit'], button {width:auto; padding:8px 12px; display:inline-block; font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; border:0; margin:0 0 20px; font-weight:700; font-size:100%; color:#13212f; background:rgba(0,0,0,0.15);}
+input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; border:0; margin:0 0 20px; font-weight:700; font-size:100%; color:#13212f; background:rgba(0,0,0,0.15);}
 input[type='submit']:focus {color:#13212f; background:rgba(0,0,0,0.15);}
 .yellow input[type='submit'], .yellow button {background-color:#f2c036;}
 textarea {width:94%; font-size:100%; padding:10px; display:block;}
@@ -161,7 +159,7 @@ textarea {width:94%; font-size:100%; padding:10px; display:block;}
 /* Comments */
 .post-comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:0 20px 10px; width:100%; margin:0 -20px;}
 	.post-comment a {font-weight:700; text-transform:uppercase; }
-	.post-comment a.anon {color:white; margin-left:10px;}
+	.post-comment a.anon {color:white; margin-left:10px; padding:8px 12px; display:inline-block; font-weight:700; color:#13212f; background:white; background:rgba(255,255,255,0.6); text-decoration:none;}	
 .comments-count {text-decoration:none; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:25px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count.png) 0 0 no-repeat;  background-size:100%; color:#20364d; font-size:90%;}
 .comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:20px 20px 0; width:100%; margin:0 -20px;}
 	.comment .by {font-weight:700; text-transform:uppercase; }	
@@ -183,8 +181,7 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 /* Poll Results */
 .poll-result {width:100%; position:relative; padding:0 0 20px}
 	.poll-result p {font-weight:700; padding:10px 0;}
-		.poll-result p strong {font-weight:800; font-size:200%; color:white; padding-right:5px; }
-	.poll-result .bar {display:inline-block; vertical-align:middle; height:50px;}
+	.poll-result .bar {display:inline-block; vertical-align:middle; height:50px; line-height:50px; text-indent:12px; color:white; font-weight:700; font-size:200%; color:white;}
 
 
 
