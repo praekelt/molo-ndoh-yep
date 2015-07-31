@@ -357,6 +357,12 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
             display: inline-block; }
             .form-wrap.change-password form input[type='submit'] {
                 margin-right: 15px; }
+
+    .clear-block {
+        display: block; 
+        clear: both; 
+        padding: 20px 10px; }
+
     form { 
         padding-top: 15px}
         form label {
@@ -401,4 +407,10 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
     color: #20364d; 
     text-decoration: none; }
 
-                    
+.m0 {
+    margin-right: 0 !important; }
+
+a.link {
+    color: #000;
+    font-size: 14px;
+}
