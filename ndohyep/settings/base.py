@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'app',
     'polls',
+    'surveys',
 )
 
 MIDDLEWARE_CLASSES = (
