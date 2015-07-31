@@ -3,17 +3,18 @@
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800' rel='stylesheet' type='text/css'>
 	<title>Search Results</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" /> 
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="description" content="NDOH" />
 	<meta name="keywords" content="NDOH" />
 	<meta property="og:title" content="NDOH" />
 	<meta property="og:description" content="NDOH">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimal-ui">
-	<meta name="robots" content="all,index,follow" />	
-	<link rel="stylesheet" type="text/css" media="screen,projection" href="css/styles.css"/>	
+	<meta name="robots" content="all,index,follow" />
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="css/desktop.css"/>
 	<link rel="stylesheet" href="css/smart.css" type="text/css" media="screen and (min-width:320px)" />
 	<link rel="stylesheet" href="css/feature.css" type="text/css" media="screen and (max-width:319px)" />
-	
+
     <script type="text/javascript">
     //<![CDATA[
     var menuItems = new Array();
@@ -28,7 +29,7 @@
         var span = getFirstChildWithTagName( menuItems[i], 'SPAN' );
         span.onclick = toggleItem;
       }
-     
+
 	  // Hide all accordion item bodies except the first
       for ( var i = 0; i < menuItems.length; i++ ) {
         menuItems[i].className = 'menuItem hide';
@@ -36,12 +37,12 @@
     }
     function toggleItem() {
       var itemClass = this.parentNode.className;
-      
+
 	  // Hide all items
       for ( var i = 0; i < menuItems.length; i++ ) {
         menuItems[i].className = 'menuItem hide';
       }
-      
+
 	  // Show this item if it was previously hidden
       if ( itemClass == 'menuItem hide' ) {
         this.parentNode.className = 'menuItem';
@@ -54,30 +55,30 @@
     }
      //]]>
     </script>
-		
+
 </head>
 
 <body onload="init()">
 
 <div class="header">
-	
+
 	<a href="index.html"><img src="img/b-wise.png" alt="B-WISE!" class="logo"></a>
-	
+
 	<div class="feature-menu">
 		<a href="profile.html">Profile</a>
 		<a href="#feature-menu">Menu</a>
-	</div>	
-	
+	</div>
+
 	<div class="menu">
-    	
+
 	    <div class="menuItem" id="profile">
 	      <span class="menuIcon">Profile</span>
 	      <div class="content">
-	       	
+
 				<div class="join">
 					<h2>Join the community!</h2>
 					<h4>We’re excited to meet you...</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>						
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>
 					<div class="signin-form">
 						<label>Choose a Username:</label>
 						<input type="text" placeholder="Type new display name here">
@@ -87,26 +88,26 @@
 						<a href="" href="" class="white-link">already a member?</a>
 					</div><!-- /signin-form -->
 				</div><!-- /join -->
-			
+
 	      </div>
 	    </div><!-- /menuItem -->
 
 	    <div class="menuItem" id="search">
 	      <span class="menuIcon">Search</span>
 	      <div class="content">
-	        	
+
 				<div class="search-form">
 					<input type="search" placeholder="Search for something...">
 					<input type="submit" value="Search">
 				</div>
-				
+
 	      </div>
 	    </div><!-- /menuItem -->
 
 	    <div class="menuItem" id="pages">
 	      <span class="menuIcon">Pages</span>
 	      <div class="content">
-	        	
+
 				<ul>
 					<li><a href="poll.html">SPEAK OUT</a></li>
 					<li><a href="latest-posts.html">LATEST POSTS</a></li>
@@ -115,19 +116,19 @@
 					<li><a href="healthy-living.html">HEALTHY LIVING</a></li>
 					<li><a href="your-relationships.html">YOUR RELATIONSHIPS</a></li>
 				</ul>
-				
+
 	      </div>
 	    </div><!-- /menuItem -->
-		
-	</div><!-- /menu -->		
+
+	</div><!-- /menu -->
 
 </div><!-- /header -->
 
 
-<div class="block grey join">		
+<div class="block grey join">
 	<h2>Join the community!</h2>
 	<h4>We’re excited to meet you...</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>						
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>
 	<div class="signin-form">
 		<label>Choose a Username:</label>
 		<input type="text" placeholder="Type new display name here">
@@ -136,16 +137,16 @@
 		<input type="submit" value="Join"><br>
 		<a href="">ALREADY A MEMBER?</a>
 	</div><!-- /signin-form -->
-	
-	
+
+
 </div><!-- /block -->
 
 
 
 <div id="feature-menu">
-	
+
 	<p class="backtotop"><a href="#top">< Back to top</a></p>
-	
+
 	<ul>
 		<li>Menu</li>
 		<li class="grey"><a href="poll.html">SPEAK OUT</a></li>
@@ -159,11 +160,11 @@
 
 
 <div class="footer">
-	
+
 	<p><img src="img/dpt-health.gif" alt="Department of Health logo"></p>
 	<p><a href="">Privacy Policy</a> <a href="">Terms of Use</a></p>
 	<p>&copy; 2015 <a href="http://www.health.gov.za/">Department of Health, Republic of South Africa</a></p>
-		
+
 </div>
 
 </body>
