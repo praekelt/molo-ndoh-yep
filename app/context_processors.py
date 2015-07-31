@@ -1,4 +1,5 @@
 from app.forms import EditProfileForm
+from app.models import UserProfile
 
 
 def get_profile_data(request):
@@ -15,7 +16,7 @@ def get_profile_data(request):
             else:
                 alias = 'Anonymous'
             date_of_birth = profile.date_of_birth
-        except:
+        except UserProfile.DoesNotExist:
             pass
     edit_profile_form = EditProfileForm(
         initial={
