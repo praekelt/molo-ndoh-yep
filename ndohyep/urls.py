@@ -14,6 +14,7 @@ urlpatterns = patterns(
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^', include('app.urls')),
     url(r'^polls/', include('polls.urls')),
+    url(r'^surveys/', include('surveys.urls')),
     url(r'', include('molo.core.urls')),
     url(r'', include(wagtail_urls)),
 )

@@ -1,5 +1,5 @@
 {% extends "core/_article_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags poll_votings%}
+{% load wagtailcore_tags wagtailimages_tags poll_votings survey_postings %}
 
 {% block content %}
 <div class="block {{self.get_parent_section.get_effective_extra_style_hints}}">
@@ -36,5 +36,6 @@
       {% endif %}
   {% endfor %}
   {% poll_page page=self %}
+  {% survey_page page=self %}
 </div><!-- /block -->
 {% endblock %}

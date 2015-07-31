@@ -5,21 +5,10 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailsearch import index
 
 from molo.core.models import LanguagePage
-import surveys
 
 
-class LanguagePage(LanguagePage):
-    LanguagePage.subpage_types = [
-        'core.HomePage',
-        'core.SectionPage',
-        'core.FooterPage',
-        'polls.Question',
-        'surveys.Survey'
-    ]
-
-
-class Question(Page):
-    question_text = models.CharField(max_length=200)
+class Survey(Page):
+    survey_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     page = models.ForeignKey(
         'wagtailcore.Page',
@@ -31,40 +20,37 @@ class Question(Page):
     )
 
     def __str__(self):
-        return self.question_text
+        return self.survey_text
 
     search_fields = Page.search_fields + (
         index.SearchField('pub_date'),
-        index.SearchField('question_text'),
+        index.SearchField('survey_text'),
     )
 
     content_panels = Page.content_panels + [
         FieldPanel('page'),
         FieldPanel('pub_date'),
-        FieldPanel('question_text'),
+        FieldPanel('survey_text'),
     ]
-    subpage_types = ['polls.Choice']
 
 
-class Choice(Page):
-    question = models.ForeignKey(
-        Question,
+class Answer(Page):
+    survey = models.ForeignKey(
+        Survey,
         null=True,
         blank=True,
         on_delete=models.SET_NULL
     )
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    answer_text = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.choice_text
+        return self.answer_text
 
     search_fields = Page.search_fields + (
-        index.SearchField('choice_text'),
+        index.SearchField('answer_text'),
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('question'),
-        FieldPanel('choice_text'),
-        FieldPanel('votes'),
+        FieldPanel('survey'),
+        FieldPanel('answer_text'),
     ]

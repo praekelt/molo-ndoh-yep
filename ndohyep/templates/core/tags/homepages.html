@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtailimages_tags poll_votings %}
+{% load wagtailcore_tags wagtailimages_tags poll_votings survey_postings %}
 
 {% if homepages %}
 {% for homepage in homepages %}
@@ -12,5 +12,6 @@
   {% endif %}
 </div>
 {% poll_page page=homepage %}
+{% survey_page page=homepage %}
 {% endfor%}
 {% endif %}
