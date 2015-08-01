@@ -4,8 +4,6 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailsearch import index
 
-from molo.core.models import LanguagePage
-
 
 class Survey(Page):
     survey_text = models.CharField(max_length=200)

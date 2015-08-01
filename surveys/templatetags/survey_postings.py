@@ -12,13 +12,8 @@ register = template.Library()
                         takes_context=True)
 def survey_page(context, pk=None, page=None):
     context = copy(context)
-    questions = Survey.objects.filter(page=page.id)
-    if questions:
-        context.update({
-            'questions': questions
-        })
-    else:
-        context.update({
-            'error': True,
-        })
+    survey_questions = Survey.objects.filter(page=page.id)
+    context.update({
+        'questions': survey_questions
+    })
     return context
