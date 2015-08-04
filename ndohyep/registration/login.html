@@ -2,17 +2,23 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="form-wrap">
-        <form method="post" action=".">{% csrf_token %}
-             {% if form.errors %}
-                <p class="errorlist">{% trans "Your username and password does not match. Please try again." %}</p>
-            {% endif %}
-            <table border="0">
-                <tr><th><label for="id_username">{% trans "Username:" %}</label></th><td>{{ form.username }}</td></tr>
-                <tr><th><label for="id_password">{% trans "Password:" %}</label></th><td>{{ form.password }}</td></tr>
-            </table>
-            <input type="submit" value='{% trans "Login" %}' />
-            <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
-        </form>
-    </div><!-- /form-wrap -->
-    {% endblock %}
+<div class="menu-item profile open"><span>{% trans "Login" %}</span></div>
+    <div class="auth-content">
+        <div class="join">                    
+            <div class="signin-form">
+                <form method="post" action=".">{% csrf_token %}
+                    {% if form.errors %}
+                        <p class="error">{% trans "Your username and password does not match. Please try again." %}</p>
+                    {% endif %}
+                    <label>{% trans "Username:" %}</label>
+                    {{ form.username }}
+                    <label>{% trans "Password:" %}</label>
+                    {{ form.password }}<br>
+                    <input type="submit" value="{% trans 'Login' %}"><br>
+                    <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
+                </form>
+                <a href="{% url 'user_register' %}" class="white-link">{% trans "Join" %}</a>
+            </div><!-- /signin-form -->
+        </div><!-- /join -->
+    </div>
+{% endblock %}

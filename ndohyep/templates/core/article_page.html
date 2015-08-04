@@ -1,22 +1,26 @@
 {% extends "core/_article_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags i18n %}
+
 
 {% block content %}
-<div class="block {{self.get_parent_section.get_effective_extra_style_hints}}">
-{%  with parent=self.get_ancestors.last %}
-    <h6><a href="{% pageurl parent %}">{{parent.title}}</a></h6>
-{% endwith %}
 
-    <h2>{{self.title}}</h2>
-    <p>{{self.subtitle}}</p>
-    {% if self.image %}{% image self.image width-240 %}{% endif %}
+<div class="title yellow">
+  <div class="image">{% if self.image %}{% image self.image width-240 %}{% endif %}</div>
+  {%  with parent=self.get_ancestors.last %}
+    <h1><a href="{% pageurl parent %}">{{parent.title}}</a> <span>Sub Category</span></h1>
+  {% endwith %}
+</div><!-- /title -->
+
+<div class="block yellow">
+  <h2>{{self.title}}</h2>
+  <p>{{self.subtitle}} </p>
+  <div class="author">{% trans "Author & Date" %} {{self.first_published_at|date:"j F Y"}}</div> 
 </div><!-- /block -->
 
+
 <div class="block white">
-
-    <div class="author-date">{{self.first_published_at|date:"j F Y"}}</div>
-
-    {% for block in self.body %}
+  
+  {% for block in self.body %}
       {% if block.block_type == 'heading' %}
           <h1>{{ block.value }}</h1>
       {% else %}
@@ -36,4 +40,45 @@
       {% endif %}
   {% endfor %}
 </div><!-- /block -->
+
+
+<div class="block yellow">  
+  
+  <div class="post-comment">
+    <a href="" class="comments-count">12</a>
+    <h4>{% trans "Add a Comment" %}</h4>
+    <p><textarea rows="5"></textarea></p>
+    <button>{% trans "ADD" %}</button> <a href="" class="anon">{% trans "ADD anonymously" %}</a>  
+  </div><!-- /post-comment -->  
+  
+  <div class="comment">
+    <p class="by">jane doe <span class="date">14:02 Mar 2015</span></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. </p>
+    <p><a href="" class="report">{% trans "Report"%} +</a></p> 
+  </div><!-- /comment -->
+  
+  <div class="comment">
+    <p class="by">jane doe <span class="date">14:02 Mar 2015</span></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. </p>
+    <p><a href="" class="report">{% trans "Report"%} +</a></p> 
+  </div><!-- /comment -->
+    
+  <p class="back"><a href="javascript: history.go(-1)">< {% trans "Back" %}</a></p> 
+  
+</div><!-- /block -->
+
+
+<div class="block yellow">  
+  
+  <div class="post-comment">
+    <a href="" class="comments-count">12</a>
+    <h4>{% trans "Add a Comment" %}</h4>
+    <p>{% trans "You need to be signed in to add a comment." %}</p>
+    {% if not user.is_authenticated %}<button>{% trans "SIGN IN" %}</button>{% endif %}
+  </div><!-- /post-comment -->  
+    
+  <p class="back"><a href="">< {% trans "Back" %}</a></p> 
+  
+</div><!-- /block -->
+
 {% endblock %}
