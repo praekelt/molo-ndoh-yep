@@ -4,7 +4,7 @@ body {font:14px Arial, Helvetica, sans-serif; background:white; font-weight:bold
 
 /* Fonts */
 h1 {text-transform:uppercase; font-size:125%; line-height:100%;}	
-h2 {font-size:200%; line-height:100%; padding:15px 0; font-weight:bold; text-transform:uppercase; } 
+h2 {font-size:175%; line-height:100%; padding:15px 0; font-weight:bold; text-transform:uppercase; } 
 h3 {font-size:125%; line-height:100%; margin:10px 0; font-weight:bold; text-transform:uppercase; } 
 h4 {font-weight:bold; font-size:125%; line-height:125%; padding:10px 0;}
 p {padding:0 0 15px;}
@@ -90,7 +90,7 @@ input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
 	.post-comment p {font-weight:normal;}
 .comments-count {text-decoration:none; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:27px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count-grey.png) 0 0 no-repeat;  background-size:100%; color:white !important; font-size:90%;}
 .comment {font-weight:normal; border-top:1px solid #ddd; padding:20px 20px 0; width:100%; margin:0 -15px;}
-	.post-comment a.anon {color:#bbb; margin-left:10px;}
+	.post-comment .anon {color:#bbb; margin-left:10px; }
 	.comment .by {font-weight:bold; text-transform:uppercase; }	
 		.comment .by .date {font-weight:normal; font-style:italic; padding:0 0 0 10px; color:#bbb;}
 	.comment .report {font-weight:bold; text-transform:uppercase; color:#bbb;}
