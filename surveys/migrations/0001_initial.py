@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailcore', '0017_auto_20150731_1102'),
+        ('wagtailcore', '0016_change_page_url_path_to_text_field'),
     ]
 
     operations = [
