@@ -2,20 +2,26 @@
 {% block content %}
 	{% if questions %}
 		{% for question in questions %}
-		<div class="clear-block">
-		<h1>{{ question.question_text }}</h1>
-			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-				<form action="{% url 'vote' question.id %}" method="post">
-					{% csrf_token %}
-					{% for choice in question.choice_set.all %}
-					    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-					    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-					{% endfor %}
-					<input class="m0" type="submit" value="{% trans "Vote" %}" />
-				</form>
-				<a class="link" href="{% url 'results' question.id %}">{% trans "See Results" %}</a>
-				</div>
-				<div class="clear-block">
+			<div class="block grey">
+				<h6 class="speak"><a href="">{% trans "SPEAK OUT" %}</a></h6>
+				<h2>{{ question.question_text }}</h2>
+				{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+				<div class="radios">
+
+					<form action="{% url 'vote' question.id %}" method="post">
+						{% csrf_token %}
+						{% for choice in question.choice_set.all %}
+							<div>
+							    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+							    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+							</div>
+						{% endfor %}
+						<div>
+							<input type="submit" value="{% trans "Vote" %}" />
+						</div>
+					</form>
+				</div><!-- /radios -->
+		</div><!-- /block -->
 		{% endfor %}
 	{% else %}
 		<p>{% trans "No polls are available."%}</p>
