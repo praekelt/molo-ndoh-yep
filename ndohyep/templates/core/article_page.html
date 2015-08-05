@@ -1,5 +1,5 @@
 {% extends "core/_article_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags i18n %}
+{% load wagtailcore_tags wagtailimages_tags i18n poll_votings %}
 
 
 {% block content %}
@@ -39,6 +39,7 @@
       {% endif %}
       {% endif %}
   {% endfor %}
+  {% poll_page page=self %}
 </div><!-- /block -->
 
 

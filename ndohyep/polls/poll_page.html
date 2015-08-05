@@ -1,0 +1,23 @@
+{% load i18n %}
+{% block content %}
+	{% if questions %}
+		{% for question in questions %}
+		<div class="clear-block">
+		<h1>{{ question.question_text }}</h1>
+			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+				<form action="{% url 'vote' question.id %}" method="post">
+					{% csrf_token %}
+					{% for choice in question.choice_set.all %}
+					    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+					    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+					{% endfor %}
+					<input class="m0" type="submit" value="{% trans "Vote" %}" />
+				</form>
+				<a class="link" href="{% url 'results' question.id %}">{% trans "See Results" %}</a>
+				</div>
+				<div class="clear-block">
+		{% endfor %}
+	{% else %}
+		<p>{% trans "No polls are available."%}</p>
+	{% endif %}
+{% endblock %}

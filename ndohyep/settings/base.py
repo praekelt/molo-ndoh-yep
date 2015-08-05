@@ -70,6 +70,7 @@ INSTALLED_APPS = (
     'molo.core',
     'raven.contrib.django.raven_compat',
     'app',
+    'polls',
 )
 
 MIDDLEWARE_CLASSES = (
