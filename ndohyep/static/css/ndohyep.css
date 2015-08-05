@@ -99,7 +99,7 @@ a:hover, a:active {text-decoration:underline;}
 
     /* Coloured Lines */
     .colorLines {display:block; width:100%; height:5px; z-index:1;}
-    .header .colorLines {position:absolute; top:60px; left:0px;}
+    .header .colorLines {position:absolute; top:80px; left:0px;}
         .colorLines div {width:20%; display:block; float:left; height:5px; z-index:1;}
 
     #lang li {
@@ -347,7 +347,7 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
 
 /* Form Wrap Styles */
 .form-wrap {
-    display: block; 
+    display: block;
     clear: both; }
     .form-wrap.change-password p {
         display: inline-block; }
@@ -373,10 +373,10 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
                     padding: 1px; }
                 form input[type='submit'] {
                     float: right;
-                    margin: 10px 40px 15px 0; 
+                    margin: 10px 40px 15px 0;
                     padding: 5px 20px; }
                     .errorlist {
-                        font-size: 13px; 
+                        font-size: 13px;
                         line-height: normal;
                         color: red; }
                         p.errorlist {
@@ -387,24 +387,24 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
 .profile-style {
     padding: 15px 10px; }
     .profile-style h4 {
-        font-size: 20px; 
+        font-size: 20px;
         text-align: right; }
         .profile-style label {
-            display: block; 
+            display: block;
             font-size: 16px;
             text-align: right; }
-            .profile-style p { 
+            .profile-style p {
                 padding: 5px 0;
                 text-align: right; }
                 .profile-style input[type="button"] {
                     padding: 5px 20px }
                     .profile-style form input[type='submit'] {
                         margin-right: 0; }
-                        
+
 .profileHolder {
     padding: 0 20px; }
     .profileHolder a {
-    color: #20364d; 
+    color: #20364d;
     text-decoration: none; }
 
 .m0 {

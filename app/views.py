@@ -30,16 +30,12 @@ def register(request):
 
 
 def register_success(request):
-    return HttpResponseRedirect(reverse('home_page'))
+    return HttpResponseRedirect(request.site.root_page.url)
 
 
 def logout_page(request):
     logout(request)
-    return HttpResponseRedirect(reverse('home_page'))
-
-
-def home(request):
-    return render(request, 'core/main.html')
+    return HttpResponseRedirect(request.site.root_page.url)
 
 
 class MyProfileView(TemplateView):
