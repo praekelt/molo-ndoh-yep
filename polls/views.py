@@ -2,8 +2,9 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
-
+from django.utils.translation import ugettext_lazy as _
 from polls.models import Choice, Question
+from django.db.models import F
 
 
 class IndexView(generic.ListView):
@@ -28,14 +29,13 @@ class ResultsView(generic.DetailView):
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
+        selected_choice = Choice.objects.filter(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': "You didn't select a choice.",
+            'error_message': _("You didn't select a choice."),
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
+        selected_choice.update(votes=F('votes') + 1)
         return HttpResponseRedirect(reverse('results', args=(question.id,)))

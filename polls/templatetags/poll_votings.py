@@ -13,12 +13,7 @@ register = template.Library()
 def poll_page(context, pk=None, page=None):
     context = copy(context)
     polls = Question.objects.filter(page=page.id)
-    if polls:
-        context.update({
-            'questions': polls
-        })
-    else:
-        context.update({
-            'error': True,
-        })
+    context.update({
+        'questions': polls
+    })
     return context
