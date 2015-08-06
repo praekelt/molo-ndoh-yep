@@ -1,13 +1,14 @@
 {% load wagtailcore_tags wagtailimages_tags i18n %}
 
 {% if articles %}
-<div class="block yellow">
-    <h6>{% trans "Latest" %}</h6>
-
-    <div class="options">
-    {% for page in articles %}
-        <a href="{% pageurl page %}">{{page.title}} ></a>
-    {% endfor %}
-    </div><!-- /options -->
+<div class="block blue">
+	<h6 class="bubble">{% trans "LATEST ARTICLES" %}</h6>
+	<h2>LONG ARTICLE TITLE GOES HERE IN THIS AREA </h2>
+	{% for page in articles %}
+		<div class="article-link">
+			<h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
+			<a href="" class="comments-count">12</a>
+		</div><!-- /article-link -->
+	{% endfor %}
 </div><!-- /block -->
 {% endif %}

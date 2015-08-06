@@ -2,7 +2,7 @@
 
 {% if homepages %}
 {% for homepage in homepages %}
-<div class="header">
+<div class="Banner">
   {% if homepage.banner %}
     {% if homepage.banner_link_page %}
     <a href="{% pageurl homepage.banner_link_page %}">{% image homepage.banner width-240 %}</a>

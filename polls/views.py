@@ -21,9 +21,27 @@ class DetailView(generic.DetailView):
     template_name = 'polls/detail.html'
 
 
-class ResultsView(generic.DetailView):
-    model = Question
-    template_name = 'polls/results.html'
+def poll_results(request, poll_id):
+    question = get_object_or_404(Question, pk=poll_id)
+    choices = list(question.choice_set.all())
+    total_votes = sum(c.votes for c in choices)
+    choice_color = ['orange', 'purple', 'turq']
+    index = 0
+    for choice in choices:
+        if index >= len(choice_color):
+            index = 0
+        vote = choice.votes
+        vote_percentage = int(vote * 100.0 / total_votes)
+        choice.percentage = vote_percentage
+        choice.color = choice_color[index]
+        index += 1
+
+    context = {
+        'question': question,
+        'total': total_votes,
+        'choices': choices
+    }
+    return render(request, 'polls/results.html', context,)
 
 
 def vote(request, question_id):

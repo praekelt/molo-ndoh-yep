@@ -1,6 +1,6 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags static %}
 
-{% if sections %}
+<!-- {% if sections %}
 {% for section in sections %}
 
 <div class="block {{section.get_effective_extra_style_hints}}">
@@ -17,9 +17,31 @@
     {% for page in section.featured_articles_in_homepage|slice:"1:3" %}
         <a href="{% pageurl page %}">{{page.title}} ></a>
     {% endfor %}
-    </div><!-- /options -->
+    </div>
     {% if section.featured_articles_in_homepage %}
     <p><a href="{% pageurl section %}">+ VIEW MORE ARTICLES ABOUT {{section.title}}</a></p>
+    {% endif %}
+</div>
+{% endfor%}
+{% endif %} -->
+
+
+{% if sections %}
+{% for section in sections %}
+<div class="block purple">
+    {% if section.image %}
+    {% image section.image width-240 class="right hide" %}
+    {% endif %}
+    <h2>{{section.title}}</h2>
+    <p>{{section.description}} </p>
+        {% for page in section.featured_articles_in_homepage %}
+            <div class="article-link">
+            <h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
+            <a href="" class="comments-count">12</a>
+            </div><!-- /article-link -->
+        {% endfor %}
+    {% if section.featured_articles_in_homepage %}
+    <p class="more"><a href="{% pageurl section %}">more [category title] +</a></p>  
     {% endif %}
 </div><!-- /block -->
 {% endfor%}

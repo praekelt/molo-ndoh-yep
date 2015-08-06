@@ -5,8 +5,9 @@
 
 {% block main_css %}
 {% compress css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/ndohyep.css' %}?v=20150615">
-<link rel="stylesheet" type="text/x-scss" media="screen and (min-width: 20em)" href="{% static 'css/ndohyep.enhanced.scss' %}?v=20150619">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="{% static 'css/styles.css' %}"/>  
+<link rel="stylesheet" href="{% static 'css/smart.css' %}" type="text/css" media="screen and (min-width:320px)" />
+<link rel="stylesheet" href="{% static 'css/feature.css' %}" type="text/css" media="screen and (max-width:319px)" />
 {% endcompress %}
 {% endblock %}
 
@@ -22,77 +23,91 @@
         {% endfor %}
     </ul>
     {% endif %}
-
-    <a href="/"><img src="{% static 'img/b-wise.png' %}" alt="{% trans "Home" %}" class="logo"></a>
-
-    <div id="menu">
-        <ul id="nav">
-            <li><a href="#nav-area">{% trans "Menu" %}</a></li>
-        </ul>
-    </div><!-- /menu -->
-
-    <div class="colorLines">
-        <div class="yellow"></div>
-        <div class="orange"></div>
-        <div class="lightblue"></div>
-        <div class="blue"></div>
-        <div class="darkblue"></div>
-    </div><!-- /colorLines -->
-
-</div><!-- /header -->
-{% endblock %}
-{% block bottom %}
-<div id="nav-area" class="yellow">
-    <a href="#top" class="backtotop">{% trans "Back to top" %}</a>
-
-    <!--
-    <div class="search-form">
-        <input placeholder="{% trans "Type keyword here" %}" type="search">
-        <a href="">{% trans "GO" %}</a>
+    
+    <a href="/"><img src="{% static 'img/b-wise.png' %}" alt="B-WISE!" class="logo"></a>  
+    
+    <div class="feature-menu">
+        <a href="">{% trans "Profile" %}</a>
+        <a href="#feature-menu">{% trans "Menu" %}</a>
     </div>
-    -->
+    
+    <div class="menu">
+        {% if not user.is_authenticated %}
+        <div class="menu-item profile"><span>{% trans "Profile" %}</span></div>
+        <div class="menu-content profile">
+            <div class="join">
+                <h2>{% trans "Join the community!" %}</h2>
+                <h4>{% trans "We’re excited to meet you..." %}</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>                        
+                <div class="signin-form">
+                    <form method="post" action="{% url 'user_register' %}">{% csrf_token %}
+                        <label>{% trans "Choose a Username:" %}</label>
+                        {{registration_form.username}}
+                        <label>{% trans "Choose a 4 Digit Password:" %}</label>
+                        {{registration_form.password}}
+                        {{registration_form.date_of_birth}}
+                        <input type="submit" value="{% trans 'Join' %}"><br>
+                        <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
+                    </form>
+                    <a href="{% url 'auth_login' %}" class="white-link">already a member?</a>
+                </div><!-- /signin-form -->
+            </div><!-- /join -->
 
-    <ul class="nav">
-        {% if user.is_authenticated %}
-            <div class="profileHolder"> {% trans "Logged in" %}:
-                {% if user.profile.alias %}
-                    <strong>{{ user.profile.alias }}</strong>
-                {% else %}
-                    <strong>{% trans "Anonymous" %}</strong>
-                {% endif %}
-            </div>
-            <li><a href="{% url 'view_my_profile' %}">{% trans "My profile" %}</a></li>
-            <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
-        {% else %}
-            <li><a href="{% url 'auth_login' %}">{% trans "Log In" %}</a></li>
-            <li><a href="{% url 'user_register' %}">{% trans "Register" %}</a></li>
+        </div>
         {% endif %}
-        <li><a href="/">{% trans "Home"|upper %}</a></li>
-        {% for section in language_page.sections %}
-        <li><a href="{% pageurl section %}">{{section.title|upper}}</a></li>
-        {% endfor %}
-    </ul>
+        <div class="menu-item search"><span>{% trans "Search" %}</span></div>
+        <div class="menu-content search">
+            <div class="search-form">
+                <input type="search" placeholder="{% trans 'Search for something...' %}">
+                <input type="submit" value="{% trans 'Search' %}">
+            </div>  
+        </div>
+        
+        <div class="menu-item pages"><span>{ % trans "Pages" %}</span></div>
+        <div class="menu-content pages">
+            <ul>
+                <li><a href=""><span>SPEAK OUT</span></a></li>
+                <li><a href=""><span>LATEST POSTS</span></a></li>
+                <li><a href=""><span>YOUR MIND</span></a></li>
+                <li><a href=""><span>YOUR BODY</span></a></li>
+                <li><a href=""><span>HEALTHY LIVING</span></a></li>
+                <li><a href=""><span>YOUR RELATIONSHIPS</span></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'view_my_profile' %}">{% trans "My profile" %}</a></li>
+                    <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    
+    </div><!-- /menu -->        
+
 </div>
 {% endblock %}
 
+
+{% block bottom %}
+
+{% endblock %}
+
+
+
+<div id="feature-menu">
+    <p class="backtotop"><a href="#top">< {% trans "Back to top" %}</a></p>
+    <ul>
+        <li>{% trans "Menu" %}</li>
+        <li class="grey"><a href="poll.html">SPEAK OUT</a></li>
+        <li class="blue"><a href="latest-posts.html">LATEST POSTS</a></li>
+        <li class="yellow"><a href="your-mind.html">YOUR MIND</a></li>
+        <li class="orange"><a href="your-body.html">YOUR BODY</a></li>
+        <li class="purple"><a href="healthy-living.html">HEALTHY LIVING</a></li>
+        <li class="turq"><a href="your-relationships.html">YOUR RELATIONSHIPS</a></li>
+    </ul>
+</div><!-- /feature-menu -->
+
 {% block footer %}
 <div class="footer">
-
-    <p><img src="{% static 'img/dpt-health.gif' %}" alt="{% trans "Department of Health, Republic of South Africa" %}"></p>
-    <p>
-        {% for page in language_page.footers %}
-        <a href="{% pageurl page %}">{{page.title}}</a>
-        {% endfor %}
-    </p>
-
-    <p>&copy; {% now "Y" %} <a href="http://www.health.gov.za/">{% trans "Department of Health, Republic of South Africa" %}</a></p>
-
-    <div class="colorLines">
-        <div class="yellow"></div>
-        <div class="orange"></div>
-        <div class="lightblue"></div>
-        <div class="blue"></div>
-        <div class="darkblue"></div>
-    </div><!-- /colorLines -->
+    <p><img src="{% static 'img/dpt-health.gif' %}" alt="{% trans 'Department of Health logo' %}"></p>
+    <p><a href="">{% trans "Privacy Policy" %}</a> <a href="">{% trans "Terms of Use" %}</a></p>
+    <p>&copy; {% now "Y" %} <a href="http://www.health.gov.za/">{% trans "Department of Health, Republic of South Africa" %}</a></p>   
 </div>
 {% endblock %}
