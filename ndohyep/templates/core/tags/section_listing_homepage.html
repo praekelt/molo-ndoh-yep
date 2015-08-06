@@ -4,7 +4,9 @@
 {% for section in sections %}
 <div class="block {{section.get_effective_extra_style_hints}}">
     {% if section.image %}
-    {% image section.image width-240 class="right hide" %}
+    {% image section.image width-240 as tmp_photo %}
+    <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ section.image.title }}"
+         class="right hide" />
     {% endif %}
     <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
     <p>{{section.description}} </p>

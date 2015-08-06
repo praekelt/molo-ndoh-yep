@@ -5,7 +5,11 @@
 <div class="Banner">
   {% if homepage.banner %}
     {% if homepage.banner_link_page %}
-    <a href="{% pageurl homepage.banner_link_page %}">{% image homepage.banner width-240 %}</a>
+    {% image homepage.banner width-240 as tmp_photo %}
+    <a href="{% pageurl homepage.banner_link_page %}">
+    <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ homepage.banner.title }}"
+         class="right hide" />
+    </a>
     {% else %}
     {% image homepage.image width-240 %}
     {% endif %}
