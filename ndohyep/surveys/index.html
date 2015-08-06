@@ -5,6 +5,4 @@
 		<li><a href="{% url 'detail' question.id %}">{{ question.answer_text }}</a></li>
     {% endfor %}
     </ul>
-{% else %}
-    <p>{% trans "No surveys are available." %}</p>
 {% endif %}
