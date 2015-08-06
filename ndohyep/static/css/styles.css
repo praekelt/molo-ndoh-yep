@@ -34,15 +34,3 @@ img {max-width:100%;}
 	.footer img {max-width:50%;}
 	.footer a {color:#20364d; text-decoration:underline; padding:0 8px 0 2px;}
 	.footer a:hover, .footer a:active {color:#f36c40;}
-
-/* Custom style */
-input:focus {
-    color: #000 !important; }
-.signin-form select {
-	padding: 5px;
-	font-size: 16px; }
-
-.errorlist { 
-	color: red;
-	font-weight: normal;
-	font-size: 14px; }

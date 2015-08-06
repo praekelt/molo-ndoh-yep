@@ -10,59 +10,80 @@
     <head>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800' rel='stylesheet' type='text/css'>
         <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8" /> 
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
         <meta name="description" content="NDOH" />
         <meta name="keywords" content="NDOH" />
         <meta property="og:title" content="NDOH" />
         <meta property="og:description" content="NDOH">
         <meta name="viewport" content="width=device-width,initial-scale=1.0, minimal-ui">
-        <meta name="robots" content="all,index,follow" /> 
+        <meta name="robots" content="all,index,follow" />
         {% block main_css %}
         {% compress css %}
-            <link rel="stylesheet" type="text/css" media="screen,projection" href="{% static 'css/styles.css' %}"/>  
-            <link rel="stylesheet" href="{% static 'css/smart.css' %}" type="text/css" media="screen and (min-width:320px)" />
-            <link rel="stylesheet" href="{% static 'css/feature.css' %}" type="text/css" media="screen and (max-width:319px)" />
+          <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/styles.css' %}"/>
+          <link rel="stylesheet" type="text/css" href="{% static 'css/desktop.css' %}"/>
+          <link rel="stylesheet" type="text/css" href="{% static 'css/feature.css' %}"/>
+          <link rel="stylesheet" type="text/css" media="screen and (min-width:320px)" href="{% static 'css/smart.css' %}"/>
         {% endcompress %}
         {% endblock %}
 
+        {% block extra_style %}
+        {% endblock %}
+
         {% block main_js %}
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>    
-        $(function($) {
-          var allAccordions = $('.menu .menu-content');
-          var allAccordionItems = $('.menu .menu-item');
-          $('.menu > .menu-item').click(function() {
-            if($(this).hasClass('open'))
-            {
-              $(this).removeClass('open');
-              $(this).next().slideUp("fast");
-            }
-            else
-            {
-              allAccordions.slideUp("fast");
-              allAccordionItems.removeClass('open');
-              $(this).addClass('open');
-              $(this).next().slideDown("fast");
-              return false;
-            }
-          });
-        });
-        </script> 
+        <script type="text/javascript">
+        var menuItems = new Array();
+        function init() {
+          // Grab the accordion items from the page
+          var divs = document.getElementsByTagName( 'div' );
+          for ( var i = 0; i < divs.length; i++ ) {
+            if ( divs[i].className == 'menuItem' ) menuItems.push( divs[i] );
+          }
+          // Assign onclick events to the accordion item headings
+          for ( var i = 0; i < menuItems.length; i++ ) {
+            var span = getFirstChildWithTagName( menuItems[i], 'SPAN' );
+            span.onclick = toggleItem;
+          }
+
+        // Hide all accordion item bodies except the first
+          for ( var i = 0; i < menuItems.length; i++ ) {
+            menuItems[i].className = 'menuItem hide';
+          }
+        }
+        function toggleItem() {
+          var itemClass = this.parentNode.className;
+
+        // Hide all items
+          for ( var i = 0; i < menuItems.length; i++ ) {
+            menuItems[i].className = 'menuItem hide';
+          }
+
+        // Show this item if it was previously hidden
+          if ( itemClass == 'menuItem hide' ) {
+            this.parentNode.className = 'menuItem';
+          }
+        }
+        function getFirstChildWithTagName( element, tagName ) {
+          for ( var i = 0; i < element.childNodes.length; i++ ) {
+            if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+          }
+        }
+        </script>
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body onload="init()">
 
         {% wagtailuserbar %}
 
-        {% block header %}
         {% if languages %}
-        <ul>
+        <ul id="lang">
             {% for language in languages %}
             <li><a href="{% url 'locale_set' language.code %}">{{language.title}}</a></li>
             {% endfor %}
         </ul>
         {% endif %}
+
+        {% block header %}
         {% endblock %}
 
 
