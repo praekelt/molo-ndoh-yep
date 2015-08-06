@@ -5,9 +5,14 @@
 {% block content %}
 
 <div class="title yellow">
-  <div class="image">{% if self.image %}{% image self.image width-240 %}{% endif %}</div>
-  {%  with parent=self.get_ancestors.last %}
-    <h1><a href="{% pageurl parent %}">{{parent.title}}</a> <span>Sub Category</span></h1>
+  {% if self.image %}<div class="image">{% image self.image width-240 %}</div>{% endif %}
+  {% with parent=self.get_parent_section.get_ancestors.last %}
+    <h1>
+      <a href="{% pageurl parent %}">{{parent.title}}</a>
+      {% with section=self.get_parent_section %}
+      <span><a href="{% pageurl section %}">{{section.title}}</a></span>
+      {% endwith %}
+    </h1>
   {% endwith %}
 </div><!-- /title -->
 
