@@ -1,4 +1,4 @@
-from app.forms import EditProfileForm
+from app.forms import EditProfileForm, RegistrationForm
 
 
 def get_profile_data(request):
@@ -21,9 +21,11 @@ def get_profile_data(request):
             'date_of_birth': date_of_birth
         }
     )
+    registration_form = RegistrationForm()
     return {
         'username': username,
         'alias': alias,
         'date_of_birth': date_of_birth,
-        'edit_profile_form': edit_profile_form
+        'edit_profile_form': edit_profile_form,
+        'registration_form': registration_form
     }

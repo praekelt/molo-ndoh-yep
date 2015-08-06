@@ -11,12 +11,22 @@
 </ul>
 {% endif %}
 
-<div class="form-wrap">
-    <form method="post" action="{% url 'user_register' %}">{% csrf_token %}
-        <table border="0">
-            {{ form.as_table }}
-        </table>
-        <input type="submit" class="registerSubmit" value='{% trans "Register" %}' />
-    </form>
-</div>
+<div class="menu-item profile open"><span>{% trans "Profile" %}</span></div>
+        <div class="auth-content">
+            <div class="join">
+                <h2>{% trans "Join the community!" %}</h2>
+                <h4>{% trans "We’re excited to meet you..." %}</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>                        
+                <div class="signin-form">
+                    <form method="post" action="{% url 'user_register' %}">{% csrf_token %}
+				        <table border="0">
+				            {{ form.as_table }}
+				        </table>
+				        <input type="submit" class="registerSubmit" value='{% trans "Register" %}' />
+				    </form>
+                    <a href="{% url 'auth_login' %}" class="white-link">already a member?</a>
+                </div><!-- /signin-form -->
+            </div><!-- /join -->
+
+        </div>
 {% endblock %}
