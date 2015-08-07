@@ -9,7 +9,7 @@ HomePage.subpage_types += ['polls.Question']
 
 class Question(Page):
     parent_page_types = [
-        'core.HomePage', 'core.SectionPage', 'core.ArticlePage']
+        'core.LanguagePage', 'core.SectionPage', 'core.ArticlePage']
     subpage_types = ['polls.Choice']
 
 
