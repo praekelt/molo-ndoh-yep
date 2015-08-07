@@ -1,8 +1,6 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailsearch import index
 
 from molo.core.models import HomePage
 
