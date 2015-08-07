@@ -15,13 +15,13 @@
 
 <div class="block turq">
 	<!-- <img src="{% static 'img/condom.png' %}" alt="Condom" class="right"> -->
-	<h2>{{ question.question_text }}</h2>
+	<h2>{{ question.title }}</h2>
 
 	<h4>{{total}} {% trans "of you voted!" %}</h4>
 
 	{% for choice in choices %}
 		<div class="poll-result">
-			<p>{{ choice.choice_text }}</p>
+			<p>{{ choice.title }}</p>
 			<div class="bar {{choice.color}}" style="width:{{ choice.percentage }}%">
         <span>{{ choice.percentage }}%</span>
       </div>

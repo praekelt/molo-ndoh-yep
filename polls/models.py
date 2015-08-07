@@ -12,6 +12,9 @@ class Question(Page):
         'core.LanguagePage', 'core.SectionPage', 'core.ArticlePage']
     subpage_types = ['polls.Choice']
 
+    def choices(self):
+        return Choice.objects.live().child_of(self)
+
 
 class Choice(Page):
     votes = models.IntegerField(default=0)
