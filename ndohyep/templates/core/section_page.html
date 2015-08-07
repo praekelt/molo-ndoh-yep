@@ -42,19 +42,17 @@
 
 {% if self.articles %}
 <div class="block {{self.get_effective_extra_style_hints}}">
-  {% with page=self.articles|first %}
-  {% if page %}
-  <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
-  <p>{{page.subtitle}}</p>
-  {% if page.image %}{% image page.image width-240 %}{% endif %}
+  {% for page in self.articles %}
+  {% if forloop.first %}
+      <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
+      <p>{{page.subtitle}}</p>
+  {% else %}
+      <div class="article-link">
+        <h3><a href="{% pageurl page %}">{{page.title}} &gt;</a></h3>
+        <a href="{% pageurl page %}#add-comment" class="comments-count">12</a>
+      </div><!-- /article-link -->
   {% endif %}
-  {% endwith %}
-
-  <div class="options">
-  {% for page in self.articles|slice:"1:" %}
-      <a href="{% pageurl page %}">{{page.title}} ></a>
   {% endfor %}
-  </div><!-- /options -->
 </div>
 {% endif %}
 {% endblock %}
