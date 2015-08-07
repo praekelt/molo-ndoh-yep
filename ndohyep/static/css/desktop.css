@@ -7,7 +7,7 @@
 }
 @media screen and (min-device-width: 50em) {
     html {
-        max-width: 20em;
+        max-width: 25em;
     }
 }
 @media screen {
