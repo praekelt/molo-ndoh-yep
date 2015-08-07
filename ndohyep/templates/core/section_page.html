@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="title yellow">
+<div class="title {{self.get_effective_extra_style_hints}}">
   {% if self.image %}
     {% image self.image height-60 as tmp_photo %}
     <div class="image"><img src="{{ tmp_photo.url }}" alt="{{ section.image.title }}"
