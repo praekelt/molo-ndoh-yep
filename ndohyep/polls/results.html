@@ -7,25 +7,27 @@
 
 {% block content %}
 
-<div class="title grey">
+<div class="title turq">
 	<div class="image"><img src="{% static 'img/speak.png' %}" alt="SPEAK OUT"></div>
 	<h1><a href="">{% trans "SPEAK OUT" %}</a></h1>
 </div>
 
 
-<div class="block grey">	
+<div class="block turq">
 	<!-- <img src="{% static 'img/condom.png' %}" alt="Condom" class="right"> -->
 	<h2>{{ question.question_text }}</h2>
-	
+
 	<h4>{{total}} {% trans "of you voted!" %}</h4>
 
 	{% for choice in choices %}
 		<div class="poll-result">
-			<p><strong>{{ choice.percentage }}%</strong> {{ choice.choice_text }}</p>
-			<div class="bar {{choice.color}}" style="width:{{ choice.percentage }}%"></div>	
+			<p>{{ choice.choice_text }}</p>
+			<div class="bar {{choice.color}}" style="width:{{ choice.percentage }}%">
+        <span>{{ choice.percentage }}%</span>
+      </div>
 		</div>
 	{% endfor %}
- 	<p class="back"><a href="javascript: history.go(-1)">< {% trans "Back" %}</a></p>
-	
+ 	<p class="back"><a href="javascript: history.go(-1)">&lt; {% trans "Back" %}</a></p>
+
 </div>
 {% endblock %}
