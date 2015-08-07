@@ -4,17 +4,9 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailsearch import index
 
-from molo.core.models import LanguagePage
+from molo.core.models import HomePage
 
-
-class LanguagePage(LanguagePage):
-    LanguagePage.subpage_types = [
-        'core.HomePage',
-        'core.SectionPage',
-        'core.FooterPage',
-        'polls.Question',
-        'surveys.Survey'
-    ]
+HomePage.subpage_types += ['polls.Question']
 
 
 class Question(Page):
@@ -42,6 +34,9 @@ class Question(Page):
         FieldPanel('pub_date'),
         FieldPanel('question_text'),
     ]
+
+    parent_page_types = [
+        'core.HomePage', 'core.SectionPage', 'core.ArticlePage']
     subpage_types = ['polls.Choice']
 
 
