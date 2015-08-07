@@ -5,7 +5,6 @@
 {% block content %}
 
 <div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
-  {% if self.image %}<div class="image">{% image self.image width-240 %}</div>{% endif %}
   {% with parent=self.get_parent_section.get_ancestors.last %}
     <h1>
       <a href="{% pageurl parent %}">{{parent.title}}</a>
