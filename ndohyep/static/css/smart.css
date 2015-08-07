@@ -8,7 +8,7 @@
 /* Main Menu */
 .menu {float:right; width:160px; display:block;}
 .menuItem {}
-.menuItem div.content {position:absolute; top:75px; left:0px; width:100%; background-color:#cbcbcb; z-index:5;} 
+.menuItem div.content {position:absolute; top:75px; left:0px; width:100%; background-color:#2DC0C7; z-index:5;} 
 
 	/* Icons */
 	.menuItem span {cursor:pointer; margin:0; position:absolute; top:0px; right:0px; width:40px; height:75px; color:#999; text-indent:-999em; display:block; background-size:60%; background-repeat:no-repeat; z-index:10; cursor:pointer; background-position:center center; opacity:1;}
