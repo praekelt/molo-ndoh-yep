@@ -4,22 +4,27 @@
 
 {% block content %}
 
-<div class="title yellow">
-  <div class="image">{% if self.image %}{% image self.image width-240 %}{% endif %}</div>
-  {%  with parent=self.get_ancestors.last %}
-    <h1><a href="{% pageurl parent %}">{{parent.title}}</a> <span>Sub Category</span></h1>
+<div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+  {% if self.image %}<div class="image">{% image self.image width-240 %}</div>{% endif %}
+  {% with parent=self.get_parent_section.get_ancestors.last %}
+    <h1>
+      <a href="{% pageurl parent %}">{{parent.title}}</a>
+      {% with section=self.get_parent_section %}
+      <span><a href="{% pageurl section %}">{{section.title}}</a></span>
+      {% endwith %}
+    </h1>
   {% endwith %}
 </div><!-- /title -->
 
-<div class="block yellow">
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   <h2>{{self.title}}</h2>
   <p>{{self.subtitle}} </p>
-  <div class="author">{% trans "Author & Date" %} {{self.first_published_at|date:"j F Y"}}</div> 
+  <div class="author">{{self.first_published_at|date:"j F Y"}}</div>
 </div><!-- /block -->
 
 
 <div class="block white">
-  
+
   {% for block in self.body %}
       {% if block.block_type == 'heading' %}
           <h1>{{ block.value }}</h1>
@@ -44,43 +49,43 @@
 </div><!-- /block -->
 
 
-<div class="block yellow">  
-  
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+
   <div class="post-comment">
     <a href="" class="comments-count">12</a>
     <h4>{% trans "Add a Comment" %}</h4>
     <p><textarea rows="5"></textarea></p>
-    <button>{% trans "ADD" %}</button> <a href="" class="anon">{% trans "ADD anonymously" %}</a>  
-  </div><!-- /post-comment -->  
-  
+    <button>{% trans "ADD" %}</button> <a href="" class="anon">{% trans "ADD anonymously" %}</a>
+  </div><!-- /post-comment -->
+
   <div class="comment">
     <p class="by">jane doe <span class="date">14:02 Mar 2015</span></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. </p>
-    <p><a href="" class="report">{% trans "Report"%} +</a></p> 
+    <p><a href="" class="report">{% trans "Report"%} +</a></p>
   </div><!-- /comment -->
-  
+
   <div class="comment">
     <p class="by">jane doe <span class="date">14:02 Mar 2015</span></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. </p>
-    <p><a href="" class="report">{% trans "Report"%} +</a></p> 
+    <p><a href="" class="report">{% trans "Report"%} +</a></p>
   </div><!-- /comment -->
-    
-  <p class="back"><a href="javascript: history.go(-1)">< {% trans "Back" %}</a></p> 
-  
+
+  <p class="back"><a href="javascript: history.go(-1)">&lt; {% trans "Back" %}</a></p>
+
 </div><!-- /block -->
 
 
-<div class="block yellow">  
-  
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+
   <div class="post-comment">
     <a href="" class="comments-count">12</a>
     <h4>{% trans "Add a Comment" %}</h4>
     <p>{% trans "You need to be signed in to add a comment." %}</p>
     {% if not user.is_authenticated %}<button>{% trans "SIGN IN" %}</button>{% endif %}
-  </div><!-- /post-comment -->  
-    
-  <p class="back"><a href="">< {% trans "Back" %}</a></p> 
-  
+  </div><!-- /post-comment -->
+
+  <p class="back"><a href="">&lt; {% trans "Back" %}</a></p>
+
 </div><!-- /block -->
 
 {% endblock %}

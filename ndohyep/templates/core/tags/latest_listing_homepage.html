@@ -2,13 +2,16 @@
 
 {% if articles %}
 <div class="block blue">
-	<h6 class="bubble">{% trans "LATEST ARTICLES" %}</h6>
-	<h2>LONG ARTICLE TITLE GOES HERE IN THIS AREA </h2>
-	{% for page in articles %}
-		<div class="article-link">
-			<h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
-			<a href="" class="comments-count">12</a>
-		</div><!-- /article-link -->
-	{% endfor %}
+  <h6 class="bubble">{% trans "Health articles" %}</h6>
+  {% for page in articles %}
+    {% if forloop.first %}
+    <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
+    {% else %}
+    <div class="article-link">
+      <h3><a href="{% pageurl page %}">{{page.title}} &gt;</a></h3>
+      <a href="" class="comments-count">12</a>
+    </div><!-- /article-link -->
+  {% endif %}
+  {% endfor %}
 </div><!-- /block -->
 {% endif %}
