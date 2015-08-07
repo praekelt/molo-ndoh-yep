@@ -25,7 +25,7 @@
 
     <div class="menu">
     {% if not user.is_authenticated %}
-      <div class="menuItem" id="profile">
+      <div class="menuItem hide" id="profile">
         <span class="menuIcon">{% trans "Profile" %}</span>
         <div class="content">
             <div class="join">
@@ -47,9 +47,9 @@
             </div><!-- /join -->
         </div><!-- /content -->
       </div><!-- /menuItem -->
-
     {% endif %}
-      <div class="menuItem" id="search">
+
+      <div class="menuItem hide" id="search">
         <span class="menuIcon">{% trans "Search" %}</span>
         <div class="content">
             <div class="search-form">
@@ -59,7 +59,7 @@
         </div><!-- /content -->
       </div><!-- /menuItem -->
 
-      <div class="menuItem" id="pages">
+      <div class="menuItem hide" id="pages">
         <span>{ % trans "Pages" %}</span>
         <div class="content">
             <ul>
@@ -89,7 +89,7 @@
 {% endblock %}
 
 <div id="feature-menu">
-    <p class="backtotop"><a href="#top">< {% trans "Back to top" %}</a></p>
+    <p class="backtotop"><a href="#top">&lt; {% trans "Back to top" %}</a></p>
     <ul>
         <li>{% trans "Menu" %}</li>
         <li class="grey"><a href="poll.html">SPEAK OUT</a></li>
