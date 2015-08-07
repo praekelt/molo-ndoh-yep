@@ -63,16 +63,14 @@
         <span>{ % trans "Pages" %}</span>
         <div class="content">
             <ul>
-                <li><a href="">{% trans "Speak Out" %}</a></li>
-                <li><a href="">{% trans "Featured health articles" %}</a></li>
                 {% for section in language_page.sections %}
                 <li class="{{section.get_effective_extra_style_hints}}">
-                  <a href="{% pageurl section %}">{{section.title}}</a>
+                  <a href="{% pageurl section %}">{{section.title|upper}}</a>
                 </li>
                 {% endfor %}
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'view_my_profile' %}">{% trans "My profile" %}</a></li>
-                    <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+                    <li><a href="{% url 'view_my_profile' %}">{% trans "My profile"|upper %}</a></li>
+                    <li><a href="{% url 'auth_logout' %}">{% trans "Log out"|upper %}</a></li>
                 {% endif %}
             </ul>
         </div><!-- /content -->
@@ -85,22 +83,22 @@
 
 
 {% block bottom %}
-
-{% endblock %}
-
 <div id="feature-menu">
     <p class="backtotop"><a href="#top">&lt; {% trans "Back to top" %}</a></p>
     <ul>
         <li>{% trans "Menu" %}</li>
-        <li class="grey"><a href="poll.html">SPEAK OUT</a></li>
-        <li class="blue"><a href="latest-posts.html">LATEST POSTS</a></li>
         {% for section in language_page.sections %}
         <li class="{{section.get_effective_extra_style_hints}}">
-          <a href="{% pageurl section %}">{{section.title}}</a>
+          <a href="{% pageurl section %}">{{section.title|upper}}</a>
         </li>
         {% endfor %}
+        {% if user.is_authenticated %}
+            <li class="turq"><a href="{% url 'view_my_profile' %}">{% trans "My profile"|upper %}</a></li>
+            <li><a href="{% url 'auth_logout' %}">{% trans "Log out"|upper %}</a></li>
+        {% endif %}
     </ul>
 </div><!-- /feature-menu -->
+{% endblock %}
 
 {% block footer %}
 <div class="footer">
