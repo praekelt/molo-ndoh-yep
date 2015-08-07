@@ -23,15 +23,14 @@ class DetailView(generic.DetailView):
 
 def poll_results(request, poll_id):
     question = get_object_or_404(Question, pk=poll_id)
-    choices = list(question.choice_set.all())
+    choices = list(question.choices())
     total_votes = sum(c.votes for c in choices)
     choice_color = ['orange', 'purple', 'turq']
     index = 0
     for choice in choices:
         if index >= len(choice_color):
             index = 0
-        vote = choice.votes
-        vote_percentage = int(vote * 100.0 / total_votes)
+        vote_percentage = int(choice.votes * 100.0 / total_votes)
         choice.percentage = vote_percentage
         choice.color = choice_color[index]
         index += 1
