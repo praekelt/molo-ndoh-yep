@@ -12,8 +12,9 @@ register = template.Library()
                         takes_context=True)
 def poll_page(context, pk=None, page=None):
     context = copy(context)
-    questions = Question.objects.live().child_of(page)
-    context.update({
-        'questions': questions
-    })
+    if page:
+        questions = Question.objects.live().child_of(page)
+        context.update({
+            'questions': questions
+        })
     return context
