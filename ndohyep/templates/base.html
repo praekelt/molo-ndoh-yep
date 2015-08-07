@@ -64,7 +64,7 @@
         <div class="content">
             <ul>
                 <li><a href="">{% trans "Speak Out" %}</a></li>
-                <li><a href="">{% trans "Health articles" %}</a></li>
+                <li><a href="">{% trans "Featured health articles" %}</a></li>
                 {% for section in language_page.sections %}
                 <li class="{{section.get_effective_extra_style_hints}}">
                   <a href="{% pageurl section %}">{{section.title}}</a>
