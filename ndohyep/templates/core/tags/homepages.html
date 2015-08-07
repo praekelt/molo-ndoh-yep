@@ -2,16 +2,16 @@
 
 {% if homepages %}
 {% for homepage in homepages %}
-<div class="Banner">
+
+<div class="banner">
   {% if homepage.banner %}
+    {% image homepage.banner width-460 as tmp_photo %}
     {% if homepage.banner_link_page %}
-    {% image homepage.banner width-240 as tmp_photo %}
     <a href="{% pageurl homepage.banner_link_page %}">
-    <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ homepage.banner.title }}"
-         class="right hide" />
+    <img src="{{ tmp_photo.url }}" alt="{{ homepage.banner.title }}"/>
     </a>
     {% else %}
-    {% image homepage.image width-240 %}
+    <img src="{{ tmp_photo.url }}" alt="{{ homepage.banner.title }}"/>
     {% endif %}
   {% endif %}
 </div>
