@@ -6,6 +6,9 @@ from wagtail.wagtailsearch import urls as wagtailsearch_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
+from app.views import CommentReplyForm
+
+
 urlpatterns = patterns(
     '',
     url(r'^django-admin/', include(admin.site.urls)),
@@ -17,6 +20,8 @@ urlpatterns = patterns(
     url(r'^surveys/', include('surveys.urls')),
     url(r'', include('molo.core.urls')),
     url(r'commenting/', include('molo.commenting.urls')),
+    url(r'commenting/reply/(?P<parent_id>\d+)/$', CommentReplyForm.as_view(),
+        name='comments-reply'),
     url(r'', include(wagtail_urls)),
 )
 
