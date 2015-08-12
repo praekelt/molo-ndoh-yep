@@ -78,9 +78,6 @@
     {% if not node.user|is_in_group:'Experts' %}
       <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Report"%} +</a></p>
     {% endif %}
-    {% if request.user|is_in_group:'Experts' %}
-      <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Reply"%} +</a></p>
-    {% endif %}
   </div><!-- /comment -->
   {# recursion! children of a given comment #}
   {% if not node.is_leaf_node %}
