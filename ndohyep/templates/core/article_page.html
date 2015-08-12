@@ -1,5 +1,5 @@
 {% extends "core/_article_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags i18n poll_votings survey_postings comments mptt_tags molo_commenting_tags humanize %}
+{% load wagtailcore_tags wagtailimages_tags i18n poll_votings survey_postings comments mptt_tags molo_commenting_tags humanize ndohyep_tags %}
 
 
 {% block content %}
@@ -72,10 +72,15 @@
 
   {% get_molo_comments for self as comment_list limit 5 %}
   {% recursetree comment_list %}
-  <div class="comment">
+  <div class="comment {% if node.user|is_in_group:'Experts' %}expert{% endif %}">
     <p class="by">{{node.user_name}} <span class="date">{{node.submit_date|naturaltime}}</span></p>
     <p>{{node.comment}}</p>
-    <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Report"%} +</a></p>
+    {% if not node.user|is_in_group:'Experts' %}
+      <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Report"%} +</a></p>
+    {% endif %}
+    {% if request.user|is_in_group:'Experts' %}
+      <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Reply"%} +</a></p>
+    {% endif %}
   </div><!-- /comment -->
   {# recursion! children of a given comment #}
   {% if not node.is_leaf_node %}
