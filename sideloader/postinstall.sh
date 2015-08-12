@@ -1,7 +1,7 @@
 manage="${VENV}/bin/python ${INSTALLDIR}/${NAME}/manage.py"
 cd "${INSTALLDIR}/${NAME}/"
 export DJANGO_SETTINGS_MODULE=ndohyep.settings.production
-$manage migrate
+$manage migrate --noinput
 
 # process static files
 $manage collectstatic --noinput
