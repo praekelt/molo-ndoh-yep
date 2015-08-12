@@ -16,6 +16,7 @@ urlpatterns = patterns(
     url(r'^polls/', include('polls.urls')),
     url(r'^surveys/', include('surveys.urls')),
     url(r'', include('molo.core.urls')),
+    url(r'commenting/', include('molo.commenting.urls')),
     url(r'', include(wagtail_urls)),
 )
 

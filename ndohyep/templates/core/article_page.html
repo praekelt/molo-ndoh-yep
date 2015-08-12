@@ -1,8 +1,9 @@
 {% extends "core/_article_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags i18n poll_votings survey_postings %}
+{% load wagtailcore_tags wagtailimages_tags i18n poll_votings survey_postings comments mptt_tags molo_commenting_tags %}
 
 
 {% block content %}
+{% get_comment_count for self as comment_count %}
 
 <div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   {% with parent=self.get_parent_section.get_ancestors.last %}
@@ -21,6 +22,13 @@
   <div class="author">{{self.first_published_at|date:"j F Y"}}</div>
 </div><!-- /block -->
 
+{% if messages %}
+<div class="block messages">
+    {% for message in messages %}
+    <h4{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h4>
+    {% endfor %}
+</div>
+{% endif %}
 
 <div class="block white">
 
@@ -51,39 +59,31 @@
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
 
   <div class="post-comment">
-    <a href="" class="comments-count">12</a>
+    <a href="" class="comments-count">{{comment_count}}</a>
     <h4>{% trans "Add a Comment" %}</h4>
-    <p><textarea rows="5"></textarea></p>
-    <button>{% trans "ADD" %}</button> <a href="" class="anon">{% trans "ADD anonymously" %}</a>
+    {% if request.user.is_authenticated %}
+    {% render_comment_form for self %}
+    {% else %}
+    <p>{% trans "You need to be signed in to add a comment." %}</p>
+    <button>{% trans "SIGN IN" %}</button>
+    {% endif %}
   </div><!-- /post-comment -->
 
-  <div class="comment">
-    <p class="by">jane doe <span class="date">14:02 Mar 2015</span></p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. </p>
-    <p><a href="" class="report">{% trans "Report"%} +</a></p>
-  </div><!-- /comment -->
 
+  {% get_molo_comments for self as comment_list limit 5 %}
+  {% recursetree comment_list %}
   <div class="comment">
-    <p class="by">jane doe <span class="date">14:02 Mar 2015</span></p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. </p>
-    <p><a href="" class="report">{% trans "Report"%} +</a></p>
+    <p class="by">{{node.user_name}} <span class="date">{{node.submit_date|date:"j F Y"}}</span></p>
+    <p>{{node.comment}}</p>
+    <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Report"%} +</a></p>
   </div><!-- /comment -->
+  {# recursion! children of a given comment #}
+  {% if not node.is_leaf_node %}
+    {{ children }}
+  {% endif %}
+  {% endrecursetree %}
 
   <p class="back"><a href="javascript: history.go(-1)">&lt; {% trans "Back" %}</a></p>
-
-</div><!-- /block -->
-
-
-<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
-
-  <div class="post-comment">
-    <a href="" class="comments-count">12</a>
-    <h4>{% trans "Add a Comment" %}</h4>
-    <p>{% trans "You need to be signed in to add a comment." %}</p>
-    {% if not user.is_authenticated %}<button>{% trans "SIGN IN" %}</button>{% endif %}
-  </div><!-- /post-comment -->
-
-  <p class="back"><a href="">&lt; {% trans "Back" %}</a></p>
 
 </div><!-- /block -->
 

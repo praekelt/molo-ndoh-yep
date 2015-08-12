@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
         ('wagtailredirects', '0002_add_verbose_names'),
         ('wagtailforms', '0002_add_verbose_names'),
         ('wagtailsearch', '0002_add_verbose_names'),
-        ('wagtailcore', '0001_squashed_0016_change_page_url_path_to_text_field'),
+        ('wagtailcore', '0016_change_page_url_path_to_text_field'),
         ('polls', '0001_initial'),
     ]
 

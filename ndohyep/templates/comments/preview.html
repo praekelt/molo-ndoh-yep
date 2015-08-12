@@ -1,0 +1,29 @@
+{% extends "core/_article_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags comments mptt_tags molo_commenting_tags i18n %}
+
+{% block content %}
+{% get_comments_content_object for form as self %}
+
+<div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+  {% with parent=self.get_parent_section.get_ancestors.last %}
+    <h1>
+      <a href="{% pageurl parent %}">{{parent.title}}</a>
+      {% with section=self.get_parent_section %}
+      <span><a href="{% pageurl section %}">{{section.title}}</a></span>
+      {% endwith %}
+    </h1>
+  {% endwith %}
+</div><!-- /title -->
+
+<div class="block {{self.get_parent_section.get_effective_extra_style_hints}}">
+  <div class="article-copy">
+    <div class="post-comment">
+      {% if request.user.is_authenticated %}
+        {% include "comments/form.html" with node=comment %}
+      {% else %}
+        <p>Please <a href="{% url 'molo.profiles:auth_login' %}">log in</a> to leave a comment.</p>
+      {% endif %}
+		</div>
+  </div>
+</div>
+{% endblock %}
