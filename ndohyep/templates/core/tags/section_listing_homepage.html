@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtailimages_tags static i18n %}
+{% load wagtailcore_tags wagtailimages_tags static i18n comments %}
 
 {% if sections %}
 {% for section in sections %}
@@ -11,9 +11,10 @@
     <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
     <p>{{section.description}} </p>
         {% for page in section.featured_articles_in_homepage %}
+            {% get_comment_count for page as comment_count %}
             <div class="article-link">
             <h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
-            <a href="" class="comments-count">12</a>
+            <a href="" class="comments-count">{{comment_count}}</a>
             </div><!-- /article-link -->
         {% endfor %}
     {% if section.featured_articles_in_homepage %}
