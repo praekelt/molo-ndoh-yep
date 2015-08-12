@@ -1,4 +1,5 @@
 from app.forms import EditProfileForm, RegistrationForm
+from app.models import UserProfile
 
 
 def get_profile_data(request):
@@ -7,7 +8,7 @@ def get_profile_data(request):
     date_of_birth = ''
     if request.user.is_authenticated():
         user = request.user
-        profile = user.profile
+        profile, _ = UserProfile.objects.get_or_create(user=user)
         username = user.username
         if profile.alias:
             alias = profile.alias

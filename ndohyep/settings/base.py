@@ -72,7 +72,15 @@ INSTALLED_APPS = (
     'app',
     'polls',
     'surveys',
+    # for molo.commenting
+    'mptt',
+    'django_comments',
+    'django.contrib.sites',
+    'molo.commenting',
 )
+
+COMMENTS_APP = 'molo.commenting'
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
