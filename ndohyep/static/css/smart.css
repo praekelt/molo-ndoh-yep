@@ -159,6 +159,8 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 	.comment .by {font-weight:700; text-transform:uppercase; }
 		.comment .by .date {color:white; font-weight:normal; font-style:italic; padding:0 0 0 10px;}
 	.comment .report {color:white; font-weight:700; text-transform:uppercase;}
+.comment.expert {font-weight: bold;}
+	.comment.expert p.by {background:url('../img/star_icon_small.png') 0 0 no-repeat; padding: 5px 30px 10px;}
 
 
 
@@ -199,4 +201,3 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 	.search-result h2 {font-size:175%; line-height:100%; padding:20px 0 0; max-width:80%;}
 		.search-result h2 span.search-word {color:#20364d;}
 	.search-result .comments-count {margin-top:-25px; color:#20364d !important;}
-

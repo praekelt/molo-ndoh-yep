@@ -5,11 +5,17 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+
+import django_comments
+
+from molo.commenting.forms import MoloCommentForm
 
 
 @csrf_protect
@@ -76,3 +82,23 @@ class ProfilePasswordChangeView(FormView):
             _('The Old password is incorrect.')
         )
         return render(self.request, 'app/change_password.html', {'form': form})
+
+
+class CommentReplyForm(TemplateView):
+    form_class = MoloCommentForm
+    template_name = 'comments/reply.html'
+
+    def get(self, request, parent_id):
+        comment = get_object_or_404(
+            django_comments.get_model(), pk=parent_id,
+            site__pk=settings.SITE_ID)
+        form = MoloCommentForm(comment.content_object, initial={
+            'content_type': '%s.%s' % (
+                comment.content_type.app_label,
+                comment.content_type.model),
+            'object_pk': comment.object_pk,
+        })
+        return self.render_to_response({
+            'form': form,
+            'comment': comment,
+        })
