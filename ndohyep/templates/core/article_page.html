@@ -1,5 +1,5 @@
 {% extends "core/_article_page.html" %}
-{% load wagtailcore_tags wagtailimages_tags i18n poll_votings survey_postings comments mptt_tags molo_commenting_tags %}
+{% load wagtailcore_tags wagtailimages_tags i18n poll_votings survey_postings comments mptt_tags molo_commenting_tags humanize %}
 
 
 {% block content %}
@@ -19,7 +19,7 @@
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   <h2>{{self.title}}</h2>
   <p>{{self.subtitle}} </p>
-  <div class="author">{{self.first_published_at|date:"j F Y"}}</div>
+  <div class="author">{{self.first_published_at|naturaltime}}</div>
 </div><!-- /block -->
 
 {% if messages %}
@@ -73,7 +73,7 @@
   {% get_molo_comments for self as comment_list limit 5 %}
   {% recursetree comment_list %}
   <div class="comment">
-    <p class="by">{{node.user_name}} <span class="date">{{node.submit_date|date:"j F Y"}}</span></p>
+    <p class="by">{{node.user_name}} <span class="date">{{node.submit_date|naturaltime}}</span></p>
     <p>{{node.comment}}</p>
     <p><a href="{% url 'molo-comments-report' node.pk %}" class="report">{% trans "Report"%} +</a></p>
   </div><!-- /comment -->
