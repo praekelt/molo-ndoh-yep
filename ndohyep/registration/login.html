@@ -16,7 +16,7 @@
             <label>{% trans "Password:" %}</label>
             {{ form.password }}<br>
             <input type="submit" value="{% trans 'Login' %}"><br>
-            <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
+            <input type="hidden" name="next" value="{{next|default:request.site.root_page.url}}" />
         </form>
 	</div><!-- /signin-form -->
 </div><!-- /block -->
