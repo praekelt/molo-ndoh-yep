@@ -65,7 +65,7 @@
     {% render_comment_form for self %}
     {% else %}
     <p>{% trans "You need to be signed in to add a comment." %}</p>
-    <button>{% trans "SIGN IN" %}</button>
+    <a href="{% url 'auth_login' %}"><button>{% trans "SIGN IN" %}</button></a>
     {% endif %}
   </div><!-- /post-comment -->
 

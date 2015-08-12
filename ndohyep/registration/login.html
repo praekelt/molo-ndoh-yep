@@ -2,23 +2,22 @@
 {% load i18n %}
 
 {% block content %}
-<div class="menu-item profile open"><span>{% trans "Login" %}</span></div>
-    <div class="auth-content">
-        <div class="join">                    
-            <div class="signin-form">
-                <form method="post" action=".">{% csrf_token %}
-                    {% if form.errors %}
-                        <p class="error errorlist">{% trans "Your username and password does not match. Please try again." %}</p>
-                    {% endif %}
-                    <label>{% trans "Username:" %}</label>
-                    {{ form.username }}
-                    <label>{% trans "Password:" %}</label>
-                    {{ form.password }}<br>
-                    <input type="submit" value="{% trans 'Login' %}"><br>
-                    <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
-                </form>
-                <a href="{% url 'user_register' %}" class="white-link">{% trans "Join" %}</a>
-            </div><!-- /signin-form -->
-        </div><!-- /join -->
-    </div>
+<div class="block grey join">
+	<h2>Join the community!</h2>
+	<h4>We’re excited to meet you...</h4>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>
+	<div class="signin-form">
+        <form method="post" action=".">{% csrf_token %}
+            {% if form.errors %}
+                <p class="error errorlist">{% trans "Your username and password does not match. Please try again." %}</p>
+            {% endif %}
+            <label>{% trans "Username:" %}</label>
+            {{ form.username }}
+            <label>{% trans "Password:" %}</label>
+            {{ form.password }}<br>
+            <input type="submit" value="{% trans 'Login' %}"><br>
+            <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
+        </form>
+	</div><!-- /signin-form -->
+</div><!-- /block -->
 {% endblock %}
