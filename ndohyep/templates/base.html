@@ -41,7 +41,7 @@
                         {{registration_form.username}}
                         <label>{% trans "Choose a 4 Digit Password:" %}</label>
                         {{registration_form.password}}
-                        {{registration_form.date_of_birth.label}}
+                        {{registration_form.date_of_birth.label}}:
                         {{registration_form.date_of_birth}}
                         <input type="submit" value="{% trans 'Join' %}"><br>
                         <input type="hidden" name="next" value="{{request.site.root_page.url}}" />

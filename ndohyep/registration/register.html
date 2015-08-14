@@ -18,9 +18,7 @@
                 <h4>{% trans "We’re excited to meet you..." %}</h4>
                 <div class="signin-form">
                     <form method="post" action="{% url 'user_register' %}">{% csrf_token %}
-				        <table border="0">
-				            {{ form.as_table }}
-				        </table>
+                        {{ form }}
 				        <input type="submit" class="registerSubmit" value='{% trans "Register" %}' />
 				    </form>
                     <a href="{% url 'auth_login' %}" class="white-link">already a member?</a>
