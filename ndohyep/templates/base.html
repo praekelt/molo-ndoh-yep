@@ -16,7 +16,7 @@
 
 {% block header %}
 <div class="header">
-    <a href="/"><img src="{% static 'img/masthead.png' %}" alt="B-WISE!"></a>
+    <a href="/"><img src="{% static 'img/masthead.png' %}" alt="B-WISE!" class="masthead"></a>
 </div>
 
 <div class="header" id="top">
@@ -101,7 +101,7 @@
 
 {% block footer %}
 <div class="footer">
-  <p><img src="{% static 'img/dpt-health.gif' %}" alt="{% trans 'Department of Health logo' %}"></p>
+  <p><img src="{% static 'img/dpt-health.gif' %}" alt="{% trans 'Department of Health logo' %}" class="footer-logo"></p>
 
   {% if languages %}
   <p>
