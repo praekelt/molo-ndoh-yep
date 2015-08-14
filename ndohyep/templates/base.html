@@ -108,6 +108,15 @@
 <div class="footer">
   <p><img src="{% static 'img/dpt-health.gif' %}" alt="{% trans 'Department of Health logo' %}"></p>
 
+  {% if languages %}
+  <p>
+    <strong>{% trans "Site Language:" %}</strong>
+      {% for language in languages %}
+      <a href="{% url 'locale_set' language.code %}">{{language.title}}</a>
+      {% endfor %}
+  </p>
+  {% endif %}
+
   {% if language_page.footers %}
   <p>
     {% for page in language_page.footers %}
