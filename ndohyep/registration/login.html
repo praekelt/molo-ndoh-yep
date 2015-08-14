@@ -3,9 +3,8 @@
 
 {% block content %}
 <div class="block grey join">
-	<h2>Join the community!</h2>
-	<h4>We’re excited to meet you...</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>
+	<h2>Login to your account!</h2>
+	<h4>We’re excited to have you...</h4>
 	<div class="signin-form">
         <form method="post" action=".">{% csrf_token %}
             {% if form.errors %}
@@ -18,6 +17,7 @@
             <input type="submit" value="{% trans 'Login' %}"><br>
             <input type="hidden" name="next" value="{{next|default:request.site.root_page.url}}" />
         </form>
+        <a href="{% url 'user_register' %}" class="white-link">Click here to register</a>.
 	</div><!-- /signin-form -->
 </div><!-- /block -->
 {% endblock %}

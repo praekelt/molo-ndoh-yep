@@ -35,14 +35,9 @@
             <div class="join">
                 <h2>{% trans "Join the community!" %}</h2>
                 <h4>{% trans "We’re excited to meet you..." %}</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt ex. Nullam commodo rutrum velit eu hendrerit. Vestibulum finibus dolor quis fringilla pretium.</p>
                 <div class="signin-form">
                     <form method="post" action="{% url 'user_register' %}">{% csrf_token %}
-                        <label>{% trans "Choose a Username:" %}</label>
-                        {{registration_form.username}}
-                        <label>{% trans "Choose a 4 Digit Password:" %}</label>
-                        {{registration_form.password}}
-                        {{registration_form.date_of_birth}}
+                        {{registration_form}}
                         <input type="submit" value="{% trans 'Join' %}"><br>
                         <input type="hidden" name="next" value="{{request.site.root_page.url}}" />
                     </form>
