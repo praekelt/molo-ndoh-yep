@@ -92,7 +92,7 @@
 .block {display:block; clear:both; padding:20px 20px 0; overflow:hidden; border-color:white;}
 
 	img.right {float:right; margin:0 0 10px 10px; max-width:25%; display:inline-block;}
-	img.hide {margin:0 -30px 10px 15px; max-width:40%;}
+	/* img.hide {margin:0 -30px 10px 15px; max-width:40%;} */ 
 	@media only screen and (max-width:480px) {
 		img.hide {margin:0 -30px 10px 10px; max-width:30%;}
 	}
