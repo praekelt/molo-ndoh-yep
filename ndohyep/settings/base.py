@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'app',
     'polls',
     'surveys',
+    'author_tags',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -14,7 +14,7 @@
             {% if request.user.is_authenticated %}
                 {% if request.user.profile.get_age.age_range == page.get_children.first.title %}
                     <div class="article-link">
-                    <h3><a href="{% pageurl page %}">{{page.title}} {{request.user.profile.get_age.age_range}}</a></h3>
+                    <h3><a href="{% pageurl page %}">{{page.title}}</a></h3>
                     <a href="" class="comments-count">12</a>
                     </div><!-- /article-link -->
                 {% endif %}
