@@ -44,16 +44,12 @@
 {% if self.articles %}
 <div class="block {{self.get_effective_extra_style_hints}}">
   {% for page in self.articles %}
-  {% if forloop.first %}
-      <h2><a href="{% pageurl page %}">{{page.title}}</a></h2>
-      <p>{{page.subtitle}}</p>
-  {% else %}
       {% get_comment_count for page as comment_count %}
       <div class="article-link">
         <h3><a href="{% pageurl page %}">{{page.title}} &gt;</a></h3>
         <a href="{% pageurl page %}#add-comment" class="comments-count">{{comment_count}}</a>
       </div><!-- /article-link -->
-  {% endif %}
+
   {% endfor %}
 </div>
 {% endif %}
