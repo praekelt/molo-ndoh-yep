@@ -11,10 +11,19 @@
     <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
     <p>{{section.description}} </p>
         {% for page in section.featured_articles_in_homepage %}
-            <div class="article-link">
-            <h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
-            <a href="" class="comments-count">12</a>
-            </div><!-- /article-link -->
+            {% if request.user.is_authenticated %}
+                {% if request.user.profile.get_age.age_range == page.get_children.first.title %}
+                    <div class="article-link">
+                    <h3><a href="{% pageurl page %}">{{page.title}} {{request.user.profile.get_age.age_range}}</a></h3>
+                    <a href="" class="comments-count">12</a>
+                    </div><!-- /article-link -->
+                {% endif %}
+            {% else %}
+                <div class="article-link">
+                <h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
+                <a href="" class="comments-count">12</a>
+                </div><!-- /article-link -->
+            {% endif %}
         {% endfor %}
     {% if section.featured_articles_in_homepage %}
     <p class="more"><a href="{% pageurl section %}">{% trans "More" %} +</a></p>
