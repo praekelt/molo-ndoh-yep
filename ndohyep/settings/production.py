@@ -22,9 +22,11 @@ COMPRESS_OFFLINE = True
 #
 # djcelery.setup_loader()
 #
-# CELERY_SEND_TASK_ERROR_EMAILS = True
+    # CELERY_SEND_TASK_ERROR_EMAILS = True
 # BROKER_URL = 'redis://'
 
+EMAIL_SUBJECT_PREFIX = '[b-wise] '
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = 'no-reply@b-wise.mobi'
 
 # Use Redis as the cache backend for extra performance
 # (requires the django-redis-cache package):
