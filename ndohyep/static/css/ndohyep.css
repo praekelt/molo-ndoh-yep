@@ -140,6 +140,7 @@ a:hover, a:active {text-decoration:underline;}
 }
 
 .block.white {font-weight:normal; padding:20px 20px 10px;}
+.block.white h1 { color: black; }
 .clearfix {clear:both;}
     .block img{
         max-width:50%;
@@ -359,11 +360,11 @@ a.backtotop {padding:20px; display:block; clear:both; color:white; text-transfor
                 margin-right: 15px; }
 
     .clear-block {
-        display: block; 
-        clear: both; 
+        display: block;
+        clear: both;
         padding: 20px 10px; }
 
-    form { 
+    form {
         padding-top: 15px}
         form label {
             padding: 0 10px; }
