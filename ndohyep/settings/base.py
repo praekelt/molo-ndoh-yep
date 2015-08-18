@@ -227,7 +227,7 @@ TEMPLATE_DIRS = (
 GOOGLE_ANALYTICS = {
     'google_analytics_id': '',
 }
-GOOGLE_ANALYTICS_IGNORE_PATH = ['', ]
+GOOGLE_ANALYTICS_IGNORE_PATH = ['/health/', ]
 
 
 # Middleware + Celery
@@ -237,4 +237,4 @@ MIDDLEWARE_CLASSES = (
 )
 
 
-CELERY_IMPORTS = ('google_analytics.tasks')
+CELERY_IMPORTS = ('google_analytics.tasks',)
