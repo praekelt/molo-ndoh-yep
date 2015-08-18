@@ -6,7 +6,7 @@ from wagtail.wagtailsearch import urls as wagtailsearch_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
-from app.views import CommentReplyForm, search
+from app.views import CommentReplyForm
 
 
 urlpatterns = patterns(
@@ -22,7 +22,6 @@ urlpatterns = patterns(
     url(r'commenting/', include('molo.commenting.urls')),
     url(r'commenting/reply/(?P<parent_id>\d+)/$', CommentReplyForm.as_view(),
         name='comments-reply'),
-    url(r'search/$', search, name='search'),
     url(r'', include(wagtail_urls)),
 )
 

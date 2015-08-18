@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags comments %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<div class="title grey">
+	<h1>You searched for Sex</h1>
+</div><!-- /header -->
+{% if search_results %}
+    {% for page in search_results %}
+        {% get_comment_count for page as comment_count %}
+        <div class="block {{page.get_effective_extra_style_hints}} search-result">
+        	<h6 class="bulb">{{page.title}}</h6>
+        	<h2><a href="{% pageurl page %}">{{page.subtitle}}</h2>
+        	<a href="" class="comments-count">{{comment_count}}</a>
+        </div><!-- /block -->
+    {% endfor %}
+{% endif %}
+{% endblock %}

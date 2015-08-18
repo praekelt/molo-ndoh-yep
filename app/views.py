@@ -114,7 +114,7 @@ def search(request):
         Query.get(search_query).add_hit()
     else:
         search_results = Page.objects.non()
-    return render(request, 'search_results.html', {
+    return render(request, 'search/search_results.html', {
         'search_query': search_query,
         'search_results': search_results,
     })
