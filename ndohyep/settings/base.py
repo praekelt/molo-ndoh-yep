@@ -12,6 +12,8 @@ from os.path import abspath, dirname, join
 from django.conf import global_settings
 from django.utils.translation import ugettext_lazy as _
 import os
+import djcelery
+djcelery.setup_loader()
 
 # Absolute filesystem path to the Django project directory:
 PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
@@ -234,6 +236,5 @@ MIDDLEWARE_CLASSES = (
     'google_analytics.middleware.GoogleAnalyticsMiddleware',
 )
 
+
 CELERY_IMPORTS = ('google_analytics.tasks')
-CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend',
-CELERY_RESULT_BACKEND = 'djcelery.backends.cache:CacheBackend',
