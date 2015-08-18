@@ -23,6 +23,7 @@ urlpatterns = patterns(
     url(r'commenting/reply/(?P<parent_id>\d+)/$', CommentReplyForm.as_view(),
         name='comments-reply'),
     url(r'', include(wagtail_urls)),
+    url(r'^djga/', include('google_analytics.urls')),
 )
 
 if settings.DEBUG:

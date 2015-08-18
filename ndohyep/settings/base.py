@@ -73,6 +73,8 @@ INSTALLED_APPS = (
     'app',
     'polls',
     'surveys',
+    'google_analytics',
+    'djcelery',
     # for molo.commenting
     'mptt',
     'django_comments',
@@ -216,3 +218,22 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'ndohyep'),
 )
+
+
+# Google Analytics
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': '',
+}
+GOOGLE_ANALYTICS_IGNORE_PATH = ['', ]
+
+
+# Middleware + Celery
+
+MIDDLEWARE_CLASSES = (
+    'google_analytics.middleware.GoogleAnalyticsMiddleware',
+)
+
+CELERY_IMPORTS = ('google_analytics.tasks')
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend',
+CELERY_RESULT_BACKEND = 'djcelery.backends.cache:CacheBackend',
