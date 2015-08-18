@@ -80,9 +80,9 @@ class TestSearch(TestCase):
                 subtitle='article %s subtitle' % (a,),
                 slug='article-%s' % (a,), path=[a])
 
-        self.backend = get_search_backend('elasticsearch')
+        self.backend = get_search_backend('default')
         self.backend.refresh_index()
-                
+
         client = Client()
         response = client.get(reverse('search'), {
             'q': 'article'
