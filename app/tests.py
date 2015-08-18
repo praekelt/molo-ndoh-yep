@@ -82,6 +82,8 @@ class TestSearch(TestCase):
         response = client.get(reverse('search'), {
             'q': 'article'
         })
+
+        print response
         self.assertContains(response, 'Page 1 of 2')
         self.assertContains(response, '&rarr;')
         self.assertNotContains(response, '&larr;')

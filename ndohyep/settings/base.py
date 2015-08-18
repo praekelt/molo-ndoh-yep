@@ -203,7 +203,6 @@ WAGTAIL_SITE_NAME = "NDOH Youth Platform"
 #   /core_components/search/backends.html#elasticsearch-backend
 #
 WAGTAILSEARCH_RESULTS_TEMPLATE = 'search/search_results.html'
-WAGTAILSEARCH_RESULTS_TEMPLATE_AJAX = 'search/includes/search_listing.html'
 WAGTAILSEARCH_BACKENDS = {
     'default': {
         'BACKEND': (
