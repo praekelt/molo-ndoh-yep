@@ -22,7 +22,7 @@ COMPRESS_OFFLINE = True
 #
 # djcelery.setup_loader()
 #
-    # CELERY_SEND_TASK_ERROR_EMAILS = True
+# CELERY_SEND_TASK_ERROR_EMAILS = True
 # BROKER_URL = 'redis://'
 
 EMAIL_SUBJECT_PREFIX = '[b-wise] '
