@@ -36,7 +36,7 @@ nosetests.xml
 /*/ve/
 logs/*.log
 *.pid
-
+ve/
 local.py
 db.sqlite3
 docs/_build
