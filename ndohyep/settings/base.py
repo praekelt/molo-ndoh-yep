@@ -200,13 +200,14 @@ WAGTAIL_SITE_NAME = "NDOH Youth Platform"
 # http://wagtail.readthedocs.org/en/latest \
 #   /core_components/search/backends.html#elasticsearch-backend
 #
-# WAGTAILSEARCH_BACKENDS = {
-#     'default': {
-#         'BACKEND': 'wagtail.wagtailsearch \
-#            .backends.elasticsearch.ElasticSearch',
-#         'INDEX': 'base',
-#     },
-# }
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': (
+            'wagtail.wagtailsearch.backends.elasticsearch.ElasticSearch'),
+        'INDEX': 'ndohyep',
+        'AUTO_UPDATE': True,
+    },
+}
 
 
 # Whether to use face/feature detection to improve

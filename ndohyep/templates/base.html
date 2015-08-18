@@ -50,10 +50,12 @@
 
       <div class="menuItem hide" id="search">
         <span class="menuIcon">{% trans "Search" %}</span>
-        <div class="content">
+          <div class="content">
             <div class="search-form">
-                <input type="search" placeholder="{% trans 'Search for something...' %}">
+              <form action="{% url 'search' %}">
+                <input type="search" name="query" placeholder="{% trans 'Search for something...' %}">
                 <input type="submit" value="{% trans 'Search' %}">
+              </form>
             </div>
         </div><!-- /content -->
       </div><!-- /menuItem -->
