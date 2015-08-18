@@ -5,6 +5,8 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
 
+from wagtail.wagtailsearch.backends import get_search_backend
+
 from app.forms import RegistrationForm, ProfilePasswordChangeForm
 
 from molo.core.models import ArticlePage
@@ -78,6 +80,9 @@ class TestSearch(TestCase):
                 subtitle='article %s subtitle' % (a,),
                 slug='article-%s' % (a,), path=[a])
 
+        self.backend = get_search_backend('elasticsearch')
+        self.backend.refresh_index()
+                
         client = Client()
         response = client.get(reverse('search'), {
             'q': 'article'
