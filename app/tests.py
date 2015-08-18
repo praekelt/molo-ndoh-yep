@@ -7,7 +7,7 @@ from django.test.client import Client
 
 from app.forms import RegistrationForm, ProfilePasswordChangeForm
 
-from molo.core.models import ArticlePage, SectionPage
+from molo.core.models import ArticlePage
 
 
 class RegisterTestCase(TestCase):
