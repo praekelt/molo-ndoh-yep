@@ -7,11 +7,15 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+
+from molo.core.models import ArticlePage
+from wagtail.wagtailsearch.models import Query
 
 import django_comments
 
@@ -102,3 +106,28 @@ class CommentReplyForm(TemplateView):
             'form': form,
             'comment': comment,
         })
+
+
+def search(request, results_per_page=10):
+    search_query = request.GET.get('q', None)
+    page = request.GET.get('p', 1)
+
+    if search_query:
+        results = ArticlePage.objects.live().search(search_query)
+        Query.get(search_query).add_hit()
+    else:
+        results = ArticlePage.objects.none()
+
+    paginator = Paginator(results, results_per_page)
+    try:
+        search_results = paginator.page(page)
+    except PageNotAnInteger:
+        search_results = paginator.page(1)
+    except EmptyPage:
+        search_results = paginator.page(paginator.num_pages)
+
+    return render(request, 'search/search_results.html', {
+        'search_query': search_query,
+        'search_results': search_results,
+        'results': results,
+    })
