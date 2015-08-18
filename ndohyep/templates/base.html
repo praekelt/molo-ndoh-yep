@@ -52,8 +52,8 @@
         <span class="menuIcon">{% trans "Search" %}</span>
           <div class="content">
             <div class="search-form">
-              <form action="{% url 'wagtailsearch_search' %}">
-                <input type="search" name="query" placeholder="{% trans 'Search for something...' %}">
+              <form action="{% url 'search' %}">
+                <input type="search" name="q" placeholder="{% trans 'Search for something...' %}">
                 <input type="submit" value="{% trans 'Search' %}">
               </form>
             </div>
