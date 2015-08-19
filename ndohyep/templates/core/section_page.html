@@ -22,10 +22,12 @@
   <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ section.image.title }}"
        class="right hide" />
   {% endif %}
-  <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
-  {% if section.description %}
-  <p>{{section.description}}</p>
-  {% endif %}
+  <div class="title-container">
+    <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
+    {% if section.description %}
+    <p>{{section.description}}</p>
+    {% endif %}
+  </div>
 
   {% for page in section.featured_articles %}
   {% get_comment_count for page as comment_count %}

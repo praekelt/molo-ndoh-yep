@@ -22,7 +22,7 @@
 	.menuItem.hide span:after {display:none;}
 
 	/* Hide Menus */
-	.menuItem.hide span {opacity:0.5;}
+	.menuItem.hide span {opacity:0.2;}
 	.menuItem.hide div.content {display:none;}
 
 	/* Join Drop-Down */
@@ -65,8 +65,7 @@
 
 
 /* Background Colours */
-.grey {background-color:#b6cce4;}
-.blue {background-color:#69a8ef; color:white;}
+.grey {background-color:#b6cce4;}hide
 .yellow {background-color:#fcd26c;}
 .orange {background-color:#f46d40;}
 .purple {background-color:#8268a7;}
@@ -92,19 +91,25 @@
 
 
 /* Titles */
-.title {display:block; clear:both; padding:20px; overflow:hidden;}
+.title {display:block; clear:both; padding:25px 20px 10px 20px; overflow:hidden;}
 	.title.yellow {background-color:#ffc643;}
 	.title.grey {background-color:#9fb5cd;}
 		.title.grey h1 {display:inline-block; width:auto;}
-	.title .image {display:inline-block; vertical-align:middle; width:15%;}
-		.title .image img {max-width:75%}
+	.title .image {display:inline-block; vertical-align:middle; width:15%; margin-right:10px; margin-top:5px;}
+		.title .image img {max-width:100%; float:left; margin-left:0;}
 	.title h1 {display:inline-block; vertical-align:middle; width:75%; color:white }
 		.title h1 a {color:white; text-decoration: none; }
 		.title h1 span, .title h1 span a {display:block; color:#20364d;}
+	.title p {
+		text-transform: uppercase;
+		font-size:130%;
+	}
 
-
-
-
+.title-container {
+	display: inline-block;
+	float:right;
+	width:80%;
+}
 
 /* Content Blocks */
 .block {display:block; clear:both; padding:20px 20px 0; overflow:hidden; border-color:white;}
@@ -115,7 +120,12 @@
 		/*img.hide {margin:0 -30px 10px 10px; max-width:30%;} */
 	}
 
-
+.block.white h1 {
+	color:#20364D;
+	margin:10px 0px 25px 0px;
+	font-weight: 130%;
+	font-size: 175%;
+}
 
 /* Fonts */
 body {font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; font-weight:700; color:#20364d;}
@@ -137,7 +147,7 @@ p {padding:0 0 20px;}
 .author {color:white; font-style:italic; padding:0 0 20px;}
 
 	@media only screen and (max-width:480px) {
-		h2 {font-size:200%; line-height:100%; }
+		h2 {font-size:230%; line-height:100%; }
 	}
 
 
