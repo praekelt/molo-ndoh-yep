@@ -120,7 +120,12 @@
 		/*img.hide {margin:0 -30px 10px 10px; max-width:30%;} */
 	}
 
-
+.block.white h1 {
+	color:#20364D;
+	margin:10px 0px 25px 0px;
+	font-weight: 130%;
+	font-size: 175%;
+}
 
 /* Fonts */
 body {font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; font-weight:700; color:#20364d;}
