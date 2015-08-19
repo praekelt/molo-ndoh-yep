@@ -70,6 +70,16 @@ class RegisterTestCase(TestCase):
         user = User.objects.get(username='testing')
         self.assertEqual(user.profile.date_of_birth, date(1980, 1, 1))
 
+    def test_register_auto_login(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+        response = client.get('/')
+        self.assertNotContains(response, 'Join the community!')
+
 
 class TestSearch(TestCase):
 
