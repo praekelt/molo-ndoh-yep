@@ -1,9 +1,10 @@
+
 body {font:14px Arial, Helvetica, sans-serif; background:white; font-weight:bold; color:#20364d;}
 
 
 
 /* Fonts */
-h1 {text-transform:uppercase; font-size:125%; line-height:100%;}
+h1 {text-transform:uppercase; font-size:130%; line-height:100%;}
 h2 {font-size:175%; line-height:100%; padding:15px 0; font-weight:bold; text-transform:uppercase; }
 h3 {font-size:125%; line-height:100%; margin:10px 0; font-weight:bold; text-transform:uppercase; }
 h4 {font-weight:bold; font-size:125%; line-height:125%; padding:10px 0;}
@@ -34,6 +35,9 @@ blockquote.yellow {color:#fec642;}
 	.backtotop {display:block; clear:both; text-transform:uppercase; padding:5px 15px 15px; width:100%; margin:0 -20px 15px; border-bottom:1px solid #ddd;}
 	.backtotop a {color:#20364d;}
 
+.banner {
+	line-height: 0;
+}
 
 .banner img {width: 100%}
 
@@ -60,7 +64,7 @@ blockquote.yellow {color:#fec642;}
 .grey a, .grey h2, .grey .author {color:#aaaaaa;}
 .orange a, .orange h2, .orange .author {color:#f26d40;}
 .yellow a, .yellow h2, .yellow .author {color:#fdc741;}
-.blue a, .blue h2, .blue .author {color:#60a2ec;}
+.blue a, .blue h2, .blue .author {color:white;}
 .purple a, .purple h2, .purple .author {color:#8268a5;}
 .turq a, .turq h2, .turq .author {color:#30c7b8;}
 
