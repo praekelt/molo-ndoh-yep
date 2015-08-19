@@ -193,6 +193,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'molo.core.context_processors.locale',
     'app.context_processors.get_profile_data',
     'app.context_processors.get_registration_open',
+    'app.context_processors.get_comment_open',
 )
 
 
@@ -243,3 +244,5 @@ BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 REGISTRATION_OPEN = False
+
+COMMENT_OPEN = False
