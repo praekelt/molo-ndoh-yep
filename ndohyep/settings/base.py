@@ -98,6 +98,8 @@ MIDDLEWARE_CLASSES = (
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
+    'google_analytics.middleware.GoogleAnalyticsMiddleware',
 )
 
 ROOT_URLCONF = 'ndohyep.urls'
@@ -230,11 +232,6 @@ GOOGLE_ANALYTICS = {
 GOOGLE_ANALYTICS_IGNORE_PATH = ['/health/', ]
 
 
-# Middleware + Celery
-
-MIDDLEWARE_CLASSES = (
-    'google_analytics.middleware.GoogleAnalyticsMiddleware',
-)
-
+# Celery
 
 CELERY_IMPORTS = ('google_analytics.tasks',)
