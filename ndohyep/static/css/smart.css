@@ -55,21 +55,18 @@
 			#pages ul li:nth-child(6) a:before {background-image:url(../img/heart.png);}
 
 
-
-
 /* Hide Feature Menu */
 #feature-menu, .feature-menu {display:none;}
 
 
-
-
-
 /* Background Colours */
-.grey {background-color:#b6cce4;}hide
+.grey {background-color:#b6cce4;}
 .yellow {background-color:#fcd26c;}
 .orange {background-color:#f46d40;}
 .purple {background-color:#8268a7;}
 .turq {background-color:#2fc7b8;}
+.blue {background-color:#69a8ef;}
+
 
 /* Darker Background Colours */
 
@@ -82,12 +79,12 @@
 
 /* Darker Background Colours */
 ß
-.quote-grey {color: #b6cce4;}
-.quote-blue {color: #69a8ef;}
-.quote-yellow {color: #fcd26c;}
-.quote-orange {color: #f46d40;}
-.quote-purple {color: #8268a7;}
-.quote-turq {color: #2fc7b8;}
+.quote-grey {color: #b6cce4; text-transform: none; font-weight: normal; line-height: 105%}
+.quote-blue {color: #69a8ef; text-transform: none; font-weight: normal; line-height: 105%}
+.quote-yellow {color: #fcd26c; text-transform: none; font-weight: normal; line-height: 105%}
+.quote-orange {color: #f46d40; text-transform: none; font-weight: normal; line-height: 105%}
+.quote-purple {color: #8268a7; text-transform: none; font-weight: normal; line-height: 105%}
+.quote-turq {color: #2fc7b8; text-transform: none; font-weight: normal; line-height: 105%}
 
 
 /* Titles */
@@ -112,7 +109,7 @@
 }
 
 /* Content Blocks */
-.block {display:block; clear:both; padding:20px 20px 0; overflow:hidden; border-color:white;}
+.block {display:block; clear:both; padding:20px 20px 0; overflow:hidden;}
 
 	img.right {float:right; margin:0 0 10px 10px; max-width:25%; display:inline-block;}
 	/* img.hide {margin:0 -30px 10px 15px; max-width:40%;} */
@@ -162,7 +159,7 @@ blockquote.yellow {color:#fec642; background:white; }
 input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:white;}
 input[type='radio'] {width:auto; padding:0px; margin:0 5px 0 0;}
 input:focus {background:#eee; color:black; }
-input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:16px/85% 'Open Sans', Arial, Helvetica, sans-serif; font-size:85%; border:0; margin:0 0 20px; font-weight:700; font-size:100%; color:#ffffff; background:rgba(0,0,0,0.15);}
+input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:85% 'Open Sans', Arial, Helvetica, sans-serif; font-size:85%; border:0; margin:0 0 20px; font-weight:700; text-transform: uppercase; font-size:85%; color:#ffffff; background:rgba(0,0,0,0.15);}
 input[type='submit']:focus {color:#13212f; background:rgba(0,0,0,0.15);}
 .yellow input[type='submit'], .yellow button {background-color:#f2c036;}
 textarea {width:94%; font-size:100%; padding:10px; display:block; background:white;}
@@ -170,7 +167,7 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 
 
 /* Article Links */
-.article-link {display:block; clear:both; padding:20px; width:100%; margin:0 -20px; border-top:1px solid rgba(255,255,255,0.5);}
+.article-link {display:block; clear:both; padding:20px; width:100%; margin:0 -20px;}
 	.article-link a {color:white; text-decoration:none;}
 	.article-link h3 {max-width:75%; display:inline-block; margin:0; vertical-align:top;}
 	.article-link .comments-count {display:inline-block; color:#20364d !important;}
@@ -181,7 +178,7 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 .post-comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:0 20px 10px; width:100%; margin:0 -20px;}
 	.post-comment a {font-weight:700; text-transform:uppercase; }
 	.post-comment .anon {color:white; margin-left:10px; padding:8px 12px; display:inline-block; font-weight:700; color:#13212f; text-transform:uppercase; background:white; background:rgba(255,255,255,0.6); text-decoration:none;}
-.comments-count {text-decoration:none; color:#20364d !important; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:25px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count.png) 0 0 no-repeat;  background-size:100%; color:#20364d; font-size:90%;}
+.comments-count {text-decoration:none; color:#20364d !important; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:25px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count.png) 0 0 no-repeat;  background-size:100%; color:#20364d; font-size:70%;}
 .comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:20px 20px 0; width:100%; margin:0 -20px;}
 	.comment .by {font-weight:700; text-transform:uppercase; }
 		.comment .by .date {color:white; font-weight:normal; font-style:italic; padding:0 0 0 10px;}
@@ -207,7 +204,7 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 .grey h2, .grey .author {color:white;}
 .orange a, .orange h2, .orange .author {color:white;}
 .yellow a, .yellow h2, .yellow .author {color:white;}
-.blue a, .blue h2, .blue .author {color:white;}
+.blue a, .blue h2, .blue h6, .blue .author {color:white;}
 .purple a, .purple h2, .purple .author {color:white;}
 .turq a, .turq h2, .turq .author {color:white;}
 
