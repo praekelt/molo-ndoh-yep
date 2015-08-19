@@ -1,5 +1,6 @@
+@namespace url(http://www.w3.org/1999/xhtml);
 /* Header */
-.header {height:75px;}
+.header {height:88px;}
 .header .logo {float:left; width:150px; padding:20px 20px 0;}
 .header .masthead {padding: 10px 0 0 20px; max-width: 80%;}
 
@@ -64,12 +65,12 @@
 
 
 /* Background Colours */
-.grey {background-color:#dedede;}
-.blue {background-color:#69a7ee; color:white;}
-.yellow {background-color:#fcd26d;}
-.orange {background-color:#f36d41;}
-.purple {background-color:#8268a6;}
-.turq {background-color:#2fc7b7;}
+.grey {background-color:#b6cce4;}
+.blue {background-color:#69a8ef; color:white;}
+.yellow {background-color:#fcd26c;}
+.orange {background-color:#f46d40;}
+.purple {background-color:#8268a7;}
+.turq {background-color:#2fc7b8;}
 
 
 
@@ -81,7 +82,7 @@
 	.title .image {display:inline-block; vertical-align:middle; width:15%;}
 		.title .image img {max-width:75%}
 	.title h1 {display:inline-block; vertical-align:middle; width:75%; color:white }
-		.title h1 a {color:white }
+		.title h1 a {color:white; text-decoration: none; }
 		.title h1 span, .title h1 span a {display:block; color:#20364d;}
 
 
@@ -101,7 +102,7 @@
 
 /* Fonts */
 body {font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; font-weight:700; color:#20364d;}
-h1 {text-transform:uppercase; color:white; font-size:150%; line-height:100%;}
+h1 {text-transform:uppercase; color:white; font-size:130%; line-height:100%;}
 h2 {font-size:250%; line-height:90%; padding:10px 0 20px; font-weight:800; color:white; text-transform:uppercase; }
 	h2 a {color:white; text-decoration:none;}
 h3 {font-size:125%; line-height:100%; margin:10px 0; font-weight:800; color:white; text-transform:uppercase; }
@@ -135,7 +136,7 @@ blockquote.yellow {color:#fec642; background:white; }
 input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:white;}
 input[type='radio'] {width:auto; padding:0px; margin:0 5px 0 0;}
 input:focus {background:#eee; color:black; }
-input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; border:0; margin:0 0 20px; font-weight:700; font-size:100%; color:#13212f; background:rgba(0,0,0,0.15);}
+input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:16px/85% 'Open Sans', Arial, Helvetica, sans-serif; font-size:85%; border:0; margin:0 0 20px; font-weight:700; font-size:100%; color:#ffffff; background:rgba(0,0,0,0.15);}
 input[type='submit']:focus {color:#13212f; background:rgba(0,0,0,0.15);}
 .yellow input[type='submit'], .yellow button {background-color:#f2c036;}
 textarea {width:94%; font-size:100%; padding:10px; display:block; background:white;}
@@ -198,6 +199,6 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 /* Search Results */
 .search-result {border-bottom:1px solid rgba(255,255,255,0.5); padding:20px;}
 	.search-result h6 {padding:0;}
-	.search-result h2 {font-size:175%; line-height:100%; padding:20px 0 0; max-width:80%;}
+	.search-result h2 {font-size:250%; line-height:100%; padding:20px 0 0; max-width:80%;}
 		.search-result h2 span.search-word {color:#20364d;}
 	.search-result .comments-count {margin-top:-25px; color:#20364d !important;}
