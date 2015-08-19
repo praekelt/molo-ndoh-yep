@@ -67,18 +67,23 @@
 .turq {background-color:#2fc7b8;}
 .blue {background-color:#69a8ef;}
 
+.block p a {
+	color:#20364d;
+	text-transform: uppercase;
+}
+
 
 /* Darker Background Colours */
 
-.grey-dark {background-color:#9fb5cd}
-.blue-dark {background-color:#5992d2; color:white;}
-.yellow-dark {background-color:#ffc643;}
-.orange-dark {background-color:#da6138;}
-.purple-dark {background-color:#705991;}
-.turq-dark {background-color:#2bb7a9;}
+.title.grey {background-color:#9fb5cd;}
+.title.blue {background-color:#5992d2; color:white;}
+.title.yellow {background-color:#ffc643;}
+.title.orange {background-color:#da6138;}
+.title.purple {background-color:#705991;}
+.title.turq {background-color:#2bb7a9;}
 
-/* Darker Background Colours */
-ß
+/* Pull quoite stylinh */
+
 .quote-grey {color: #b6cce4; text-transform: none; font-weight: normal; line-height: 105%}
 .quote-blue {color: #69a8ef; text-transform: none; font-weight: normal; line-height: 105%}
 .quote-yellow {color: #fcd26c; text-transform: none; font-weight: normal; line-height: 105%}
@@ -88,7 +93,7 @@
 
 
 /* Titles */
-.title {display:block; clear:both; padding:25px 20px 10px 20px; overflow:hidden;}
+.title {display:block; clear:both; padding:25px 20px 25px 20px; overflow:hidden;}
 	.title.yellow {background-color:#ffc643;}
 	.title.grey {background-color:#9fb5cd;}
 		.title.grey h1 {display:inline-block; width:auto;}
@@ -100,6 +105,7 @@
 	.title p {
 		text-transform: uppercase;
 		font-size:130%;
+		padding:0;
 	}
 
 .title-container {
@@ -190,7 +196,7 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 
 /* Links */
 a {color:#20364d;}
-.block .more, .block .back {text-transform:uppercase; font-size:85%; font-weight:700; display:block; display:block; clear:both; padding:20px; width:100%; margin:0 -20px; border-top:1px solid rgba(255,255,255,0.5); border-bottom:1px solid rgba(255,255,255,0.5);}
+.block .more, .block .back {text-transform:uppercase; font-size:85%; font-weight:700; display:block; display:block; clear:both; padding:20px; width:100%; margin:0 -20px; }
 .block .back {border:0;}
 .block.grey .back {border-top:1px solid rgba(255,255,255,0.5);}
 	.block .more a, .block .back a {color:#20364d; text-decoration:underline;}
