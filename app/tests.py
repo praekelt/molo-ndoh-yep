@@ -65,3 +65,36 @@ class RegisterTestCase(TestCase):
         self.assertRedirects(response, '/')
         user = User.objects.get(username='testing')
         self.assertEqual(user.profile.date_of_birth, date(1980, 1, 1))
+
+    def test_user_profile_get_age_25(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+        self.assertRedirects(response, '/')
+        user = User.objects.get(username='testing')
+        self.assertEqual(user.profile.get_age()['age_range'], '25+')
+
+    def test_user_profile_get_age_20_24(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1995-01-01',
+        })
+        self.assertRedirects(response, '/')
+        user = User.objects.get(username='testing')
+        self.assertEqual(user.profile.get_age()['age_range'], '20-24')
+
+    def test_user_profile_get_age_15_19(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '2000-01-01',
+        })
+        self.assertRedirects(response, '/')
+        user = User.objects.get(username='testing')
+        self.assertEqual(user.profile.get_age()['age_range'], '15-19')
