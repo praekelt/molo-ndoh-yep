@@ -58,7 +58,7 @@
 
   <div class="post-comment">
     <a href="" class="comments-count">{{comment_count}}</a>
-    <h4>{% trans "Add a Comment" %}</h4>
+    <h4>{% trans "Add a Comment/Question" %}</h4>
     {% if request.user.is_authenticated %}
     {% render_comment_form for self %}
     {% else %}
