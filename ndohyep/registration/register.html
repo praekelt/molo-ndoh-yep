@@ -24,6 +24,9 @@
     </div><!-- /signin-form -->
     {% else %}
     <h4>{% trans "Registration is currently closed. Please check again soon." %}</h4>
+    <div class="signin-form">
+      <a href="{% url 'auth_login' %}" class="white-link">already a member?</a>
+    </div><!-- /signin-form -->
     {% endif %}
 </div><!-- /join -->
 {% endblock %}
