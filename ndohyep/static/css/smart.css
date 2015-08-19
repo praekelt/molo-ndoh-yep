@@ -92,7 +92,7 @@
 .block {display:block; clear:both; padding:20px 20px 0; overflow:hidden; border-color:white;}
 
 	img.right {float:right; margin:0 0 10px 10px; max-width:25%; display:inline-block;}
-	/* img.hide {margin:0 -30px 10px 15px; max-width:40%;} */ 
+	/* img.hide {margin:0 -30px 10px 15px; max-width:40%;} */
 	@media only screen and (max-width:480px) {
 		img.hide {margin:0 -30px 10px 10px; max-width:30%;}
 	}
@@ -134,7 +134,7 @@ blockquote.yellow {color:#fec642; background:white; }
 /* Form Elements */
 input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:white;}
 input[type='radio'] {width:auto; padding:0px; margin:0 5px 0 0;}
-input:focus {background:#eee; color:white; }
+input:focus {background:#eee; color:black; }
 input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; border:0; margin:0 0 20px; font-weight:700; font-size:100%; color:#13212f; background:rgba(0,0,0,0.15);}
 input[type='submit']:focus {color:#13212f; background:rgba(0,0,0,0.15);}
 .yellow input[type='submit'], .yellow button {background-color:#f2c036;}
