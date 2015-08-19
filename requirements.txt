@@ -4,3 +4,4 @@ django-google-analytics-app
 django-celery
 elasticsearch
 django-extensions
+redis

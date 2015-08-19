@@ -238,7 +238,8 @@ GOOGLE_ANALYTICS_IGNORE_PATH = ['/health/', ]
 
 
 # Celery
-
 CELERY_IMPORTS = ('google_analytics.tasks',)
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 REGISTRATION_OPEN = False
