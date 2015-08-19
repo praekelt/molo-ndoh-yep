@@ -50,7 +50,7 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Content Blocks */
-.block {display:block; clear:both; padding:15px 15px 0; overflow:hidden; border-bottom:1px solid rgba(239, 239, 239,0.5);}
+.block {display:block; clear:both; padding:15px 15px 0; overflow:hidden;}
 	.author {padding:0 0 15px;}
 
 	/* Article Links */
