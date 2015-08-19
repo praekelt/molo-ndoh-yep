@@ -70,6 +70,7 @@
 .block p a {
 	color:#20364d;
 	text-transform: uppercase;
+
 }
 
 
@@ -110,12 +111,25 @@
 
 .title-container {
 	display: inline-block;
-	float:right;
+	float:right
 	width:80%;
 }
 
 /* Content Blocks */
-.block {display:block; clear:both; padding:20px 20px 0; overflow:hidden;}
+.block {
+	display:block; 
+	clear:both; 
+	padding:20px 20px 0; 
+	overflow:hidden; 
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+     word-break: break-all;
+	-webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+
+}
 
 	img.right {float:right; margin:0 0 10px 10px; max-width:25%; display:inline-block;}
 	/* img.hide {margin:0 -30px 10px 15px; max-width:40%;} */
