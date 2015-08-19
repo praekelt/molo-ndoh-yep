@@ -117,18 +117,18 @@
 
 /* Content Blocks */
 .block {
-	display:block; 
-	clear:both; 
-	padding:20px 20px 0; 
-	overflow:hidden; 
-	word-wrap: break-word;
-	-ms-word-break: break-all;
+	display:block;
+	clear:both;
+	padding:20px 20px 0;
+	overflow:hidden;
+/* 	word-wrap: break-word;
+-ms-word-break: break-all;
      word-break: break-all;
-	-webkit-hyphens: auto;
+-webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
-
+ */
 }
 
 	img.right {float:right; margin:0 0 10px 10px; max-width:25%; display:inline-block;}
