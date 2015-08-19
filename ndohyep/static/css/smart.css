@@ -142,7 +142,7 @@ h6 a {text-decoration:none;}
 	h6.bulb:before {background:url(../img/lightbulb.png) center center no-repeat; background-size:20px;}
 	h6.heart:before {background:url(../img/heart.png) center center no-repeat; background-size:30px;}
 	h6.magnify:before {background:url(../img/magnify-glass.png) center center no-repeat; background-size:28px;}
-p {padding:0 0 20px;}
+p {padding:0 0 30px;}
 	.grey p {font-weight:normal;}
 .author {color:white; font-style:italic; padding:0 0 20px;}
 
