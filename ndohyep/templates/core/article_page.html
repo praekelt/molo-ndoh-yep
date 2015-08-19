@@ -7,13 +7,20 @@
 
 <div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   {% with parent=self.get_parent_section.get_ancestors.last %}
-    <h1>
-      <a href="{% pageurl parent %}">{{parent.title}}</a>
-      {% with section=self.get_parent_section %}
-      <span><a href="{% pageurl section %}">{{section.title}}</a></span>
-      {% endwith %}
-    </h1>
-  {% endwith %}
+    
+  {% if parent.image %}
+    {% image parent.image height-60 as tmp_photo %}
+    <div class="image"><img src="{{ tmp_photo.url }}" alt="{{ parent.image.title }}"
+         class="right" /></div>
+  {% endif %}
+
+   <div class="title-container">
+    <h1>{{parent.title}}</h1>
+    {% with section=self.get_parent_section %}
+      <p>{{section.title}}</p>
+    {% endwith %}
+  </div>
+
 </div><!-- /title -->
 
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
