@@ -107,6 +107,11 @@ input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
 		.search-result h2 span.search-word {color:#20364d;}
 	.search-result .comments-count {margin-top:-25px;}
 
+	.search-result.pagination .step-links {
+        text-align: center;
+    }
+
+
 
 
 

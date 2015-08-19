@@ -7,12 +7,13 @@ cache:
     - $HOME/.cache/pip
 services:
   - postgresql
+  - elasticsearch
 install:
   - pip install --upgrade pip
   - pip install flake8
   - pip install -e .
 script:
   - flake8
-  - python manage.py test -v1 --settings=test_settings
+  - python manage.py test -v2 --settings=test_settings
 after_success:
   - coveralls

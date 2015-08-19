@@ -9,3 +9,6 @@ $manage compress
 
 # compile i18n strings
 $manage compilemessages
+
+# Update the search index
+$manage update_index

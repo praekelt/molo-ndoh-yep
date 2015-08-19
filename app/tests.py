@@ -5,7 +5,11 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
 
+from wagtail.wagtailsearch.backends import get_search_backend
+
 from app.forms import RegistrationForm, ProfilePasswordChangeForm
+
+from molo.core.models import ArticlePage
 
 
 class RegisterTestCase(TestCase):
@@ -65,3 +69,43 @@ class RegisterTestCase(TestCase):
         self.assertRedirects(response, '/')
         user = User.objects.get(username='testing')
         self.assertEqual(user.profile.date_of_birth, date(1980, 1, 1))
+
+    def test_register_auto_login(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+        response = client.get('/')
+        self.assertNotContains(response, 'Join the community!')
+
+
+class TestSearch(TestCase):
+
+    def test_search(self):
+        for a in range(0, 20):
+            ArticlePage.objects.create(
+                title='article %s' % (a,), depth=a,
+                subtitle='article %s subtitle' % (a,),
+                slug='article-%s' % (a,), path=[a])
+
+        self.backend = get_search_backend('default')
+        self.backend.refresh_index()
+
+        client = Client()
+        response = client.get(reverse('search'), {
+            'q': 'article'
+        })
+
+        self.assertContains(response, 'Page 1 of 2')
+        self.assertContains(response, '&rarr;')
+        self.assertNotContains(response, '&larr;')
+
+        response = client.get(reverse('search'), {
+            'q': 'article',
+            'p': '2',
+        })
+        self.assertContains(response, 'Page 2 of 2')
+        self.assertNotContains(response, '&rarr;')
+        self.assertContains(response, '&larr;')

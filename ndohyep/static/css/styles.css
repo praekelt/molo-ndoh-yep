@@ -31,6 +31,6 @@ img {max-width:100%;}
 /* Footer */
 .footer {padding:20px 0; font-size:75%; font-weight:normal; clear:both; display:block;}
 	.footer p {padding:5px 20px;}
-	.footer img {max-width:50%;}
+   /*.footer img {max-width:50%;}     */
 	.footer a {color:#20364d; text-decoration:underline; padding:0 8px 0 2px;}
 	.footer a:hover, .footer a:active {color:#f36c40;}
