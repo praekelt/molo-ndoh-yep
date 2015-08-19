@@ -94,24 +94,23 @@ class ProfilePasswordChangeView(FormView):
 
 
 class CommentReplyForm(TemplateView):
-    if settings.REGISTRATION_OPEN:
-        form_class = MoloCommentForm
-        template_name = 'comments/reply.html'
+    form_class = MoloCommentForm
+    template_name = 'comments/reply.html'
 
-        def get(self, request, parent_id):
-            comment = get_object_or_404(
-                django_comments.get_model(), pk=parent_id,
-                site__pk=settings.SITE_ID)
-            form = MoloCommentForm(comment.content_object, initial={
-                'content_type': '%s.%s' % (
-                    comment.content_type.app_label,
-                    comment.content_type.model),
-                'object_pk': comment.object_pk,
-            })
-            return self.render_to_response({
-                'form': form,
-                'comment': comment,
-            })
+    def get(self, request, parent_id):
+        comment = get_object_or_404(
+            django_comments.get_model(), pk=parent_id,
+            site__pk=settings.SITE_ID)
+        form = MoloCommentForm(comment.content_object, initial={
+            'content_type': '%s.%s' % (
+                comment.content_type.app_label,
+                comment.content_type.model),
+            'object_pk': comment.object_pk,
+        })
+        return self.render_to_response({
+            'form': form,
+            'comment': comment,
+        })
 
 
 def search(request, results_per_page=10):
