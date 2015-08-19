@@ -12,6 +12,8 @@ from os.path import abspath, dirname, join
 from django.conf import global_settings
 from django.utils.translation import ugettext_lazy as _
 import os
+import djcelery
+djcelery.setup_loader()
 
 # Absolute filesystem path to the Django project directory:
 PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
@@ -73,6 +75,8 @@ INSTALLED_APPS = (
     'app',
     'polls',
     'surveys',
+    'google_analytics',
+    'djcelery',
     # for molo.commenting
     'mptt',
     'django_comments',
@@ -96,6 +100,8 @@ MIDDLEWARE_CLASSES = (
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
+    'google_analytics.middleware.GoogleAnalyticsMiddleware',
 )
 
 ROOT_URLCONF = 'ndohyep.urls'
@@ -221,5 +227,18 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'ndohyep'),
 )
+
+
+# Google Analytics
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': '',
+}
+GOOGLE_ANALYTICS_IGNORE_PATH = ['/health/', ]
+
+
+# Celery
+
+CELERY_IMPORTS = ('google_analytics.tasks',)
 
 REGISTRATION_OPEN = False

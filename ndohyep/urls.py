@@ -22,6 +22,7 @@ urlpatterns = patterns(
         name='comments-reply'),
     url(r'search/$', search, name='search'),
     url(r'', include(wagtail_urls)),
+    url(r'^djga/', include('google_analytics.urls')),
 )
 
 if settings.DEBUG:
