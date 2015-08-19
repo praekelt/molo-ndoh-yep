@@ -3,8 +3,8 @@ from .base import *
 
 # Disable debug mode
 
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 
 # Compress static files offline
