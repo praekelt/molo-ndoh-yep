@@ -10,7 +10,7 @@
 /* Main Menu */
 .menu {float:right; width:160px; display:block;}
 .menuItem {}
-.menuItem div.content {position:absolute; top:75px; left:0px; width:100%; background-color:#2DC0C7; z-index:5;}
+.menuItem div.content {position:absolute; top:86px; left:0px; width:100%; background-color:#2DC0C7; z-index:5;}
 
 	/* Icons */
 	.menuItem span {cursor:pointer; margin:0; position:absolute; top:0px; right:0px; width:40px; height:86px; color:#999; text-indent:-999em; display:block; background-size:60%; background-repeat:no-repeat; z-index:10; cursor:pointer; background-position:center center; opacity:1;}
@@ -41,17 +41,17 @@
 		#pages ul li { display:block;}
 		#pages ul li a {display:block; padding:20px; color:white; text-decoration:none; vertical-align:middle;}
 			#pages ul li a:before {content:""; display:inline-block; vertical-align:middle; margin-right:15px; width:40px; height:40px; background-size:90%; background-position:center center; background-repeat:no-repeat;}
-		#pages ul li:nth-child(1) a { background-color:#fcd26d;}
-			#pages ul li:nth-child(1) a:before {background-image:url(../img/speak.png);}
-		#pages ul li:nth-child(2) a {background-color:#f36d41;}
-			#pages ul li:nth-child(2) a:before {background-image:url(../img/chat-bubble.png);}
-		#pages ul li:nth-child(3) a {background-color:#8268a6;}
-			#pages ul li:nth-child(3) a:before {background-image:url(../img/lightbulb.png); background-size:65%;}
-		#pages ul li:nth-child(4) a {background-color:#cbcbcb;}
-			#pages ul li:nth-child(4) a:before {background-image:url(../img/magnify-glass.png);}
-		#pages ul li:nth-child(5) a {background-color:#69a7ee;}
-			#pages ul li:nth-child(5) a:before {background-image:url(../img/banana.png);}
-		#pages ul li:nth-child(6) a {background-color:#2fc7b7;}
+		  /*#pages ul li:nth-child(1) a { background-color:#fcd26d;} */
+			#pages ul li:nth-child(1) a:before {background-image:url(../img/know-body.png);}
+		  /*#pages ul li:nth-child(2) a {background-color:#f36d41;} */
+			#pages ul li:nth-child(2) a:before {background-image:url(../img/infect.png);}
+		  /*#pages ul li:nth-child(3) a {background-color:#8268a6;} */
+			#pages ul li:nth-child(3) a:before {background-image:url(../img/mind-blowing.png);}
+		  /*#pages ul li:nth-child(4) a {background-color:#cbcbcb;} */
+			#pages ul li:nth-child(4) a:before {background-image:url(../img/your-peeps.png);}
+		  /*#pages ul li:nth-child(5) a {background-color:#69a7ee;} */
+			#pages ul li:nth-child(5) a:before {background-image:url(../img/support.png);}
+		  /*#pages ul li:nth-child(6) a {background-color:#2fc7b7;} */
 			#pages ul li:nth-child(6) a:before {background-image:url(../img/heart.png);}
 
 
