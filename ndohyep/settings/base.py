@@ -186,6 +186,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'molo.core.context_processors.locale',
     'app.context_processors.get_profile_data',
+    'app.context_processors.get_registration_open',
 )
 
 
@@ -220,3 +221,5 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'ndohyep'),
 )
+
+REGISTRATION_OPEN = False

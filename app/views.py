@@ -25,7 +25,7 @@ from molo.commenting.forms import MoloCommentForm
 
 @csrf_protect
 def register(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and settings.REGISTRATION_OPEN:
         form = RegistrationForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']

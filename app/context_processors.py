@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from app.forms import EditProfileForm, RegistrationForm
 from app.models import UserProfile
 
@@ -30,3 +32,7 @@ def get_profile_data(request):
         'edit_profile_form': edit_profile_form,
         'registration_form': registration_form
     }
+
+
+def get_registration_open(request):
+    return {'REGISTRATION_OPEN': settings.REGISTRATION_OPEN}
