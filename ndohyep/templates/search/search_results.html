@@ -11,7 +11,7 @@
     {% for page in search_results %}
         {% get_comment_count for page as comment_count %}
         <div class="block {{page.get_parent_section.get_effective_extra_style_hints}} search-result">
-        	<h6 class="bulb">{{page.title}}</h6>
+        	<h6>{{page.title}}</h6>
         	<h2><a href="{% pageurl page %}">{{page.subtitle}}</h2>
         	<a href="" class="comments-count">{{comment_count}}</a>
         </div><!-- /block -->
