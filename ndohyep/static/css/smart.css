@@ -241,7 +241,7 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 
 /* Search Results */
 .search-result {border-bottom:1px solid rgba(255,255,255,0.5); padding:20px;}
-	.search-result h6 {padding:0; letter-spacing: normal;}
-	.search-result h2 {font-size:250%; line-height:100%; padding:20px 0 0; max-width:80%;}
-		.search-result h2 span.search-word {color:#20364d;}
-	.search-result .comments-count {margin-top:-25px; color:#20364d !important;}
+.search-result h6 {padding:0; letter-spacing: normal;}
+.search-result h2 {font-size:250%; line-height:100%; padding:20px 0 0; max-width:80%;}
+.search-result h2 span.search-word {color:#20364d;}
+.search-result .comments-count {margin-top:-25px; color:#20364d !important;}
