@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
+from django.test.utils import override_settings
 
 from wagtail.wagtailsearch.backends import get_search_backend
 
@@ -59,6 +60,7 @@ class RegisterTestCase(TestCase):
         form = ProfilePasswordChangeForm(data=form_data)
         self.assertEqual(form.is_valid(), True)
 
+    @override_settings(REGISTRATION_OPEN=True)
     def test_register_sets_dob(self):
         client = Client()
         response = client.post(reverse('user_register'), {
@@ -69,6 +71,51 @@ class RegisterTestCase(TestCase):
         self.assertRedirects(response, '/')
         user = User.objects.get(username='testing')
         self.assertEqual(user.profile.date_of_birth, date(1980, 1, 1))
+
+    @override_settings(REGISTRATION_OPEN=True)
+    def test_register_auto_login(self):
+        client = Client()
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+        response = client.get('/')
+        self.assertNotContains(response, 'Join the community!')
+
+    @override_settings(REGISTRATION_OPEN=True)
+    def test_registration_open(self):
+        client = Client()
+        response = client.get('/')
+        self.assertNotContains(response, 'Registration is currently closed')
+
+        response = client.get(reverse('user_register'))
+        self.assertNotContains(response, 'Registration is currently closed')
+
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+
+        response = client.get('/')
+        self.assertNotContains(response, 'Join the community!')
+
+    @override_settings(REGISTRATION_OPEN=False)
+    def test_registration_closed(self):
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'Registration is currently closed')
+        response = client.get(reverse('user_register'))
+        self.assertContains(response, 'Registration is currently closed')
+
+        response = client.post(reverse('user_register'), {
+            'username': 'testing',
+            'password': '1234',
+            'date_of_birth': '1980-01-01',
+        })
+        response = client.get('/')
+        self.assertContains(response, 'Registration is currently closed')
 
 
 class TestSearch(TestCase):

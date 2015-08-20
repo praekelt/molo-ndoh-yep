@@ -1,4 +1,7 @@
-molo.core==2.4.1
+molo.core==2.4.2
 molo.commenting<1.0.0,>=0.2.3
+django-google-analytics-app
+django-celery
 elasticsearch
 django-extensions
+redis

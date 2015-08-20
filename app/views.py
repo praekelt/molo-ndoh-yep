@@ -13,6 +13,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth import authenticate, login
 
 from molo.core.models import ArticlePage
 from wagtail.wagtailsearch.models import Query
@@ -24,15 +25,19 @@ from molo.commenting.forms import MoloCommentForm
 
 @csrf_protect
 def register(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and settings.REGISTRATION_OPEN:
         form = RegistrationForm(request.POST)
         if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
             user = User.objects.create_user(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password'],
+                username=username,
+                password=password,
             )
             user.profile.date_of_birth = form.cleaned_data['date_of_birth']
             user.profile.save()
+            authed_user = authenticate(username=username, password=password)
+            login(request, authed_user)
             return HttpResponseRedirect(request.site.root_page.url)
         return render(request, 'registration/register.html', {'form': form})
     form = RegistrationForm()

@@ -7,12 +7,19 @@
 
 <div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   {% with parent=self.get_parent_section.get_ancestors.last %}
+  {% with section=self.get_parent_section %}
+    {% if section.image %}
+      {% image section.image height-60 as tmp_photo %}
+      <div class="image"><img src="{{ tmp_photo.url }}" alt="{{ section.image.title }}"
+           class="right" /></div>
+    {% endif %}
+    <div class="title-container">
     <h1>
       <a href="{% pageurl parent %}">{{parent.title}}</a>
-      {% with section=self.get_parent_section %}
       <span><a href="{% pageurl section %}">{{section.title}}</a></span>
-      {% endwith %}
     </h1>
+    </div>
+  {% endwith %}
   {% endwith %}
 </div><!-- /title -->
 
@@ -58,7 +65,7 @@
 
   <div class="post-comment">
     <a href="" class="comments-count">{{comment_count}}</a>
-    <h4>{% trans "Add a Comment" %}</h4>
+    <h4>{% trans "Add a Comment/Question" %}</h4>
     {% if request.user.is_authenticated %}
     {% render_comment_form for self %}
     {% else %}

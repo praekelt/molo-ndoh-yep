@@ -100,7 +100,7 @@
 		.title.grey h1 {display:inline-block; width:auto;}
 	.title .image {display:inline-block; vertical-align:middle; width:15%; margin-right:10px; margin-top:5px;}
 		.title .image img {max-width:100%; float:left; margin-left:0;}
-	.title h1 {display:inline-block; vertical-align:middle; width:75%; color:white }
+	.title h1 {display:inline-block; vertical-align:middle; color:white }
 		.title h1 a {color:white; text-decoration: none; }
 		.title h1 span, .title h1 span a {display:block; color:#20364d;}
 	.title p {
@@ -189,7 +189,7 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 /* Article Links */
 .article-link {display:block; clear:both; padding:20px; width:100%; margin:0 -20px;}
 	.article-link a {color:white; text-decoration:none;}
-	.article-link h3 {max-width:75%; display:inline-block; margin:0; vertical-align:top;}
+	.article-link h3 {max-width:85%; display:inline-block; margin:0; vertical-align:top;}
 	.article-link .comments-count {display:inline-block; color:#20364d !important;}
 
 
