@@ -153,7 +153,7 @@ h3 {font-size:125%; line-height:100%; margin:10px 0; font-weight:800; color:whit
 h4 {font-weight:700; font-size:112%; line-height:125%; padding:0 0 20px;}
 h6 {display:block;  vertical-align:middle; padding:0 0 20px; text-transform:uppercase; letter-spacing:1px; font-size:90%; }
 h6 a {text-decoration:none;}
-	h6:before {content:""; vertical-align:middle; width:30px; height:30px; display:inline-block; margin-right:8px;}
+	h6:before {content:""; vertical-align:middle; height:30px; display:inline-block;}
 	h6.speak:before {background:url(../img/speaker.png) center center no-repeat; background-size:30px;}
 	h6.bubble:before {background:url(../img/chat-bubble.png) center center no-repeat; background-size:30px;}
 	h6.bulb:before {background:url(../img/lightbulb.png) center center no-repeat; background-size:20px;}
