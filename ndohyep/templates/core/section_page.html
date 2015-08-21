@@ -4,16 +4,29 @@
 {% block content %}
 
 <div class="title {{self.get_effective_extra_style_hints}}">
+  {% with parent=self.get_ancestors.last %}
   {% if self.image %}
     {% image self.image height-60 as tmp_photo %}
     <div class="image"><img src="{{ tmp_photo.url }}" alt="{{ section.image.title }}"
          class="right" /></div>
   {% endif %}
-  <h1>{{self.title}}</h1>
-  {% if self.description%}
-  <p>{{self.description}}</p>
-  {% endif %}
+
+  <div class="title-container">
+    <h1>
+      {% if parent.sectionpage %}
+      <a href="{% pageurl parent %}">{{parent.title}}</a>
+      <span>{{self.title}}<span>
+      {% else %}
+      {{self.title}}
+      {% endif %}
+    </h1>
+    {% if self.description%}
+    <p>{{self.description}}</p>
+    {% endif %}
+  </div>
+  {% endwith %}
 </div><!-- /title -->
+
 
 {% for section in self.sections %}
 <div class="block {{section.get_effective_extra_style_hints}}">
@@ -22,12 +35,12 @@
   <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ section.image.title }}"
        class="right hide" />
   {% endif %}
-  <div class="title-container">
+
     <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
     {% if section.description %}
     <p>{{section.description}}</p>
     {% endif %}
-  </div>
+
 
   {% for page in section.featured_articles %}
   {% get_comment_count for page as comment_count %}

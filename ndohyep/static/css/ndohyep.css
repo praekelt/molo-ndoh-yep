@@ -60,10 +60,6 @@ hr {border:0; clear:both; display:block; height:0px; font-size:0px; margin:10px 
 img {max-width:100%;}
 
 
-
-
-
-
 /* details */
 a {
     text-decoration:underline;
@@ -88,8 +84,6 @@ a:hover, a:active {text-decoration:underline;}
 .lightblue {background-color:#b6cce4;}
 .blue {background-color:#69a8ef;}
 .darkblue {background-color:#3a5571; color:white;}
-
-
 
 
 

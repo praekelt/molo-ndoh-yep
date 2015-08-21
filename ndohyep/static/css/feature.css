@@ -50,11 +50,11 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Content Blocks */
-.block {display:block; clear:both; padding:15px 15px 0; overflow:hidden; border-bottom:1px solid #ddd;}
+.block {display:block; clear:both; padding:15px 15px 0; overflow:hidden;}
 	.author {padding:0 0 15px;}
 
 	/* Article Links */
-	.article-link {display:block; clear:both; text-transform:uppercase; padding:15px; width:100%; margin:0 -15px; border-top:1px solid #ddd;}
+	.article-link {display:block; clear:both; text-transform:uppercase; padding:15px; width:100%; margin:0 -15px; border-top:1px solid rgba(239,239,239,0.5);}
 	.article-link a {text-decoration:none;}
 	.article-link .comments-count {display:none;}
 
@@ -94,7 +94,7 @@ input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
 /* Comments */
 .post-comment {padding:0 0 15px; }
 	.post-comment p {font-weight:normal;}
-.comments-count {text-decoration:none; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:27px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count-grey.png) 0 0 no-repeat;  background-size:100%; color:white !important; font-size:90%;}
+.comments-count {text-decoration:none; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:27px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count-grey.png) 0 0 no-repeat;  background-size:100%; color:white !important; font-size:70%;}
 .comment {font-weight:normal; border-top:1px solid #ddd; padding:20px 20px 0; width:100%; margin:0 -15px;}
 	.post-comment .anon {color:#bbb; margin-left:10px; }
 	.comment .by {font-weight:bold; text-transform:uppercase; }
@@ -136,8 +136,8 @@ input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
 		.poll-result p strong {display:block; font-size:200%; color:#aaa; }
 	.poll-result .bar {display:inline-block; vertical-align:middle; height:40px;}
 	.poll-result .bar.grey {background-color:#dedede;}
-	.poll-result .bar.blue {background-color:#69a7ee;}
+	.poll-result .bar.blue {background-color:#69a8ef;}
 	.poll-result .bar.yellow {background-color:#fcd26d;}
-	.poll-result .bar.orange {background-color:#f36d41;}
+	.poll-result .bar.orange {background-color:#f46d40;}
 	.poll-result .bar.purple {background-color:#8268a6;}
 	.poll-result .bar.turq {background-color:#2fc7b7;}
