@@ -1,7 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags i18n comments %}
 
 {% if articles %}
-<div class="block blue">
+<div class="block blue" id="blue">
   <h6 class="bubble">{% trans "Featured health articles" %}</h6>
   {% for page in articles %}
     {% get_comment_count for page as comment_count %}
