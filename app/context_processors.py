@@ -36,3 +36,7 @@ def get_profile_data(request):
 
 def get_registration_open(request):
     return {'REGISTRATION_OPEN': settings.REGISTRATION_OPEN}
+
+
+def get_comment_open(request):
+    return {'COMMENT_OPEN': settings.COMMENT_OPEN}

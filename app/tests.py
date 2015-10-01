@@ -10,7 +10,7 @@ from wagtail.wagtailsearch.backends import get_search_backend
 
 from app.forms import RegistrationForm, ProfilePasswordChangeForm
 
-from molo.core.models import ArticlePage
+from molo.core.models import ArticlePage, SectionPage, Page
 
 
 class RegisterTestCase(TestCase):
@@ -146,3 +146,20 @@ class TestSearch(TestCase):
         self.assertContains(response, 'Page 2 of 2')
         self.assertNotContains(response, '&rarr;')
         self.assertContains(response, '&larr;')
+
+
+class TestCommentOpen(TestCase):
+    #
+
+    @override_settings(COMMENT_OPEN=True)
+    def test_comment_open(self):
+        client = Client()
+        response = client.get('/')
+
+        self.assertContains(response, 'comment_count')
+
+    @override_settings(COMMENT_OPEN=False)
+    def test_comment_close(self):
+        client = Client()
+        response = client.get('/')
+        self.assertNotContains(response, 'comment_count')

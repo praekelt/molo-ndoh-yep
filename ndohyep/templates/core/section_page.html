@@ -46,7 +46,9 @@
   {% get_comment_count for page as comment_count %}
   <div class="article-link">
     <h3><a href="{% pageurl page %}">{{page.title}}</a></h3>
-    <a href="" class="comments-count">{{comment_count}}</a>
+    {% if COMMENT_OPEN %}
+      <a href="" class="comments-count">{{comment_count}}</a>
+    {% endif %}
   </div><!-- /article-link -->
   {% endfor %}
 
@@ -62,7 +64,9 @@
       {% get_comment_count for page as comment_count %}
       <div class="article-link">
         <h3><a href="{% pageurl page %}">{{page.title}} &gt;</a></h3>
-        <a href="{% pageurl page %}#add-comment" class="comments-count">{{comment_count}}</a>
+        {% if COMMENT_OPEN %}
+          <a href="{% pageurl page %}#add-comment" class="comments-count">{{comment_count}}</a>
+        {% endif %}
       </div><!-- /article-link -->
   {% endfor %}
 </div>

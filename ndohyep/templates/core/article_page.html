@@ -62,24 +62,24 @@
 </div><!-- /block -->
 
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+  {% if COMMENT_OPEN %}
+    <div class="post-comment">
+      <a href="" class="comments-count">{{comment_count}}</a>
+      <h4>{% trans "Add a Comment/Question" %}</h4>
+      {% if request.user.is_authenticated %}
+      {% render_comment_form for self %}
+      {% else %}
+      <p>{% trans "You need to be signed in to add a comment." %}</p>
+      <a href="{% url 'auth_login' %}?next={% pageurl self %}"><button>{% trans "SIGN IN" %}</button></a>
+      {% endif %}
+    </div><!-- /post-comment -->
 
-  <div class="post-comment">
-    <a href="" class="comments-count">{{comment_count}}</a>
-    <h4>{% trans "Add a Comment/Question" %}</h4>
-    {% if request.user.is_authenticated %}
-    {% render_comment_form for self %}
-    {% else %}
-    <p>{% trans "You need to be signed in to add a comment." %}</p>
-    <a href="{% url 'auth_login' %}?next={% pageurl self %}"><button>{% trans "SIGN IN" %}</button></a>
-    {% endif %}
-  </div><!-- /post-comment -->
 
-
-  {% get_molo_comments for self as comment_list %}
-  {% for node in comment_list|slice:":5" %}
-    {% include "comments/comment.html" %}
-  {% endfor %}
-
+    {% get_molo_comments for self as comment_list %}
+    {% for node in comment_list|slice:":5" %}
+      {% include "comments/comment.html" %}
+    {% endfor %}
+  {% endif %}
   <p class="back"><a href="javascript: history.go(-1)">&lt; {% trans "Back" %}</a></p>
 
 </div><!-- /block -->
