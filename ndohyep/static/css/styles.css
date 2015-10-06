@@ -30,10 +30,11 @@ img {max-width:100%;}
 
 
 /* Footer */
-.footer {padding:20px 0; font-size:75%; font-weight:normal; clear:both; display:block;}
+.footer {padding:20px 0; font-size:75%; font-weight:normal; clear:both; display:block; border-top: 1px solid #d7dde3;}
 	.footer p {padding:5px 20px; color:#b8bfc6;}
    .footer img {max-width:66%;}
 	.footer a {color:#b8bfc6; text-decoration:underline; padding:0 8px 0 2px;}
 	.footer a:hover, .footer a:active {color:#f36c40;}
 
-.pagination {padding:15px 0; text-align: left}
+.pagination {padding:15px 0; text-align: left; }
+.pagination a {text-decoration: none;}
