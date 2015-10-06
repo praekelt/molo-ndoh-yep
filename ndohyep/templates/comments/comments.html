@@ -5,7 +5,7 @@
 <div class="title {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
 <h5>{% trans "Comments" %}</h5>
 </div>
-<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}" id="comments-list">
       {% for node in comments %}
         {% include "comments/comment.html" %}
       {% endfor %}
