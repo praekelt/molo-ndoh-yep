@@ -21,6 +21,7 @@ from wagtail.wagtailsearch.models import Query
 import django_comments
 
 from molo.commenting.forms import MoloCommentForm
+from molo.commenting.models import MoloComment
 
 
 @csrf_protect
@@ -135,4 +136,12 @@ def search(request, results_per_page=10):
         'search_query': search_query,
         'search_results': search_results,
         'results': results,
+    })
+
+
+def report_response(request, comment_pk):
+    comment = MoloComment.objects.get(pk=comment_pk)
+
+    return render(request, 'comments/report_response.html', {
+        'article': comment.content_object,
     })

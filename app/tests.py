@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -11,6 +11,9 @@ from wagtail.wagtailsearch.backends import get_search_backend
 from app.forms import RegistrationForm, ProfilePasswordChangeForm
 
 from molo.core.models import ArticlePage
+from molo.commenting.models import MoloComment
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.sites.models import Site
 
 
 class RegisterTestCase(TestCase):
@@ -121,20 +124,21 @@ class RegisterTestCase(TestCase):
 class TestSearch(TestCase):
 
     def test_search(self):
+        self.backend = get_search_backend('default')
+        self.backend.reset_index()
+
         for a in range(0, 20):
             ArticlePage.objects.create(
                 title='article %s' % (a,), depth=a,
                 subtitle='article %s subtitle' % (a,),
                 slug='article-%s' % (a,), path=[a])
 
-        self.backend = get_search_backend('default')
         self.backend.refresh_index()
 
         client = Client()
         response = client.get(reverse('search'), {
             'q': 'article'
         })
-
         self.assertContains(response, 'Page 1 of 2')
         self.assertContains(response, '&rarr;')
         self.assertNotContains(response, '&larr;')
@@ -146,3 +150,50 @@ class TestSearch(TestCase):
         self.assertContains(response, 'Page 2 of 2')
         self.assertNotContains(response, '&rarr;')
         self.assertContains(response, '&larr;')
+
+        response = client.get(reverse('search'), {
+            'q': 'article',
+            'p': 'foo',
+        })
+        self.assertContains(response, 'Page 1 of 2')
+
+        response = client.get(reverse('search'), {
+            'q': 'article',
+            'p': '4',
+        })
+        self.assertContains(response, 'Page 2 of 2')
+
+        response = client.get(reverse('search'), {
+            'q': 'magic'
+        })
+        self.assertContains(response, 'No search results for magic')
+
+        response = client.get(reverse('search'))
+        self.assertContains(response, 'No search results for None')
+
+
+class TestReportResponse(TestCase):
+
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='tester',
+            email='tester@example.com',
+            password='tester')
+
+    def test_report_response(self):
+        client = Client()
+        article = ArticlePage.objects.create(
+            title='article 1', depth=1,
+            subtitle='article 1 subtitle',
+            slug='article-1', path=[1])
+        comment = MoloComment.objects.create(
+            content_object=article, object_pk=article.id,
+            content_type=ContentType.objects.get_for_model(article),
+            site=Site.objects.get_current(), user=self.user,
+            comment='comment 1', submit_date=datetime.now())
+        response = client.get(reverse('report_response',
+                                      args=(comment.id,)))
+        self.assertContains(
+            response,
+            "This comment has been reported."
+        )

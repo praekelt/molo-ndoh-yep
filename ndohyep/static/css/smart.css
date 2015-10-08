@@ -204,10 +204,11 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 	.post-comment a {font-weight:700; text-transform:uppercase; }
 	.post-comment .anon {color:white; margin-left:10px; padding:8px 12px; display:inline-block; font-weight:700; color:#13212f; text-transform:uppercase; background:white; background:rgba(255,255,255,0.6); text-decoration:none;}
 .comments-count {text-decoration:none; color:#20364d !important; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:25px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count.png) 0 0 no-repeat;  background-size:100%; color:#20364d; font-size:70%;}
-.comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:20px 20px 0; width:100%; margin:0 -20px;}
-	.comment .by {font-weight:700; text-transform:uppercase; }
+.comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:20px; width:100%; margin:0 -20px;}
+	.comment .by {font-weight:700; text-transform:uppercase; padding:0 0 5px;}
 		.comment .by .date {color:white; font-weight:normal; font-style:italic; padding:0 0 0 10px;}
-	.comment .report {color:white; font-weight:700; text-transform:uppercase;}
+	.comment .report {color:white; font-weight:700; text-transform:uppercase; padding:0 0 5px;}
+	.comment p {padding:0 0 10px;}
 .comment.expert {font-weight: bold;}
 	.comment.expert p.by {background:url('../img/star_icon_small.png') 0 0 no-repeat; padding: 5px 30px 10px;}
 
