@@ -71,8 +71,9 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
 
     'molo.core',
+    'molo.profiles',
     'raven.contrib.django.raven_compat',
-    'app',
+
     'polls',
     'surveys',
     'google_analytics',
@@ -191,14 +192,14 @@ COMPRESS_PRECOMPILERS = (
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'molo.core.context_processors.locale',
-    'app.context_processors.get_profile_data',
-    'app.context_processors.get_registration_open',
+    'molo.profiles.context_processors.get_profile_data',
+    'ndohyep.context_processors.default_forms',
 )
 
 
 # Wagtail settings
 
-LOGIN_URL = 'auth_login'
+LOGIN_URL = 'molo.profiles:auth_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
 WAGTAIL_SITE_NAME = "NDOH Youth Platform"
