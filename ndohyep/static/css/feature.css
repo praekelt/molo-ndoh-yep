@@ -19,7 +19,8 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Header */
-.header {float:left; width:100%;}
+.header {border-bottom:1px solid #ddd; float:left; width:100%;}
+.header .masthead {padding: 10px 0 0 15px;}
 	.header .logo {float:left; width:100px; padding:15px;}
 	.menu {display:none;}
 
@@ -32,7 +33,7 @@ blockquote.yellow {color:#fec642;}
 		#feature-menu li {padding:5px 0; display:block;}
 		#feature-menu a {display:block;}
 
-	.backtotop {display:block; clear:both; text-transform:uppercase; padding:5px 15px 15px; width:100%; margin:0 -20px 15px; border-bottom:1px solid #ddd;}
+	.backtotop {display:block; clear:both; text-transform:uppercase; width:100%; padding: 15px; border:1px solid #ddd;}
 	.backtotop a {color:#20364d;}
 
 .banner {
@@ -42,6 +43,16 @@ blockquote.yellow {color:#fec642;}
 .banner img {width: 100%}
 
 
+/* Profile */
+.profile {padding:15px; display:block; clear:both;}
+
+	.profile h2 {font-size: 130%; font-weight: bold; }
+	.profile h4 {font-weight:bold; font-size:100%; line-height:125%; padding:10px 0;}
+	.profile p {font-weight: normal; padding:10px 0;}
+	.profile label {display:block; padding:10px 0;}
+	.profile input[type='submit'], button {width: auto; margin:10px 0 20px;}
+	.profile input.error {border:2px solid red;}
+	.profile label.error {color:red;}
 /* Titles */
 .title {display:block; clear:both; padding:20px 20px 0; overflow:hidden;}
 	.title .image {display:none;}
@@ -85,9 +96,11 @@ a {color:#999;}
 
 /* Form Elements */
 textarea {width:94%; font-size:100%; padding:10px; display:block; background:#ddd;}
-input[type='text'] {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:#eee;}
-input[type='text']:focus {background:#ddd; color:white; }
-input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
+input {width:90%; padding:8px 12px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:#eee;}
+input[type='text'] {width:90%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #8f8f8f; background:#eee;}
+input[type='text']:focus {background:#ddd;}
+input[type='submit'] {background: #eee; font-weight: bold; font:14px Arial, Helvetica, sans-serif;}
+a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; background: #eee; font: 14px Arial, Helvetica, sans-serif; padding: 8px 12px; display: inline-block; color: black; margin: 10px 0 20px; text-decoration: none;}
 
 
 
