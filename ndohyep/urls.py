@@ -18,15 +18,14 @@ urlpatterns = patterns(
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^polls/', include('polls.urls')),
     url(r'^surveys/', include('surveys.urls')),
-    url(r'', include('molo.core.urls')),
     url(r'commenting/', include('molo.commenting.urls')),
     url(r'commenting/reply/(?P<parent_id>\d+)/$', CommentReplyForm.as_view(),
         name='comments-reply'),
     url(r'^comments/reported/(?P<comment_pk>\d+)/$',
         report_response, name='report_response'),
     url(r'search/$', search, name='search'),
-    url(r'', include(wagtail_urls)),
     url(r'^djga/', include('google_analytics.urls')),
+    url(r'', include('molo.core.urls')),
     url(
         r'^profiles/register/done/',
         login_required(RegistrationDone.as_view(
@@ -37,6 +36,7 @@ urlpatterns = patterns(
     ),
     url(r'^profiles/', include('molo.profiles.urls',
                                namespace='molo.profiles')),
+    url(r'', include(wagtail_urls)),
 )
 
 if settings.DEBUG:
