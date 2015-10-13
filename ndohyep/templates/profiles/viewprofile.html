@@ -2,30 +2,28 @@
 {% load i18n %}
 
 {% block content %}
-  <div class="title profile">
+  <div class="profile">
     <h3>{% trans "Hello " %}{{ username }}</h3>
-  </div>
-  <div class="block turq">
-    <a href="{% url 'molo.profiles:auth_logout' %}" class="button inverted">{% trans "log out" %}</a>
-  </div>
-  <hr>
+    <a href="{% url 'molo.profiles:auth_logout' %}" class="button">{% trans "log out" %}</a>
+
+
+
+        <h4>{% trans "Change your name" %}</h4>
   <div class="signin-form">
-    <div class="block turq">
   		<form method="post" id="frmProfileEdit" action="{% url 'molo.profiles:edit_my_profile' %}">{% csrf_token %}
-        <h5>{% trans "Change your name" %}</h5>
         <p>{% trans "When you type comments your name will appear as:" %}</p>
         <h5>{{ alias }}</h5>
         <p>{% trans "Type new display name:" %}</p>
         {{ edit_profile_form.alias }}
   		  <input type="submit" value='{% trans "Update profile" %}'>
   		</form>
-    </div>
   </div>
-  <hr>
+
+
+
+  <h4>{% trans "Change Your Password" %}</h4>
   <div class="signin-form">
-    <div class="block turq">
-      <h5>{% trans "Change Your Password" %}</h5>
-      <form method="post" id="frmProfilePasswordChange" action="{% url 'molo.profiles:profile_password_change' %}" class="profile">{% csrf_token %}
+      <form method="post" id="frmProfilePasswordChange" action="{% url 'molo.profiles:profile_password_change' %}" >{% csrf_token %}
         {% if form.errors or form.non_field_errors %}
           {% if form.non_field_errors %}
             {% for error in form.non_field_errors %}
@@ -57,6 +55,6 @@
         </div>
         <input type="submit" value='{% trans "Change" %}'>
       </form>
-    </div>
   </div>
+</div>
 {% endblock %}
