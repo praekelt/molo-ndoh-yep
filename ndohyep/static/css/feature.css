@@ -5,9 +5,10 @@ body {font:14px Arial, Helvetica, sans-serif; background:white; font-weight:bold
 
 /* Fonts */
 h1 {text-transform:uppercase; font-size:130%; line-height:100%;}
-h2 {font-size:230%; line-height:100%; padding:15px 0; font-weight:bold; text-transform:uppercase; }
-h3 {font-size:125%; line-height:100%; margin:10px 0; font-weight:bold; text-transform:uppercase; }
+h2 {font-size:150%; line-height:100%; padding:15px 0; font-weight:bold; text-transform:uppercase; }
+h3 {font-size:100%; line-height:100%; font-weight:bold; text-transform:uppercase; }
 h4 {font-weight:bold; font-size:125%; line-height:125%; padding:10px 0;}
+h6 {font-size:150%; padding:15px 0;}
 p {padding:0 0 15px;}
 p.normal {font-weight:normal;}
 
@@ -50,7 +51,7 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Content Blocks */
-.block {display:block; clear:both; padding:15px 15px 0; overflow:hidden;}
+.block {display:block; clear:both; padding:0 15px; overflow:hidden; border-bottom:1px solid #ddd;}
 	.author {padding:0 0 15px;}
 
 	/* Article Links */
@@ -64,7 +65,7 @@ blockquote.yellow {color:#fec642;}
 .grey a, .grey h2, .grey .author {color:#aaaaaa;}
 .orange a, .orange h2, .orange .author {color:#f26d40;}
 .yellow a, .yellow h2, .yellow .author {color:#fdc741;}
-.blue a, .blue h2, .blue .author {color:white;}
+.blue a, .blue h2, .blue h6 .blue .author {color:#69a8ef;}
 .purple a, .purple h2, .purple .author {color:#8268a5;}
 .turq a, .turq h2, .turq .author {color:#30c7b8;}
 
@@ -77,7 +78,7 @@ img.right {display:none;}
 
 /* Links */
 a {color:#999;}
-.block .more, .block .back {text-transform:uppercase; display:block; display:block; clear:both; padding:15px; width:100%; margin:0 -15px; border-top:1px solid #ddd;}
+.block .more, .block .back {text-transform:uppercase; display:block; display:block; clear:both; padding:15px; width:100%; margin:0 -15px;}
 .block .back {}
 .block .more a, .block .back a {color:#20364d; text-decoration:underline;}
 
