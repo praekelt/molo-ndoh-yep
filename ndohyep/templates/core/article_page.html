@@ -84,7 +84,17 @@
     </div>
   {% endif %}
 </div>
-  <p class="back">&lt; <a href="javascript: history.go(-1)">{% trans "Back" %}</a></p>
-
 </div><!-- /block -->
+
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+{% with parent=self.get_parent_section.get_ancestors.last %}
+  {% with section=self.get_parent_section %}
+  <div class="back">
+    <p>&lt; <a href="{% pageurl section %}">{% trans "View more articles in " %}{{section.title}}</a></p>
+    <p>&lt; <a href="{% pageurl parent %}">{% trans "Back to " %}{{parent.title}}</a></p>
+  </div>
+  {% endwith %}
+{% endwith %}
+</div>
+
 {% endblock %}

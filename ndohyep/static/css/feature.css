@@ -79,7 +79,7 @@ img.right {display:none;}
 /* Links */
 a {color:#999;}
 .block .more, .block .back {text-transform:uppercase; display:block; display:block; clear:both; padding:15px; width:100%; margin:0 -15px;}
-.block .back {}
+.block .back {padding:15px 15px 0;}
 .block .more a, .block .back a {color:#20364d; text-decoration:underline;}
 
 
