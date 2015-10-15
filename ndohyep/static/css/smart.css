@@ -215,8 +215,8 @@ textarea {width:94%; font-size:100%; padding:10px; display:block; background:whi
 
 /* Links */
 a {color:#20364d;}
-.block .more, .block .back {text-transform:uppercase; font-size:85%; font-weight:700; padding:15px; display:block; clear:both;  width:100%; margin:0 -15px; }
-.block .back {padding:15px 15px 0;}
+.block .more, .block .back {text-transform:uppercase; font-size:85%; font-weight:700; padding:15px; display:block; clear:both;  width:100%; margin:0 -15px;}
+.block .back {padding:15px; line-height: 25px;}
 .block.grey .back {border-top:1px solid rgba(255,255,255,0.5);}
 	.block .more a, .block .back a {color:#20364d; text-decoration:underline;}
 a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:uppercase;}
