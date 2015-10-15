@@ -22,10 +22,12 @@
             <a href="?p={{ comments.next_page_number }}">&rarr;</a>
         {% endif %}
     </span>
-    <br>
-    <br>
-    <a href="{% pageurl self %}">{% trans "Back to article" %}</a>
 </div>
 
+</div>
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+  <div class="back">
+    <p>< <a href="{% pageurl self %}">{% trans "Back to article" %}</a></p>
+  </div>
 </div>
 {% endblock %}

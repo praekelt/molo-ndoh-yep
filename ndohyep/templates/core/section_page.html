@@ -66,5 +66,13 @@
       </div><!-- /article-link -->
   {% endfor %}
 </div>
+
+<div class="block {{self.get_effective_extra_style_hints}}">
+  {% with parent=self.get_ancestors.last %}
+    <div class="back">
+      <p>&lt; <a href="{% pageurl parent %}">{% trans "Back to " %}{{parent.title}}</a></p>
+    </div>
+  {% endwith %}
+</div>
 {% endif %}
 {% endblock %}
