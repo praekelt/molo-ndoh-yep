@@ -8,7 +8,7 @@
     <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ section.image.title }}"
          class="right hide" />
   {% endif %}
-  <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
+  <div><h2><a href="{% pageurl section %}">{{section.title}}</a></h2></div>
   {% for page in section.featured_articles_in_homepage %}
       {% get_comment_count for page as comment_count %}
       <div class="article-link">

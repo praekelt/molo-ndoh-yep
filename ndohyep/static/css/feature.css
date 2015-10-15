@@ -4,7 +4,7 @@ body {font:14px Arial, Helvetica, sans-serif; background:white; font-weight:bold
 
 
 /* Fonts */
-h1 {text-transform:uppercase; font-size:130%; line-height:100%;}
+h1 {text-transform:uppercase; font-size:130%; line-height:100%; line-height: 25px;}
 h2 {font-size:150%; line-height:100%; padding:15px 0; font-weight:bold; text-transform:uppercase; }
 h3 {font-size:100%; line-height:100%; font-weight:bold; text-transform:uppercase; }
 h4 {font-weight:bold; font-size:125%; line-height:125%; padding:10px 0;}
@@ -12,6 +12,7 @@ h6 {font-size:150%; padding:15px 0;}
 p {padding:0 0 15px;}
 p.normal {font-weight:normal;}
 
+.padding {padding: 15px 0;}
 
 /* Blockquotes */
 blockquote {padding:0 0 15px; font-weight:bold; font-size:125%; line-height:125%;}
@@ -44,14 +45,17 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Titles */
-.title {display:block; clear:both; padding:20px 20px 0; overflow:hidden;}
+.title {display:block; clear:both; padding:0 20px; overflow:hidden; border-top:1px solid #ddd;}
 	.title .image {display:none;}
 	.title h1 span {display:block; color:#20364d;}
 
-
+	.title-container {
+		display: inline-block;
+		padding: 20px 0;
+	}
 
 /* Content Blocks */
-.block {display:block; clear:both; padding:0 15px; overflow:hidden; border-bottom:1px solid #ddd;}
+.block {display:block; clear:both; padding:0 15px; overflow:hidden; border-top:1px solid #ddd;}
 	.author {padding:0 0 15px;}
 
 	/* Article Links */
@@ -62,7 +66,7 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Links */
-.grey a, .grey h2, .grey .author {color:#aaaaaa;}
+.grey a, .grey .author {color:#b6cce4;}
 .orange a, .orange h2, .orange .author {color:#f26d40;}
 .yellow a, .yellow h2, .yellow .author {color:#fdc741;}
 .blue a, .blue h2, .blue h6 .blue .author {color:#69a8ef;}
@@ -93,10 +97,10 @@ input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
 
 
 /* Comments */
-.post-comment {padding:0 0 15px; }
+.post-comment {padding:15px 0; }
 	.post-comment p {font-weight:normal;}
-.comments-count {text-decoration:none; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:27px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count-grey.png) 0 0 no-repeat;  background-size:100%; color:white !important; font-size:70%;}
-.comment {font-weight:normal; border-top:1px solid #ddd; padding:20px 20px 0; width:100%; margin:0 -15px;}
+.comments-count {text-decoration:none; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:27px; width:25px; text-align:center; padding-right:2px; background-size:100%; color:white !important; font-size:70%;}
+.comment {font-weight:normal; border-bottom:1px solid #ddd; padding:20px 20px 0; width:100%; margin:0 -15px;}
 	.post-comment .anon {color:#bbb; margin-left:10px; }
 	.comment .by {font-weight:bold; text-transform:uppercase; }
 		.comment .by .date {font-weight:normal; font-style:italic; padding:0 0 0 10px; color:#bbb;}
@@ -131,12 +135,14 @@ input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
 
 
 
-/* Poll Results */
+/* Poll*/
+.poll {padding: 0 15px 15px; border-top: 1px solid #ddd;}
+.poll a {color: #20364d}
+.poll h2 {color: #b6cce4;}
 .poll-result {width:100%; position:relative; padding:0 0 20px}
 	.poll-result p {font-weight:bold; padding:10px 0;}
 		.poll-result p strong {display:block; font-size:200%; color:#aaa; }
-	.poll-result .bar {display:inline-block; vertical-align:middle; height:40px;}
-	.poll-result .bar.grey {background-color:#dedede;}
+	.poll-result .bar {display:inline-block; vertical-align:middle; height:40px; line-height: 40px;}
 	.poll-result .bar.blue {background-color:#69a8ef;}
 	.poll-result .bar.yellow {background-color:#fcd26d;}
 	.poll-result .bar.orange {background-color:#f46d40;}

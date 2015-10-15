@@ -51,7 +51,7 @@
   {% endfor %}
 
   {% if section.featured_articles %}
-  <p><a href="{% pageurl section %}">{% trans "More" %} +</a></p>
+  <p><a href="{% pageurl section %}" class="more">{% trans "View More" %}</a></p>
   {% endif %}
 </div>
 {% endfor %}
@@ -61,7 +61,7 @@
   {% for page in self.articles %}
       {% get_comment_count for page as comment_count %}
       <div class="article-link">
-        <h3><a href="{% pageurl page %}">{{page.title}} &gt;</a></h3>
+        <h3><a href="{% pageurl page %}">{{page.title}}</a></h3>
         <a href="{% pageurl page %}#add-comment" class="comments-count">{{comment_count}}</a>
       </div><!-- /article-link -->
   {% endfor %}
