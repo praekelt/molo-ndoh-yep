@@ -90,6 +90,12 @@
 {% block bottom %}
 <div id="feature-menu">
     <p class="backtotop"><a href="#top">&lt; {% trans "Back to top" %}</a></p>
+    <div class="search">
+      <form action="{% url 'search' %}">
+        <input type="search" name="q" placeholder="{% trans 'Search for something...' %}">
+        <input type="submit" value="{% trans 'Search' %}">
+      </form>
+    </div>
     <ul>
         <li>{% trans "Menu" %}</li>
         {% for section in language_page.sections %}
