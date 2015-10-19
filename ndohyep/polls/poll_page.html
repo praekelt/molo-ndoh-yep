@@ -2,9 +2,9 @@
 {% block content %}
 	{% if questions %}
 		{% for question in questions %}
-			<div class="block grey">
-				<h6 class="speak"><a href="">{% trans "SPEAK OUT" %}</a></h6>
-				<h2>{{ question.title }}</h2>
+			<div class="poll">
+				<h6 class="speak">{% trans "SPEAK OUT" %}</h6>
+				<h3>{{ question.title }}</h3>
 				{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 				<div class="radios">
 
@@ -17,7 +17,7 @@
 							</div>
 						{% endfor %}
 						<div>
-							<input type="submit" value="{% trans "Vote" %}" />
+							<input type="submit" value="{% trans "submit" %}" />
 						</div>
 					</form>
 				</div><!-- /radios -->

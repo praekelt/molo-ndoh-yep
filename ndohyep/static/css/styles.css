@@ -12,7 +12,7 @@ table{border-collapse:collapse;border-spacing:0}
 /* Fonts */
 body {background:white;}
 p {font-size:100%;}
-.block.white {font-weight:normal;}
+.block.white {font-weight:normal; padding: 20px;}
 
 
 /* Images */
