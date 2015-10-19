@@ -23,18 +23,10 @@
   {% endwith %}
 </div><!-- /title -->
 
-<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
-  <h2>{{self.title}}</h2>
-  <p>{{self.subtitle}} </p>
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}} padding">
+  <h1>{{self.title}}</h1>
 </div><!-- /block -->
 
-{% if messages %}
-<div class="block messages">
-    {% for message in messages %}
-    <h4{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h4>
-    {% endfor %}
-</div>
-{% endif %}
 
 <div class="block white">
 
@@ -61,9 +53,17 @@
   {% survey_page page=self %}
 </div><!-- /block -->
 
+{% if messages %}
+<div class="block messages">
+    {% for message in messages %}
+    <h4{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h4>
+    {% endfor %}
+</div>
+{% endif %}
+
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   <div class="post-comment">
-    <a href="#comments-list" class="comments-count">{{comment_count}}</a>
+    <p class="comments-count">{{comment_count}}</p>
     <h4>{% trans "Add a Comment/Question" %}</h4>
     {% if request.user.is_authenticated %}
     {% render_comment_form for self %}
@@ -84,7 +84,17 @@
     </div>
   {% endif %}
 </div>
-  <p class="back">&lt; <a href="javascript: history.go(-1)">{% trans "Back" %}</a></p>
-
 </div><!-- /block -->
+
+<div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+{% with parent=self.get_parent_section.get_ancestors.last %}
+  {% with section=self.get_parent_section %}
+  <div class="back">
+    <p>&lt; <a href="{% pageurl section %}">{% trans "View more articles in " %}{{section.title}}</a></p>
+    <p>&lt; <a href="{% pageurl parent %}">{% trans "Back to " %}{{parent.title}}</a></p>
+  </div>
+  {% endwith %}
+{% endwith %}
+</div>
+
 {% endblock %}

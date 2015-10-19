@@ -3,23 +3,22 @@
 {% if sections %}
 {% for section in sections %}
 <div class="block {{section.get_effective_extra_style_hints}}" id="block">
-    {% if section.image %}
+  {% if section.image %}
     {% image section.image width-240 as tmp_photo %}
     <img src="{{ tmp_photo.url }}" width="{{ tmp_photo.width }}" alt="{{ section.image.title }}"
          class="right hide" />
-    {% endif %}
-    <h2><a href="{% pageurl section %}">{{section.title}}</a></h2>
-    <p>{{section.description}} </p>
-        {% for page in section.featured_articles_in_homepage %}
-            {% get_comment_count for page as comment_count %}
-            <div class="article-link">
-            <h3><a href="{% pageurl page %}">{{page.title}} ></a></h3>
-            <a href="" class="comments-count">{{comment_count}}</a>
-            </div><!-- /article-link -->
-        {% endfor %}
-    {% if section.featured_articles_in_homepage %}
-    <p class="more"><a href="{% pageurl section %}">{% trans "More" %} +</a></p>
-    {% endif %}
+  {% endif %}
+  <div><h2><a href="{% pageurl section %}">{{section.title}}</a></h2></div>
+  {% for page in section.featured_articles_in_homepage %}
+      {% get_comment_count for page as comment_count %}
+      <div class="article-link">
+      <h3><a href="{% pageurl page %}">{{page.title}}</a></h3>
+      <a href="{% pageurl page %}#comments-list" class="comments-count">{{comment_count}}</a>
+      </div><!-- /article-link -->
+  {% endfor %}
+  {% if section.featured_articles_in_homepage %}
+    <p class="more"><a href="{% pageurl section %}">{% trans "View More" %}</a></p>
+  {% endif %}
 </div><!-- /block -->
 {% endfor%}
 {% endif %}

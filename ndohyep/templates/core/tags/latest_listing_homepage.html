@@ -6,8 +6,8 @@
   {% for page in articles %}
     {% get_comment_count for page as comment_count %}
     <div class="article-link">
-      <h3><a href="{% pageurl page %}">{{page.title}} &gt;</a></h3>
-      <a href="" class="comments-count">{{comment_count}}</a>
+      <h3><a href="{% pageurl page %}">{{page.title}}</a></h3>
+      <a href="{% pageurl page %}#comments-list" class="comments-count">{{comment_count}}</a>
     </div><!-- /article-link -->
   {% endfor %}
 </div><!-- /block -->

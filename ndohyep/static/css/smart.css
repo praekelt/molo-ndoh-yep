@@ -94,13 +94,13 @@
 
 
 /* Titles */
-.title {display:block; clear:both; padding:25px 20px 25px 20px; overflow:hidden;}
+.title {display:block; clear:both; padding:0; overflow:hidden;}
 	.title.yellow {background-color:#ffc643;}
 	.title.grey {background-color:#9fb5cd;}
 		.title.grey h1 {display:inline-block; width:auto;}
 	.title .image {display:inline-block; vertical-align:middle; width:15%; margin-right:10px; margin-top:5px;}
 		.title .image img {max-width:100%; float:left; margin-left:0;}
-	.title h1 {display:inline-block; vertical-align:middle; color:white }
+	.title h1 {display:inline-block; vertical-align:middle; color:white; line-height: 30px; }
 		.title h1 a {color:white; text-decoration: none; }
 		.title h1 span, .title h1 span a {display:block; color:#20364d;}
 	.title p {
@@ -111,15 +111,14 @@
 
 .title-container {
 	display: inline-block;
-	float:right;
-	width: 80%;
+	padding: 20px 0;
 }
 
 /* Content Blocks */
 .block  {
 	display:block;
 	clear:both;
-	padding:0px 20px 0px;
+
 	overflow:hidden;
 }
 #block {
@@ -136,7 +135,7 @@
 	overflow:hidden;
 }
 
-	img.right {float:right; margin:0 0 10px 10px; max-width:25%; display:inline-block;}
+	img.right {float:right; margin:0 0 10px 10px; max-width:20%; display:inline-block;}
 	/* img.hide {margin:0 -30px 10px 15px; max-width:40%;} */
 	@media only screen and (max-width:480px) {
 		/*img.hide {margin:0 -30px 10px 10px; max-width:30%;} */
@@ -150,13 +149,13 @@
 }
 
 /* Fonts */
-body {font:16px/125% 'Open Sans', Arial, Helvetica, sans-serif; font-weight:700; color:#20364d;}
+body {font:16px  Arial, Helvetica, sans-serif; font-weight:700; color:#20364d;}
 h1 {text-transform:uppercase; color:white; font-size:130%; line-height:100%;}
-h2 {font-size:250%; line-height:90%; padding:10px 0 20px; font-weight:800; color:white; text-transform:uppercase; }
+h2 {font-size:180%; line-height:90%; padding:20px 0; font-weight:800; color:white; text-transform:uppercase; }
 	h2 a {color:white; text-decoration:none;}
-h3 {font-size:125%; line-height:100%; margin:10px 0; font-weight:800; color:white; text-transform:uppercase; }
+h3 {font-size:120%; line-height:100%; margin:10px 0; font-weight:800; color:white; }
 h4 {font-weight:700; font-size:112%; line-height:125%; padding:0 0 20px;}
-h6 {display:block;  vertical-align:middle; padding:0 0 20px; text-transform:uppercase; letter-spacing:1px; font-size:90%; }
+h6 {font-size:100%; display:block;  vertical-align:middle; padding:0 0 20px; text-transform:uppercase; letter-spacing:1px;}
 h6 a {text-decoration:none;}
 	h6:before {content:""; vertical-align:middle; width:30px; height:30px; display:inline-block; margin-right:8px;}
 	h6.speak:before {background:url(../img/speaker.png) center center no-repeat; background-size:30px;}
@@ -164,15 +163,15 @@ h6 a {text-decoration:none;}
 	h6.bulb:before {background:url(../img/lightbulb.png) center center no-repeat; background-size:20px;}
 	h6.heart:before {background:url(../img/heart.png) center center no-repeat; background-size:30px;}
 	h6.magnify:before {background:url(../img/magnify-glass.png) center center no-repeat; background-size:28px;}
-p {padding:0 0 30px;}
+p {padding:0;}
 	.grey p {font-weight:normal;}
 .author {color:white; font-style:italic; padding:0 0 20px;}
 
 	@media only screen and (max-width:480px) {
-		h2 {font-size:230%; line-height:100%; }
+		h2 {line-height:100%; }
 	}
 
-
+.padding {padding: 20px;}
 
 /* Blockquotes */
 blockquote {padding:0 0 20px; background:white; font-weight:700; font-size:125%; line-height:125%;}
@@ -196,12 +195,12 @@ a.button {border: none;width: auto; text-transform: uppercase; font-size: 85%; c
 .article-link {display:block; clear:both; padding:20px; width:100%; margin:0 -20px;}
 	.article-link a {color:white; text-decoration:none;}
 	.article-link h3 {max-width:85%; display:inline-block; margin:0; vertical-align:top;}
-	.article-link .comments-count {display:inline-block; color:#20364d !important;}
+	.article-link .comments-count {display:block; color:#20364d !important;}
 
 
 
 /* Comments */
-.post-comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:0 20px 10px; width:100%; margin:0 -20px;}
+.post-comment {font-weight:normal; border-bottom:1px solid rgba(255,255,255,0.5); padding:20px; width:100%; margin:0 -20px;}
 	.post-comment a {font-weight:700; text-transform:uppercase; }
 	.post-comment .anon {color:white; margin-left:10px; padding:8px 12px; display:inline-block; font-weight:700; color:#13212f; text-transform:uppercase; background:white; background:rgba(255,255,255,0.6); text-decoration:none;}
 .comments-count {text-decoration:none; color:#20364d !important; display:inline-block; float:right; vertical-align:middle; height:30px; line-height:25px; width:25px; text-align:center; padding-right:2px; background:url(../img/comments-count.png) 0 0 no-repeat;  background-size:100%; color:#20364d; font-size:70%;}
@@ -217,8 +216,8 @@ a.button {border: none;width: auto; text-transform: uppercase; font-size: 85%; c
 
 /* Links */
 a {color:#20364d;}
-.block .more, .block .back {text-transform:uppercase; font-size:85%; font-weight:700; display:block; display:block; clear:both; padding:20px; width:100%; margin:0 -20px; }
-.block .back {border:0;}
+.block .more, .block .back {text-transform:uppercase; font-size:85%; font-weight:700; padding:15px; display:block; clear:both;  width:100%; margin:0 -15px;}
+.block .back {padding:15px; line-height: 25px;}
 .block.grey .back {border-top:1px solid rgba(255,255,255,0.5);}
 	.block .more a, .block .back a {color:#20364d; text-decoration:underline;}
 a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:uppercase;}
@@ -240,10 +239,13 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 .block p em, .block p i {font-style: italic;}
 
 
-/* Poll Results */
+/* Poll */
+.poll {background-color: #b6cce4; padding: 15px;}
+.poll a {color: #20364d}
+.poll h2 {color: white;}
 .poll-result {width:100%; position:relative; padding:0 0 20px}
 	.poll-result p {font-weight:700; padding:10px 0;}
-	.poll-result .bar {display:inline-block; vertical-align:middle; height:50px; line-height:50px; text-indent:12px; color:white; font-weight:700; font-size:150%; color:white;}
+	.poll-result .bar {display:inline-block; vertical-align:middle; height:50px; line-height:50px; text-indent:12px; color:white; font-weight:700;}
 
 
 
