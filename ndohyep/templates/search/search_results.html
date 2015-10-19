@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags comments %}
+{% load wagtailcore_tags comments i18n %}
 
 
 
 {% block content %}
 <div class="block grey search-title">
-	<h3>You searched for '{{search_query}}'</h3>
+	<h3>{% trans "You searched for "%}' {{search_query}} '</h3>
 </div><!-- /header -->
 {% if search_results %}
     {% for page in search_results %}
@@ -33,7 +33,7 @@
     </div>
 {% else %}
 	<div class="search-title">
-    <p>No search results for {{search_query}}.</p>
+    <p>{% trans "No search results for " %}{{search_query}}.</p>
 	</div>
 {% endif %}
 {% endblock %}
