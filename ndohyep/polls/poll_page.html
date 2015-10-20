@@ -4,7 +4,7 @@
 		{% for question in questions %}
 			<div class="poll">
 				<h6 class="speak">{% trans "SPEAK OUT" %}</h6>
-				<h3>{{ question.title }}</h3>
+				<h2>{{ question.title }}</h2>
 				{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 				<div class="radios">
 
@@ -17,7 +17,7 @@
 							</div>
 						{% endfor %}
 						<div>
-							<input type="submit" value="{% trans "submit" %}" />
+							<input type="submit" value="{% trans "Submit" %}" />
 						</div>
 					</form>
 				</div><!-- /radios -->
