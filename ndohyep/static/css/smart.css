@@ -155,7 +155,7 @@ h2 {font-size:180%; line-height:90%; padding:20px 0; font-weight:800; color:whit
 	h2 a {color:white; text-decoration:none;}
 h3 {font-size:120%; line-height:100%; margin:10px 0; font-weight:800; color:white; }
 h4 {font-weight:700; font-size:112%; line-height:125%; padding:0 0 20px;}
-h6 {font-size:100%; display:block;  vertical-align:middle; padding:0 0 20px; text-transform:uppercase; letter-spacing:1px;}
+h6 {font-size:100%; display:block;  vertical-align:middle; padding:0 0 10px; text-transform:uppercase; letter-spacing:1px;}
 h6 a {text-decoration:none;}
 	h6:before {content:""; vertical-align:middle; width:30px; height:30px; display:inline-block; margin-right:8px;}
 	h6.speak:before {background:url(../img/speaker.png) center center no-repeat; background-size:30px;}
@@ -181,7 +181,7 @@ blockquote.yellow {color:#fec642; background:white; }
 
 /* Form Elements */
 input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:white;}
-input[type='text'] {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:white;}
+input[type='text'] {padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:white;}
 input[type='radio'] {width:auto; padding:0px; margin:0 5px 0 0;}
 input:focus {background:#eee; color:black; }
 input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font-size:85%; border:0; margin:0 0 20px; font-weight:700; text-transform: uppercase; font-size:85%; color:#ffffff; background:rgba(0,0,0,0.15);}
@@ -250,8 +250,10 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 
 
 /* Search Results */
-.search-result {border-bottom:1px solid rgba(255,255,255,0.5); padding:20px;}
-.search-result h6 {padding:0; letter-spacing: normal;}
+.search-title {border: 15px;}
+.search-result {border-bottom:1px solid rgba(255,255,255,0.5); padding:20px; text-transform: uppercase;}
 .search-result h2 {font-size:250%; line-height:100%; padding:20px 0 0; max-width:80%;}
+.search-result h4 {padding: 0;display: inline-block; max-width: 85%;}
+.search-result h4 a {text-decoration: none;}
 .search-result h2 span.search-word {color:#20364d;}
-.search-result .comments-count {margin-top:-25px; color:#20364d !important;}
+.search-result .comments-count { color:#20364d !important;}

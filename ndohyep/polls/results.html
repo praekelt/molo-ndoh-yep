@@ -11,7 +11,9 @@
 <div class="poll">
 	<h6 class="speak">{% trans "SPEAK OUT" %}</h6>
 	<h3>{{ question.title }}</h3>
+	<div class="poll-result">
 	<p>{{total}} {% trans "people voted" %}</p>
+	</div>
 	{% for choice in choices %}
 		<div class="poll-result">
 			<p>{{ choice.title }}</p>

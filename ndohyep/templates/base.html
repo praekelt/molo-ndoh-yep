@@ -71,6 +71,12 @@
 
 {% block bottom %}
 <p id="feature-menu" class="backtotop"><a href="#top">{% trans "Back to top" %}</a></p>
+    <div class="search" id="feature-menu">
+      <form action="{% url 'search' %}">
+        <input type="search" name="q" placeholder="{% trans 'Search for something...' %}">
+        <input type="submit" value="{% trans 'Search' %}">
+      </form>
+    </div>
 <div id="feature-menu">
     <ul>
         <li>{% trans "Menu" %}</li>

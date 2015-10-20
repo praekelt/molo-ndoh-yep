@@ -12,7 +12,8 @@ h6 {font-size:150%; padding:15px 0;}
 p {padding:0 0 15px;}
 p.normal {font-weight:normal;}
 
-.padding {padding: 15px 0;}
+.padding {padding: 15px !important;}
+.border {border-top: 0 !important;}
 
 /* Blockquotes */
 blockquote {padding:0 0 15px; font-weight:bold; font-size:125%; line-height:125%;}
@@ -21,7 +22,7 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Header */
-.header {border-bottom:1px solid #ddd; float:left; width:100%;}
+.header { float:left; width:100%;}
 .header .masthead {padding: 10px 0 0 15px;}
 	.header .logo {float:left; width:100px; padding:15px;}
 	.menu {display:none;}
@@ -46,7 +47,7 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Profile */
-.profile {padding:15px; display:block; clear:both;}
+.profile {border-top:1px solid #ddd; padding:15px; display:block; clear:both;}
 
 	.profile h2 {font-size: 130%; font-weight: bold; }
 	.profile h4 {font-weight:bold; font-size:100%; line-height:125%; padding:10px 0;}
@@ -100,10 +101,11 @@ a {color:#999;}
 
 
 /* Form Elements */
-textarea {width:94%; font-size:100%; padding:10px; display:block; background:#ddd;}
-input {width:90%; padding:8px 12px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:#eee;}
+textarea {width:100%; font-size:100%; padding:10px; display:block; background:#ddd;}
+input {padding:8px 12px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:#eee;}
 input[type='text'] {width:90%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #8f8f8f; background:#eee;}
 input[type='text']:focus {background:#ddd;}
+input[type='password'] {width: 90%; padding: 10px;}
 input[type='submit'] {background: #eee; font-weight: bold; font:14px Arial, Helvetica, sans-serif;}
 a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; background: #eee; font: 14px Arial, Helvetica, sans-serif; padding: 8px 12px; display: inline-block; color: black; margin: 10px 0 20px; text-decoration: none;}
 
@@ -120,20 +122,17 @@ a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; bac
 	.comment .report {font-weight:bold; text-transform:uppercase; color:#bbb;}
 
 
-
-
+	/* Search */
+	.search { display:block; clear:both; border-bottom:1px solid #ddd;}
+	.search input[type='search'] { width: 100%; padding: 10px; border:1px solid #696868 !important; font-size: 100%;}
+	.search input[type='submit'] {margin: 10px 0;}
 
 /* Search Results */
-.search-result {padding:15px;}
+.search-title {border-top:1px solid #ddd; padding:15px;}
 	.search-result h2 {font-size:175%; line-height:100%; padding:20px 0 0; max-width:80%;}
 		.search-result h2 span.search-word {color:#20364d;}
-	.search-result .comments-count {margin-top:-25px;}
-
-	.search-result.pagination .step-links {
-        text-align: center;
-    }
-
-
+	.search-result h4 { display: inline-block; max-width: 85%;}
+	.search-title h6 { padding: 0;}
 
 
 
