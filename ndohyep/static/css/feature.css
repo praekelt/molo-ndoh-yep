@@ -22,12 +22,9 @@ blockquote.yellow {color:#fec642;}
 
 
 /* Header */
-<<<<<<< Updated upstream
-.header {float:left; width:100%;}
-=======
+
 .header { float:left; width:100%;}
 .header .masthead {padding: 10px 0 0 15px; max-width:90%;}
->>>>>>> Stashed changes
 	.header .logo {float:left; width:100px; padding:15px;}
 	.menu {display:none;}
 
@@ -40,11 +37,8 @@ blockquote.yellow {color:#fec642;}
 		#feature-menu li {padding:5px 0; display:block;}
 		#feature-menu a {display:block;}
 
-<<<<<<< Updated upstream
-	.backtotop {display:block; clear:both; text-transform:uppercase; padding:5px 15px 15px; width:100%; margin:0 -20px 15px; border-bottom:1px solid #ddd;}
-=======
+
 	.backtotop {display:block; clear:both; text-transform:uppercase; padding: 15px; border-bottom:1px solid #ddd; border-top:1px solid #ddd;}
->>>>>>> Stashed changes
 	.backtotop a {color:#20364d;}
 
 .banner {
@@ -99,12 +93,7 @@ a {color:#999;}
 
 
 /* Form Elements */
-<<<<<<< Updated upstream
-textarea {width:94%; font-size:100%; padding:10px; display:block; background:#ddd;}
-input[type='text'] {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:#eee;}
-input[type='text']:focus {background:#ddd; color:white; }
-input[type='submit'] {font:14px Arial, Helvetica, sans-serif;}
-=======
+
 textarea {width:90%; padding:10px; display:block; background:#ddd;}
 input {padding:8px 12px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:#eee;}
 input[type='text'] {width:90%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #8f8f8f; background:#eee;}
@@ -112,7 +101,7 @@ input[type='text']:focus {background:#ddd;}
 input[type='password'] {width: 90%; padding: 10px;}
 input[type='submit'] {background: #eee; font-weight: bold; font:14px Arial, Helvetica, sans-serif; text-transform: uppercase;}
 a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; background: #eee; font: 14px Arial, Helvetica, sans-serif; padding: 8px 12px; display: inline-block; color: black; margin: 10px 0 20px; text-decoration: none;}
->>>>>>> Stashed changes
+
 
 
 
@@ -129,13 +118,9 @@ a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; bac
 
 	/* Search */
 	.search { display:block; clear:both; border-bottom:1px solid #ddd;}
-<<<<<<< Updated upstream
-	.search input[type='search'] { width:100%; padding: 10px; border:1px solid #ddd !important; font-size: 100%;}
-	.search input[type='submit'] {margin: 10px 0;}
-=======
 	.search input[type='search'] { width: 100%; padding: 10px; border:1px solid #696868 !important; font-size: 100%;}
 	.search input[type='submit'] {margin: 10px 0; text-transform: uppercase;}
->>>>>>> Stashed changes
+
 
 /* Search Results */
 .search-title {border-top:1px solid #ddd; padding:15px;}
