@@ -53,14 +53,6 @@
   {% survey_page page=self %}
 </div><!-- /block -->
 
-{% if messages %}
-<div class="block messages">
-    {% for message in messages %}
-    <h4{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h4>
-    {% endfor %}
-</div>
-{% endif %}
-
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
   <div class="post-comment">
     <p class="comments-count">{{comment_count}}</p>
