@@ -53,7 +53,9 @@
   {% survey_page page=self %}
 </div><!-- /block -->
 
+{% if self.is_commenting_enabled %}
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
+  {% if self.allow_commenting %}
   <div class="post-comment">
     <p class="comments-count">{{comment_count}}</p>
     <h4>{% trans "Add a Comment/Question" %}</h4>
@@ -64,6 +66,10 @@
     <a href="{% url 'molo.profiles:auth_login' %}?next={{request.path}}"><button>{% trans "SIGN IN" %}</button></a>
     {% endif %}
   </div><!-- /post-comment -->
+  {% else %}
+      <br>
+      <h4>{% trans "Commenting on this article is currently disabled" %}</h4>
+  {% endif %}
 <div id="comments-list">
   {% get_comment_count for self as comment_count %}
     {% get_molo_comments for self as comment_list %}
@@ -77,6 +83,7 @@
   {% endif %}
 </div>
 </div><!-- /block -->
+{% endif %}
 
 <div class="block {{self.articlepage.get_parent_section.get_effective_extra_style_hints}}">
 {% with parent=self.get_parent_section.get_ancestors.last %}
