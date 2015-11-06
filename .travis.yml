@@ -2,6 +2,7 @@ sudo: false
 language: python
 python:
   - "2.7"
+  - "pypy"
 cache:
   directories:
     - $HOME/.cache/pip
@@ -10,10 +11,12 @@ services:
   - elasticsearch
 install:
   - pip install --upgrade pip
+  - pip install coveralls
   - pip install flake8
+  - pip install -r requirements-dev.txt
   - pip install -e .
 script:
   - flake8
-  - python manage.py test -v2 --settings=test_settings
+  - py.test
 after_success:
   - coveralls
