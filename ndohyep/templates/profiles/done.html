@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="profile">
+  <h2>{% trans "Thank you for joining!" %}</h2>
+  <h4>{% trans "Let us know your birthday to get access to exclusive content." %}</h4><br>
+  <form method="post" action="{% url 'molo.profiles:registration_done' %}">{% csrf_token %}
+      {{ form.date_of_birth }}
+      <br>
+      <br>
+      <input type="submit" value='{% trans "UPDATE" %}' />
+      <a href="{{request.site.root_page.url}}" class="button">{% trans "Skip" %}</a>
+  </form>
+</div>
+{% endblock %}

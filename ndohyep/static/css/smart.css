@@ -25,13 +25,13 @@
 	.menuItem.hide span {opacity:0.2;}
 	.menuItem.hide div.content {display:none;}
 
-	/* Join Drop-Down */
-	.join {padding:30px 20px 10px; display:block; clear:both;}
-		.join p {font-weight:normal;}
-		.join label {display:block; padding:10px 0;}
-		.join input[type='submit'], button {margin:10px 0 20px;}
-		.join input.error {border:2px solid red;}
-		.join label.error {color:red;}
+	/* Profile */
+	.profile {padding:20px; display:block; clear:both; background-color: #2DC0C7;}
+		.profile p {font-weight: normal; padding:10px 0;}
+		.profile label {display:block; padding:10px 0;}
+		.profile input[type='submit'], button {width: auto; margin:10px 0 20px;}
+		.profile input.error {border:2px solid red;}
+		.profile label.error {color:red;}
 
 	/* Search Drop-Down */
 	.search-form {padding:30px 20px 10px; display:block; clear:both;}
@@ -180,14 +180,15 @@ blockquote.yellow {color:#fec642; background:white; }
 
 
 /* Form Elements */
-input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border:0; background:white;}
+input {width:95%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:white;}
+input[type='text'] {padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #696868; background:white;}
 input[type='radio'] {width:auto; padding:0px; margin:0 5px 0 0;}
 input:focus {background:#eee; color:black; }
-input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font:85% 'Open Sans', Arial, Helvetica, sans-serif; font-size:85%; border:0; margin:0 0 20px; font-weight:700; text-transform: uppercase; font-size:85%; color:#ffffff; background:rgba(0,0,0,0.15);}
+input[type='submit'], button{-webkit-border-radius:0; border-radius:0; -webkit-appearance:none; width:auto; padding:8px 12px; display:inline-block; font-size:85%; border:0; margin:0 0 20px; font-weight:700; text-transform: uppercase; font-size:85%; color:#ffffff; background:rgba(0,0,0,0.15);}
 input[type='submit']:focus {color:#13212f; background:rgba(0,0,0,0.15);}
 .yellow input[type='submit'], .yellow button {background-color:#f2c036;}
 textarea {width:94%; font-size:100%; padding:10px; display:block; background:white;}
-
+a.button {border: none;width: auto; text-transform: uppercase; font-size: 85%; color: #ffffff; background: rgba(0,0,0,0.15); padding: 8px 12px; display: inline-block; font-weight: 700; margin: 10px 0 20px; text-decoration: none;}
 
 
 /* Article Links */

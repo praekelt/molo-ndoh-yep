@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+	<div class="profile">
+			<h2>{% trans "LOGIN TO YOUR ACCOUNT!" %}</h2>
+			<h4>{% trans "We’re excited to have you..." %}</h4>
+		<div class="signin-form">
+	    <form method="post" action=".">{% csrf_token %}
+	        {% if form.errors %}
+	            <p class="error errorlist">{% trans "Your username and password does not match. Please try again." %}</p>
+	        {% endif %}
+					<p><strong>{% trans "Username" %}</strong></p>
+					{{form.username}}
+					<p><strong>{% trans "4-digit pin" %}</strong></p>
+					{{form.password}}
+					<input type="submit" value="{% trans 'Sign in' %}">
+					<input type="hidden" name="next" value="{% if request.GET.next %}{{ request.GET.next }}{% else %}{{request.site.root_page.url}}{% endif %}" />
+				</br>
+					<a href="{% url 'molo.profiles:user_register' %}">{% trans "NOT A MEMBER YET" %}</a>
+	    </form>
+		</div>
+	</div>
+{% endblock %}

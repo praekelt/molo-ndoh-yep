@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n static core_tags %}
+
+{% block content %}
+<div class="profile">
+    <h2>{% trans "JOIN THE B-WISE COMMUNITY!" %}</h2>
+    <h4>{% trans "Not a member yet? Join us by signing up below." %}</h4>
+  <div class="signin-form">
+    {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
+    <form method="post" action="{% url 'molo.profiles:user_register' %}">{% csrf_token %}
+        <p>{% trans "Choose a username" %}</p>
+        {{ registration_form.username }}
+        <p>{% trans "Choose a 4-digit pin" %}</p>
+        {{ registration_form.password }}
+        <input type="submit" value='{% trans "JOIN" %}'/>
+        <input type="hidden" name="next" value="{% url 'molo.profiles:registration_done' %}"/>
+        </br>
+        <a href="{% url 'molo.profiles:auth_login' %}">{% trans "ALREADY A MEMBER?" %}</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
