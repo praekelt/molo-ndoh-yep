@@ -5,7 +5,7 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
-from ndohyep.views import CommentReplyForm, search, report_response
+from ndohyep.views import CommentReplyFormView, search, report_response
 
 from django.contrib.auth.decorators import login_required
 from molo.profiles.views import RegistrationDone
@@ -19,7 +19,8 @@ urlpatterns = patterns(
     url(r'^polls/', include('polls.urls')),
     url(r'^surveys/', include('surveys.urls')),
     url(r'commenting/', include('molo.commenting.urls')),
-    url(r'commenting/reply/(?P<parent_id>\d+)/$', CommentReplyForm.as_view(),
+    url(r'commenting/reply/(?P<parent_id>\d+)/$',
+        CommentReplyFormView.as_view(),
         name='comments-reply'),
     url(r'^comments/reported/(?P<comment_pk>\d+)/$',
         report_response, name='report_response'),
