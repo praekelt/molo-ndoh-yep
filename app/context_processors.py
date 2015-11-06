@@ -1,7 +1,7 @@
 from django.conf import settings
 
 from app.forms import EditProfileForm, RegistrationForm
-from app.models import UserProfile
+from molo.profiles.models import UserProfile
 
 
 def get_profile_data(request):

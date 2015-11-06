@@ -1,5 +1,6 @@
 molo.core==2.5.0
 molo.commenting<1.0.0,>=0.2.5
+molo.profiles>=0.2.2
 django-google-analytics-app
 django-celery
 elasticsearch
