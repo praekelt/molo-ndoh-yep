@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
 
     'compressor',
     'taggit',
@@ -70,23 +71,23 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
 
-    'molo.core',
-    'molo.profiles',
     'raven.contrib.django.raven_compat',
 
-    'polls',
-    'surveys',
-    'google_analytics',
-    'djcelery',
     # for molo.commenting
     'mptt',
     'django_comments',
-    'django.contrib.sites',
-    'molo.commenting',
+
+    'molo.core',
     'molo.profiles',
+    'molo.commenting',
+
+    'polls',
+    'surveys',
     'app',
 
+    'djcelery',
     'django_extensions',
+    'google_analytics',
 )
 
 COMMENTS_APP = 'molo.commenting'
