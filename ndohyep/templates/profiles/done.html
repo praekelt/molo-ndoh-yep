@@ -10,7 +10,7 @@
       <br>
       <br>
       <input type="submit" value='{% trans "UPDATE" %}' />
-      <a href="/" class="button">{% trans "Skip" %}</a>
+      <a href="{{request.site.root_page.url}}" class="button">{% trans "Skip" %}</a>
   </form>
 </div>
 {% endblock %}

@@ -22,7 +22,7 @@
       </div>
 		</div>
 	{% endfor %}
- 	<p class="back">< <a href="/">{% trans "Back" %}</a></p>
+ 	<p class="back">< <a href="{{request.site.root_page.url}}">{% trans "Back" %}</a></p>
 
 </div>
 {% endblock %}
