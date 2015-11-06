@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, related_name="profile", primary_key=True)
+    user = models.OneToOneField(User, related_name="profile_old", primary_key=True)
     date_of_birth = models.DateField(null=True)
     alias = models.CharField(
         max_length=128,

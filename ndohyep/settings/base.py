@@ -82,6 +82,7 @@ INSTALLED_APPS = (
     'django_comments',
     'django.contrib.sites',
     'molo.commenting',
+    'molo.profiles',
 
     'django_extensions',
 )
