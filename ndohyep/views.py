@@ -14,7 +14,7 @@ from molo.commenting.forms import MoloCommentForm
 from molo.commenting.models import MoloComment
 
 
-class CommentReplyForm(TemplateView):
+class CommentReplyFormView(TemplateView):
     form_class = MoloCommentForm
     template_name = 'comments/reply.html'
 
