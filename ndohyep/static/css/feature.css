@@ -106,8 +106,8 @@ input {padding:8px 12px; margin:0 0 10px; display:inline-block; font-size:125%; 
 input[type='text'] {width:90%; padding:10px; margin:0 0 10px; display:inline-block; font-size:125%; border: 1px solid #8f8f8f; background:#eee;}
 input[type='text']:focus {background:#ddd;}
 input[type='password'] {width: 90%; padding: 10px;}
-input[type='submit'] {background: #eee; font-weight: bold; font:14px Arial, Helvetica, sans-serif; text-transform: uppercase;}
-a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; background: #eee; font: 14px Arial, Helvetica, sans-serif; padding: 8px 12px; display: inline-block; color: black; margin: 10px 0 20px; text-decoration: none;}
+input[type='submit'] {background: #33cccc; font-weight: bold; font:14px Arial, Helvetica, sans-serif; text-transform: uppercase; color: #395572;}
+a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; background: #33cccc; font: 14px Arial, Helvetica, sans-serif; padding: 8px 12px; display: inline-block; color: #395572; margin: 10px 0 20px; text-decoration: none;}
 
 
 
