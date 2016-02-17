@@ -160,3 +160,6 @@ a.button {width: auto; text-transform: uppercase; border: 1px solid #696868; bac
 	.poll-result .bar.orange {background-color:#f46d40;}
 	.poll-result .bar.purple {background-color:#8268a6;}
 	.poll-result .bar.turq {background-color:#2fc7b7;}
+
+.block strong {font-weight: bold;}
+.block em, .block i {font-style: italic;}

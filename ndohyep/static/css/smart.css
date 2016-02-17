@@ -235,10 +235,6 @@ a.white-link {color:white; padding:20px 0; display:inline-block; text-transform:
 .turq a, .turq h2, .turq .author {color:white;}
 
 
-.block p strong {font-weight: bold;}
-.block p em, .block p i {font-style: italic;}
-
-
 /* Poll */
 .poll {background-color: #b6cce4; padding: 15px;}
 .poll a {color: #20364d}
