@@ -8,12 +8,59 @@ from django.test.client import Client
 from molo.core.models import ArticlePage
 from molo.commenting.models import MoloComment
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.sites.models import Site
+from django.contrib.sites.models import Site as DjangoSite
+from wagtail.wagtailcore.models import Site, Page, Collection
+from molo.core.models import Main
 
 
 class ViewsTestCase(TestCase):
 
     def setUp(self):
+        # Create page content type
+        page_content_type, created = ContentType.objects.get_or_create(
+            model='page',
+            app_label='wagtailcore'
+        )
+
+        # Create root page
+        Page.objects.create(
+            title="Root",
+            slug='root',
+            content_type=page_content_type,
+            path='0001',
+            depth=1,
+            numchild=1,
+            url_path='/',
+        )
+
+        main_content_type, created = ContentType.objects.get_or_create(
+            model='main', app_label='core')
+
+        # Create a new homepage
+        self.main = Main.objects.create(
+            title="Main",
+            slug='main',
+            content_type=main_content_type,
+            path='00010001',
+            depth=2,
+            numchild=0,
+            url_path='/home/',
+        )
+        self.main.save_revision().publish()
+
+        # Create root collection
+        Collection.objects.create(
+            name="Root",
+            path='0001',
+            depth=1,
+            numchild=0,
+        )
+
+        # Create a site with the new homepage set as the root
+        Site.objects.all().delete()
+        self.site = Site.objects.create(
+            hostname='localhost', root_page=self.main, is_default_site=True)
+        self.client = Client()
         self.user = User.objects.create_user(
             username='tester',
             email='tester@example.com',
@@ -34,6 +81,51 @@ class ViewsTestCase(TestCase):
 class TestReportResponse(TestCase):
 
     def setUp(self):
+        # Create page content type
+        page_content_type, created = ContentType.objects.get_or_create(
+            model='page',
+            app_label='wagtailcore'
+        )
+
+        # Create root page
+        Page.objects.create(
+            title="Root",
+            slug='root',
+            content_type=page_content_type,
+            path='0001',
+            depth=1,
+            numchild=1,
+            url_path='/',
+        )
+
+        main_content_type, created = ContentType.objects.get_or_create(
+            model='main', app_label='core')
+
+        # Create a new homepage
+        self.main = Main.objects.create(
+            title="Main",
+            slug='main',
+            content_type=main_content_type,
+            path='00010001',
+            depth=2,
+            numchild=0,
+            url_path='/home/',
+        )
+        self.main.save_revision().publish()
+
+        # Create root collection
+        Collection.objects.create(
+            name="Root",
+            path='0001',
+            depth=1,
+            numchild=0,
+        )
+
+        # Create a site with the new homepage set as the root
+        Site.objects.all().delete()
+        self.site = Site.objects.create(
+            hostname='localhost', root_page=self.main, is_default_site=True)
+        self.client = Client()
         self.user = User.objects.create_user(
             username='tester',
             email='tester@example.com',
@@ -48,7 +140,7 @@ class TestReportResponse(TestCase):
         comment = MoloComment.objects.create(
             content_object=article, object_pk=article.id,
             content_type=ContentType.objects.get_for_model(article),
-            site=Site.objects.get_current(), user=self.user,
+            site=DjangoSite.objects.get_current(), user=self.user,
             comment='comment 1', submit_date=datetime.now())
         response = client.get(reverse('report_response',
                                       args=(comment.id,)))
