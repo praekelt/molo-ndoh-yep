@@ -70,6 +70,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.contrib.settings',
 
     'raven.contrib.django.raven_compat',
 
@@ -199,6 +200,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'molo.core.context_processors.locale',
     'molo.profiles.context_processors.get_profile_data',
     'ndohyep.context_processors.default_forms',
+    'wagtail.contrib.settings.context_processors.settings',
 )
 
 
