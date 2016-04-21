@@ -5,7 +5,7 @@ from django.test.client import Client
 from wagtail.wagtailsearch.backends import get_search_backend
 
 from molo.core.models import ArticlePage
-from wagtail.wagtailcore.models import Site, Page, Collection
+from wagtail.wagtailcore.models import Site, Page
 from django.contrib.contenttypes.models import ContentType
 from molo.core.models import Main
 
@@ -43,14 +43,6 @@ class TestSearch(TestCase):
             url_path='/home/',
         )
         self.main.save_revision().publish()
-
-        # Create root collection
-        Collection.objects.create(
-            name="Root",
-            path='0001',
-            depth=1,
-            numchild=0,
-        )
 
         # Create a site with the new homepage set as the root
         Site.objects.all().delete()

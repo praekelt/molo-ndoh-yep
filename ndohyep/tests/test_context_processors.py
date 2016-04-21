@@ -5,7 +5,7 @@ from ndohyep.context_processors import default_forms
 from molo.profiles.forms import RegistrationForm
 from molo.profiles.forms import EditProfileForm, ProfilePasswordChangeForm
 
-from wagtail.wagtailcore.models import Site, Page, Collection
+from wagtail.wagtailcore.models import Site, Page
 from django.contrib.contenttypes.models import ContentType
 from molo.core.models import Main
 
@@ -44,14 +44,6 @@ class ContextProcessorsTest(TestCase):
             url_path='/home/',
         )
         self.main.save_revision().publish()
-
-        # Create root collection
-        Collection.objects.create(
-            name="Root",
-            path='0001',
-            depth=1,
-            numchild=0,
-        )
 
         # Create a site with the new homepage set as the root
         Site.objects.all().delete()

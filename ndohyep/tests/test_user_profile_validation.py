@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.client import Client
-from wagtail.wagtailcore.models import Site, Page, Collection
+from wagtail.wagtailcore.models import Site, Page
 from django.contrib.contenttypes.models import ContentType
 from molo.core.models import Main
 
@@ -41,14 +41,6 @@ class UserProfileValidationTests(TestCase):
             url_path='/home/',
         )
         self.main.save_revision().publish()
-
-        # Create root collection
-        Collection.objects.create(
-            name="Root",
-            path='0001',
-            depth=1,
-            numchild=0,
-        )
 
         # Create a site with the new homepage set as the root
         Site.objects.all().delete()

@@ -9,7 +9,7 @@ from molo.core.models import ArticlePage
 from molo.commenting.models import MoloComment
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site as DjangoSite
-from wagtail.wagtailcore.models import Site, Page, Collection
+from wagtail.wagtailcore.models import Site, Page
 from molo.core.models import Main
 
 
@@ -47,14 +47,6 @@ class ViewsTestCase(TestCase):
             url_path='/home/',
         )
         self.main.save_revision().publish()
-
-        # Create root collection
-        Collection.objects.create(
-            name="Root",
-            path='0001',
-            depth=1,
-            numchild=0,
-        )
 
         # Create a site with the new homepage set as the root
         Site.objects.all().delete()
@@ -112,14 +104,6 @@ class TestReportResponse(TestCase):
             url_path='/home/',
         )
         self.main.save_revision().publish()
-
-        # Create root collection
-        Collection.objects.create(
-            name="Root",
-            path='0001',
-            depth=1,
-            numchild=0,
-        )
 
         # Create a site with the new homepage set as the root
         Site.objects.all().delete()
