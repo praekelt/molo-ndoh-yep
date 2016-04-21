@@ -1,5 +1,6 @@
 molo.core==2.5.0
-molo.profiles==0.2.3
+molo.profiles==0.2.6
+wagtail==1.3.1
 molo.commenting==0.2.8
 django-google-analytics-app
 django-celery

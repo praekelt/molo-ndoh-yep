@@ -17,6 +17,15 @@
            {{ form.password.errors}}
         {% endif %}
         {{ form.password }}
+        <div class="terms-and-conditions">
+          {% if form.terms_and_conditions.errors %}
+            <strong>* {% trans "Please accept the T&amp;Cs in order to complete the registration" %}</strong>
+            <br>
+          {% endif %}
+          <br>
+          {{ form.terms_and_conditions }}
+          <span >{% trans "I accept the Terms and Conditions" %}</span>
+        </div>
         <input type="submit" value='{% trans "JOIN" %}'/>
         <input type="hidden" name="next" value="{% url 'molo.profiles:registration_done' %}"/>
         </br>
