@@ -126,6 +126,11 @@ DATABASES = {
     }
 }
 
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
+
 # PostgreSQL (Recommended, but requires the psycopg2 library
 # and Postgresql development headers)
 # DATABASES = {
