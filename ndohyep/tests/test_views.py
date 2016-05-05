@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 
 from django.test import TestCase
@@ -5,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.test.client import Client
 
-from molo.core.models import ArticlePage
+from molo.core.models import ArticlePage, SectionPage
 from molo.commenting.models import MoloComment
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site as DjangoSite
@@ -68,6 +69,29 @@ class ViewsTestCase(TestCase):
             response,
             '<option value="%(year)s" selected="selected">%(year)s</option>' %
             {'year': year_25_ago})
+
+    def test_markdown_in_lists(self):
+        section = SectionPage(
+            title='Test Section', depth=3, slug='section')
+        self.main.add_child(instance=section)
+        section.save_revision().publish()
+        article = ArticlePage(
+            title='article 1', depth=1, subtitle='article 1 subtitle',
+            slug='article-1', path=[1],
+            body=json.dumps([
+                {'type': 'list',
+                 'value': ["Lorem *ipsum*"]},
+                {'type': 'numbered_list',
+                 'value': ["*sit* met"]}
+            ]))
+        section.add_child(instance=article)
+        article.save_revision().publish()
+
+        response = self.client.get("/section/article-1/")
+        self.assertContains(
+            response, "<li><p>Lorem <em>ipsum</em></p></li>")
+        self.assertContains(
+            response, "<li><p><em>sit</em> met</p></li>")
 
 
 class TestReportResponse(TestCase):
