@@ -89,9 +89,9 @@ class ViewsTestCase(TestCase):
 
         response = self.client.get("/section/article-1/")
         self.assertContains(
-            response, "<li><p>Lorem <em>ipsum</em></p></li>")
+            response, "<li>Lorem <em>ipsum</em></li>")
         self.assertContains(
-            response, "<li><p><em>sit</em> met</p></li>")
+            response, "<li><em>sit</em> met</li>")
 
 
 class TestReportResponse(TestCase):

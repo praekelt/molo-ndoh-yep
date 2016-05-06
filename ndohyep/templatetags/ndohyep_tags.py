@@ -26,6 +26,13 @@ def handle_markdown(value):
             'codehilite',
         ]
     )
+    """ For some unknown reason markdown wraps the value in <p> tags.
+        Currently there doesn't seem to be an extension to turn this off.
+    """
+    open_tag = '<p>'
+    close_tag = '</p>'
+    if md.startswith(open_tag) and md.endswith(close_tag):
+        md = md[len(open_tag):-len(close_tag)]
     return mark_safe(md)
 
 register.filter('is_in_group', is_in_group)
