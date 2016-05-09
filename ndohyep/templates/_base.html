@@ -88,5 +88,35 @@
         {% block extra_js %}
 
         {% endblock %}
+
+        {% block versatag %}
+        <script>
+        var versaTag = {};
+        versaTag.id = "4951";
+        versaTag.sync = 0;
+        versaTag.dispType = "js";
+        versaTag.ptcl = "HTTPS";
+        versaTag.bsUrl = "bs.serving-sys.com/BurstingPipe";
+        versaTag.activityParams = {
+        "Session":""
+        };
+        versaTag.retargetParams = {};
+        versaTag.dynamicRetargetParams = {};
+        versaTag.conditionalParams = {};
+        </script>
+        <script id="ebOneTagUrlId" src="https://secure-ds.serving-sys.com/SemiCachedScripts/ebOneTag.js"></script>
+        <noscript>
+        <iframe src="https://bs.serving-sys.com/BurstingPipe?
+        cn=ot&amp;
+        onetagid=4951&amp;
+        ns=1&amp;
+        activityValues=$$Session=[Session]$$&amp;
+        retargetingValues=$$$$&amp;
+        dynamicRetargetingValues=$$$$&amp;
+        acp=$$$$&amp;"
+        style="display:none;width:0px;height:0px"></iframe>
+        </noscript>
+        {% endblock %}
+
     </body>
 </html>
