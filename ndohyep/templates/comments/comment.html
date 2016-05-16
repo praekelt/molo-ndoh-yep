@@ -3,14 +3,16 @@
   <p class="by">{{node.user_name}}<span class="date">{{node.submit_date|naturaltime}}</span></p>
   {% if node.is_removed %}
     <p>{% trans "This comment has been removed by the community. Please read our platform rules." %}</p>
-    {% else %}
-      <p>{{node.comment}}</p>
-      {% if not node.user|is_in_group:'Experts' %}
-        <p><a href="{% url 'molo-comments-report' node.pk %}?next={% url 'report_response' node.pk %}" class="report">{% trans "Report"%}</a></p>
-      {% endif %}
-      {% if request.user|is_in_group:'Experts' and not node.user|is_in_group:'Experts' %}
-        <p><a href="{% url 'comments-reply' node.pk %}" class="report">{% trans "Reply"%}</a></p>
-      {% endif %}
+  {% elif request.user|is_in_group:'Experts' and node.user|is_in_group:'Experts' %}
+    <p>{{node.comment|handle_markdown}}</p>
+  {% else %}
+    <p>{{node.comment}}</p>
+    {% if not node.user|is_in_group:'Experts' %}
+      <p><a href="{% url 'molo-comments-report' node.pk %}?next={% url 'report_response' node.pk %}" class="report">{% trans "Report"%}</a></p>
+    {% endif %}
+    {% if request.user|is_in_group:'Experts' and not node.user|is_in_group:'Experts' %}
+      <p><a href="{% url 'comments-reply' node.pk %}" class="report">{% trans "Reply"%}</a></p>
+    {% endif %}
   {% endif %}
 </div><!-- /comment -->
 {% for child in node.get_children %}
