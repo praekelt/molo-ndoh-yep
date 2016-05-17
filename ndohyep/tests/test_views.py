@@ -160,8 +160,8 @@ class TestReportResponse(TestCase):
 
     def test_markdown(self):
         group = Group(name="Experts")
-        group.save()             
-        self.user.groups.add(group)      
+        group.save()
+        self.user.groups.add(group)
 
         section = SectionPage(
             title='Test Section', depth=3, slug='section')
@@ -182,7 +182,8 @@ class TestReportResponse(TestCase):
             content_object=article, object_pk=article.id,
             content_type=ContentType.objects.get_for_model(article),
             site=DjangoSite.objects.get_current(), user=self.user,
-            comment='Click [here](http://google.com)', submit_date=datetime.now())
+            comment='Click [here](http://google.com)',
+            submit_date=datetime.now())
 
         response = self.client.get("/section/article-1/")
         self.assertContains(
