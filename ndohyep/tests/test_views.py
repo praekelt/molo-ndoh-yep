@@ -156,3 +156,22 @@ class TestReportResponse(TestCase):
             response,
             "This comment has been reported."
         )
+
+    def test_markdown(self):
+            client = Client()
+            article = ArticlePage.objects.create(
+                title='article 1', depth=1,
+                subtitle='article 1 subtitle',
+                slug='article-1', path=[1])
+            comment = MoloComment.objects.create(
+                content_object=article, object_pk=article.id,
+                content_type=ContentType.objects.get_for_model(article),
+                site=DjangoSite.objects.get_current(), user=self.user,
+                comment='Click [here](http://google.com)',
+                submit_date=datetime.now())
+            response = client.get(reverse('report_response',
+                                          args=(comment.id,)))
+            self.assertContains(
+                response,
+                "Click here"
+            )
