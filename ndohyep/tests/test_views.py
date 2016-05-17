@@ -185,6 +185,5 @@ class TestReportResponse(TestCase):
             comment='Click [here](http://google.com)', submit_date=datetime.now())
 
         response = self.client.get("/section/article-1/")
-        print response
         self.assertContains(
             response, '<a href="http://google.com">here</a>')
