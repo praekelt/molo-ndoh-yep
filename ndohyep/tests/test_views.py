@@ -12,7 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site as DjangoSite
 from wagtail.wagtailcore.models import Site, Page
 from molo.core.models import Main
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
 
 
 class ViewsTestCase(TestCase):
