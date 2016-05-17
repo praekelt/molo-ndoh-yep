@@ -3,7 +3,7 @@
   <p class="by">{{node.user_name}}<span class="date">{{node.submit_date|naturaltime}}</span></p>
   {% if node.is_removed %}
     <p>{% trans "This comment has been removed by the community. Please read our platform rules." %}</p>
-  {% elif request.user|is_in_group:'Experts' and node.user|is_in_group:'Experts' %}
+  {% elif is_in_group:'Experts' and node.user|is_in_group:'Experts' %}
     <p>{{node.comment|handle_markdown}}</p>
   {% else %}
     <p>{{node.comment}}</p>
