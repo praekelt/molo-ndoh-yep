@@ -12,6 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site as DjangoSite
 from wagtail.wagtailcore.models import Site, Page
 from molo.core.models import Main
+from django.contrib.auth.models import Group
 
 
 class ViewsTestCase(TestCase):
@@ -156,3 +157,34 @@ class TestReportResponse(TestCase):
             response,
             "This comment has been reported."
         )
+
+    def test_markdown(self):
+        group = Group(name="Experts")
+        group.save()
+        self.user.groups.add(group)
+
+        section = SectionPage(
+            title='Test Section', depth=3, slug='section')
+        self.main.add_child(instance=section)
+        section.save_revision().publish()
+        article = ArticlePage(
+            title='article 1', depth=1, subtitle='article 1 subtitle',
+            slug='article-1', path=[1],
+            body=json.dumps([
+                {'type': 'list',
+                 'value': ["Lorem *ipsum*"]},
+                {'type': 'numbered_list',
+                 'value': ["*sit* met"]}
+            ]))
+        section.add_child(instance=article)
+        article.save_revision().publish()
+        MoloComment.objects.create(
+            content_object=article, object_pk=article.id,
+            content_type=ContentType.objects.get_for_model(article),
+            site=DjangoSite.objects.get_current(), user=self.user,
+            comment='Click [here](http://google.com)',
+            submit_date=datetime.now())
+
+        response = self.client.get("/section/article-1/")
+        self.assertContains(
+            response, '<a href="http://google.com">here</a>')
