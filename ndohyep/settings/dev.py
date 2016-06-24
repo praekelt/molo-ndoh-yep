@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa
 
 
 DEBUG = True
@@ -11,6 +11,6 @@ WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = 'no-reply@qa.b-wise.mobi'
 
 
 try:
-    from .local import *
+    from .local import *  # noqa
 except ImportError:
     pass

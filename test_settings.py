@@ -1,4 +1,4 @@
-from ndohyep.settings import *
+from ndohyep.settings import *  # noqa
 
 DATABASES = {
     'default': {
