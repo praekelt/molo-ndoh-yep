@@ -1,5 +1,12 @@
 {% load wagtailcore_tags wagtailimages_tags survey_postings static %}
 
+<!-- Hard coding the banner link to the registrtaion page -->
+<div class="banner">
+    <a href="/profiles/register/">
+    <img src="{% static 'img/get_expert_health_advice.png' %}" alt="Get expert help advice"/>
+    </a>
+</div>
+
 {% if homepages %}
 {% for homepage in homepages %}
 
@@ -19,9 +26,3 @@
 {% endfor%}
 {% endif %}
 
-<!-- Hard coding the banner link to the registrtaion page -->
-<div class="banner">
-    <a href="/profiles/register/">
-    <img src="{% static 'img/register_for_free.jpg' %}" alt="Register for free"/>
-    </a>
-</div>
